@@ -18,11 +18,37 @@ PODS:
   - AFNetworking/UIKit (2.2.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - Bolts (1.1.2)
+  - CMDQueryStringSerialization (0.2.0)
+  - Facebook-iOS-SDK (3.18.0):
+    - Bolts
+  - MFSideMenu (0.5.5)
+  - Parse (1.4.1):
+    - Bolts (~> 1.1.2)
+  - SSKeychain (1.2.2)
+  - VENCore (3.0.1):
+    - CMDQueryStringSerialization (~> 0.2.0)
+  - Venmo-iOS-SDK (1.3.0):
+    - CMDQueryStringSerialization (~> 0.2.0)
+    - SSKeychain (~> 1.2.2)
+    - VENCore (~> 3.0.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.2.0)
+  - Facebook-iOS-SDK (~> 3.18)
+  - MFSideMenu
+  - Parse (~> 1.4)
+  - Venmo-iOS-SDK (~> 1.3)
 
 SPEC CHECKSUMS:
   AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
+  Bolts: 2635e8698a630774689441047f3465d78c48d485
+  CMDQueryStringSerialization: e53570ccbce6004acba30b1c1210e254644cdb92
+  Facebook-iOS-SDK: fa12c51cc57bfb6f92e47793c9d4d2c65bc92741
+  MFSideMenu: 0493b0f57385dd036cc5443407a31fda6dee81ac
+  Parse: db1a09c832b7509edcc88a65dc07229f5e578c73
+  SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
+  VENCore: 944d7fc21a27670cf57342b35ce3d715ce514ca5
+  Venmo-iOS-SDK: 2915f7c1df71c51025409be9f507a341248b8735
 
 COCOAPODS: 0.33.1
