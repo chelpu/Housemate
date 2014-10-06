@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "MFSideMenu.h"
+#import <Parse/Parse.h>
+#import "Secrets.h"
 
 @implementation AppDelegate
 
@@ -24,6 +26,10 @@
 {
     // Override point for customization after application launch.
     [FBLoginView class];
+    
+    Secrets *secrets = [[Secrets alloc] init];
+    [Parse setApplicationId:secrets.parseID
+                  clientKey:secrets.parseKey];
     
     return YES;
 }
