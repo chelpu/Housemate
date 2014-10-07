@@ -10,4 +10,8 @@
 
 @interface ChoreTableViewCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UILabel *title;
+@property (strong, nonatomic) IBOutlet UILabel *dueDate;
+@property (strong, nonatomic) IBOutlet UILabel *assigneeName;
+
 @end
