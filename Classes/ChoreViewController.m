@@ -19,19 +19,11 @@
     NSMutableArray *_chores;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     _chores = [[NSMutableArray alloc] init];
+    
     UINib *nib = [UINib nibWithNibName:@"ChoreTableViewCell" bundle:nil];
     [[self tableView] registerNib:nib forCellReuseIdentifier:@"ChoreTableViewCell"];
     

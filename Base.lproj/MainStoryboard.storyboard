@@ -8,7 +8,7 @@
         <!--Expenses-->
         <scene sceneID="Iaa-n0-JSQ">
             <objects>
-                <viewController id="trq-my-ZKZ" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="trq-my-ZKZ" customClass="ExpenseViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="21o-dx-v1J"/>
                         <viewControllerLayoutGuide type="bottom" id="i8e-3z-YX5"/>
@@ -17,16 +17,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Uno" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2S-6j-5Rm">
-                                <rect key="frame" x="128" y="179" width="32" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Php-Jr-ZfR">
+                                <rect key="frame" x="0.0" y="20" width="320" height="512"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="trq-my-ZKZ" id="rbt-O5-cuD"/>
+                                    <outlet property="delegate" destination="trq-my-ZKZ" id="w9I-QS-fdn"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Expenses" id="0h4-z3-uPc"/>
+                    <connections>
+                        <outlet property="tableView" destination="Php-Jr-ZfR" id="tYT-Ml-E5L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5lG-ek-S0E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

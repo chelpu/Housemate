@@ -14,6 +14,7 @@
 @property (assign, nonatomic) double amount;
 @property (strong, nonatomic) User *payer;
 @property (strong, nonatomic) NSDate *dueDate;
+@property (strong, nonatomic) NSString *title;
 
 -(id)initWithDictionary:(NSDictionary *)dictionary;
 
