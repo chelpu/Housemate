@@ -7,25 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5E132ED819CFC092003AF8B6 /* FBGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E132ED719CFC092003AF8B6 /* FBGroup.m */; };
+		5E29566219DCFB88005CFEE1 /* ChoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E29566119DCFB88005CFEE1 /* ChoreViewController.m */; };
+		5E29566719DCFC6E005CFEE1 /* ChoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E29566519DCFC6E005CFEE1 /* ChoreTableViewCell.m */; };
+		5E29566819DCFC6E005CFEE1 /* ChoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E29566619DCFC6E005CFEE1 /* ChoreTableViewCell.xib */; };
+		5E2AA86419E8A19E0084D717 /* AddExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2AA86319E8A19E0084D717 /* AddExpenseViewController.m */; };
 		5E7528EC19B8DBBF00E37222 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7528EB19B8DBBF00E37222 /* Foundation.framework */; };
 		5E7528EE19B8DBBF00E37222 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7528ED19B8DBBF00E37222 /* CoreGraphics.framework */; };
 		5E7528F019B8DBBF00E37222 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7528EF19B8DBBF00E37222 /* UIKit.framework */; };
-		5E7528F619B8DBBF00E37222 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E7528F419B8DBBF00E37222 /* InfoPlist.strings */; };
-		5E7528F819B8DBBF00E37222 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7528F719B8DBBF00E37222 /* main.m */; };
-		5E7528FC19B8DBBF00E37222 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7528FB19B8DBBF00E37222 /* AppDelegate.m */; };
-		5E7528FF19B8DBBF00E37222 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E7528FD19B8DBBF00E37222 /* MainStoryboard.storyboard */; };
 		5E75290219B8DBBF00E37222 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E75290119B8DBBF00E37222 /* ViewController.m */; };
-		5E75290419B8DBBF00E37222 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E75290319B8DBBF00E37222 /* Images.xcassets */; };
 		5E75290B19B8DBBF00E37222 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E75290A19B8DBBF00E37222 /* XCTest.framework */; };
 		5E75290C19B8DBBF00E37222 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7528EB19B8DBBF00E37222 /* Foundation.framework */; };
 		5E75290D19B8DBBF00E37222 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7528EF19B8DBBF00E37222 /* UIKit.framework */; };
 		5E75291519B8DBBF00E37222 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E75291319B8DBBF00E37222 /* InfoPlist.strings */; };
 		5E75291719B8DBBF00E37222 /* HousemateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E75291619B8DBBF00E37222 /* HousemateTests.m */; };
-		5E99369A19DBA27A00DF1EC3 /* Chore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E99369919DBA27A00DF1EC3 /* Chore.m */; };
-		5E99369D19DBA38200DF1EC3 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E99369C19DBA38200DF1EC3 /* User.m */; };
-		5E9936A019DBA3D800DF1EC3 /* Expense.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E99369F19DBA3D800DF1EC3 /* Expense.m */; };
-		5E9936A319DBA48100DF1EC3 /* Necessity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9936A219DBA48100DF1EC3 /* Necessity.m */; };
+		5EA7620819E2269200AA3A48 /* Secrets.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7620719E2269200AA3A48 /* Secrets.m */; };
+		5EA7620B19E227E400AA3A48 /* Chore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7620A19E227E400AA3A48 /* Chore.m */; };
+		5EA7621419E2280500AA3A48 /* Expense.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7620D19E2280500AA3A48 /* Expense.m */; };
+		5EA7621519E2280500AA3A48 /* FBGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7620F19E2280500AA3A48 /* FBGroup.m */; };
+		5EA7621619E2280500AA3A48 /* Necessity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7621119E2280500AA3A48 /* Necessity.m */; };
+		5EA7621719E2280500AA3A48 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7621319E2280500AA3A48 /* User.m */; };
+		5EA7621A19E2281900AA3A48 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7621919E2281900AA3A48 /* AppDelegate.m */; };
+		5EA7621D19E2283800AA3A48 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5EA7621B19E2283800AA3A48 /* InfoPlist.strings */; };
+		5EA7622019E2284000AA3A48 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EA7621E19E2284000AA3A48 /* MainStoryboard.storyboard */; };
+		5EA7622419E2284E00AA3A48 /* Housemate-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EA7622119E2284E00AA3A48 /* Housemate-Info.plist */; };
+		5EA7622519E2284E00AA3A48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7622319E2284E00AA3A48 /* main.m */; };
+		5EA7622719E2288700AA3A48 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EA7622619E2288700AA3A48 /* Images.xcassets */; };
+		5EA7622A19E4C76900AA3A48 /* ExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7622919E4C76900AA3A48 /* ExpenseViewController.m */; };
+		5EA7622E19E4C7D300AA3A48 /* ExpenseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7622C19E4C7D300AA3A48 /* ExpenseTableViewCell.m */; };
+		5EA7622F19E4C7D300AA3A48 /* ExpenseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EA7622D19E4C7D300AA3A48 /* ExpenseTableViewCell.xib */; };
 		9E309DA302C14EEB905CEEFE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF9BC613901430EA0388D74 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -41,35 +50,49 @@
 
 /* Begin PBXFileReference section */
 		1EF9BC613901430EA0388D74 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E132ED619CFC092003AF8B6 /* FBGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBGroup.h; path = ../Classes/FBGroup.h; sourceTree = "<group>"; };
-		5E132ED719CFC092003AF8B6 /* FBGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBGroup.m; path = ../Classes/FBGroup.m; sourceTree = "<group>"; };
+		5E29566019DCFB88005CFEE1 /* ChoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChoreViewController.h; path = Classes/ChoreViewController.h; sourceTree = SOURCE_ROOT; };
+		5E29566119DCFB88005CFEE1 /* ChoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChoreViewController.m; path = Classes/ChoreViewController.m; sourceTree = SOURCE_ROOT; };
+		5E29566419DCFC6E005CFEE1 /* ChoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoreTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		5E29566519DCFC6E005CFEE1 /* ChoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoreTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		5E29566619DCFC6E005CFEE1 /* ChoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChoreTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		5E2AA86219E8A19E0084D717 /* AddExpenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddExpenseViewController.h; path = Classes/AddExpenseViewController.h; sourceTree = SOURCE_ROOT; };
+		5E2AA86319E8A19E0084D717 /* AddExpenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddExpenseViewController.m; path = Classes/AddExpenseViewController.m; sourceTree = SOURCE_ROOT; };
 		5E7528E819B8DBBF00E37222 /* Housemate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Housemate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7528EB19B8DBBF00E37222 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5E7528ED19B8DBBF00E37222 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5E7528EF19B8DBBF00E37222 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		5E7528F319B8DBBF00E37222 /* Housemate-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Housemate-Info.plist"; path = "../Housemate-Info.plist"; sourceTree = "<group>"; };
-		5E7528F519B8DBBF00E37222 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5E7528F719B8DBBF00E37222 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../main.m; sourceTree = "<group>"; };
-		5E7528F919B8DBBF00E37222 /* Housemate-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Housemate-Prefix.pch"; path = "../Housemate-Prefix.pch"; sourceTree = "<group>"; };
-		5E7528FA19B8DBBF00E37222 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
-		5E7528FB19B8DBBF00E37222 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../AppDelegate.m; sourceTree = "<group>"; };
-		5E7528FE19B8DBBF00E37222 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		5E75290019B8DBBF00E37222 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Classes/ViewController.h; sourceTree = SOURCE_ROOT; };
 		5E75290119B8DBBF00E37222 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Classes/ViewController.m; sourceTree = SOURCE_ROOT; };
-		5E75290319B8DBBF00E37222 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		5E75290919B8DBBF00E37222 /* HousemateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HousemateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E75290A19B8DBBF00E37222 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		5E75291219B8DBBF00E37222 /* HousemateTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HousemateTests-Info.plist"; sourceTree = "<group>"; };
 		5E75291419B8DBBF00E37222 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5E75291619B8DBBF00E37222 /* HousemateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HousemateTests.m; sourceTree = "<group>"; };
-		5E99369819DBA27A00DF1EC3 /* Chore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chore.h; path = ../Classes/Chore.h; sourceTree = "<group>"; };
-		5E99369919DBA27A00DF1EC3 /* Chore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Chore.m; path = ../Classes/Chore.m; sourceTree = "<group>"; };
-		5E99369B19DBA38200DF1EC3 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../Classes/User.h; sourceTree = "<group>"; };
-		5E99369C19DBA38200DF1EC3 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../Classes/User.m; sourceTree = "<group>"; };
-		5E99369E19DBA3D800DF1EC3 /* Expense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Expense.h; path = ../Classes/Expense.h; sourceTree = "<group>"; };
-		5E99369F19DBA3D800DF1EC3 /* Expense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Expense.m; path = ../Classes/Expense.m; sourceTree = "<group>"; };
-		5E9936A119DBA48100DF1EC3 /* Necessity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Necessity.h; path = ../Classes/Necessity.h; sourceTree = "<group>"; };
-		5E9936A219DBA48100DF1EC3 /* Necessity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Necessity.m; path = ../Classes/Necessity.m; sourceTree = "<group>"; };
+		5EA7620619E2269200AA3A48 /* Secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Secrets.h; path = Classes/Secrets.h; sourceTree = SOURCE_ROOT; };
+		5EA7620719E2269200AA3A48 /* Secrets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Secrets.m; path = Classes/Secrets.m; sourceTree = SOURCE_ROOT; };
+		5EA7620919E227E400AA3A48 /* Chore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chore.h; path = Classes/Chore.h; sourceTree = SOURCE_ROOT; };
+		5EA7620A19E227E400AA3A48 /* Chore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Chore.m; path = Classes/Chore.m; sourceTree = SOURCE_ROOT; };
+		5EA7620C19E2280500AA3A48 /* Expense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Expense.h; path = Classes/Expense.h; sourceTree = SOURCE_ROOT; };
+		5EA7620D19E2280500AA3A48 /* Expense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Expense.m; path = Classes/Expense.m; sourceTree = SOURCE_ROOT; };
+		5EA7620E19E2280500AA3A48 /* FBGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBGroup.h; path = Classes/FBGroup.h; sourceTree = SOURCE_ROOT; };
+		5EA7620F19E2280500AA3A48 /* FBGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBGroup.m; path = Classes/FBGroup.m; sourceTree = SOURCE_ROOT; };
+		5EA7621019E2280500AA3A48 /* Necessity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Necessity.h; path = Classes/Necessity.h; sourceTree = SOURCE_ROOT; };
+		5EA7621119E2280500AA3A48 /* Necessity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Necessity.m; path = Classes/Necessity.m; sourceTree = SOURCE_ROOT; };
+		5EA7621219E2280500AA3A48 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Classes/User.h; sourceTree = SOURCE_ROOT; };
+		5EA7621319E2280500AA3A48 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Classes/User.m; sourceTree = SOURCE_ROOT; };
+		5EA7621819E2281900AA3A48 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = SOURCE_ROOT; };
+		5EA7621919E2281900AA3A48 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = SOURCE_ROOT; };
+		5EA7621C19E2283800AA3A48 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		5EA7621F19E2284000AA3A48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
+		5EA7622119E2284E00AA3A48 /* Housemate-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Housemate-Info.plist"; sourceTree = SOURCE_ROOT; };
+		5EA7622219E2284E00AA3A48 /* Housemate-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Housemate-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		5EA7622319E2284E00AA3A48 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
+		5EA7622619E2288700AA3A48 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = SOURCE_ROOT; };
+		5EA7622819E4C76900AA3A48 /* ExpenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpenseViewController.h; path = Classes/ExpenseViewController.h; sourceTree = SOURCE_ROOT; };
+		5EA7622919E4C76900AA3A48 /* ExpenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpenseViewController.m; path = Classes/ExpenseViewController.m; sourceTree = SOURCE_ROOT; };
+		5EA7622B19E4C7D300AA3A48 /* ExpenseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		5EA7622C19E4C7D300AA3A48 /* ExpenseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		5EA7622D19E4C7D300AA3A48 /* ExpenseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenseTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		ED316D6DD3EE46C0AC1424D5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,8 +126,27 @@
 			children = (
 				5E75290019B8DBBF00E37222 /* ViewController.h */,
 				5E75290119B8DBBF00E37222 /* ViewController.m */,
+				5E29566019DCFB88005CFEE1 /* ChoreViewController.h */,
+				5E29566119DCFB88005CFEE1 /* ChoreViewController.m */,
+				5EA7622819E4C76900AA3A48 /* ExpenseViewController.h */,
+				5EA7622919E4C76900AA3A48 /* ExpenseViewController.m */,
+				5E2AA86219E8A19E0084D717 /* AddExpenseViewController.h */,
+				5E2AA86319E8A19E0084D717 /* AddExpenseViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5E29566319DCFC48005CFEE1 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				5E29566419DCFC6E005CFEE1 /* ChoreTableViewCell.h */,
+				5E29566519DCFC6E005CFEE1 /* ChoreTableViewCell.m */,
+				5E29566619DCFC6E005CFEE1 /* ChoreTableViewCell.xib */,
+				5EA7622B19E4C7D300AA3A48 /* ExpenseTableViewCell.h */,
+				5EA7622C19E4C7D300AA3A48 /* ExpenseTableViewCell.m */,
+				5EA7622D19E4C7D300AA3A48 /* ExpenseTableViewCell.xib */,
+			);
+			name = Xibs;
 			sourceTree = "<group>";
 		};
 		5E7528DF19B8DBBF00E37222 = {
@@ -142,12 +184,17 @@
 		5E7528F119B8DBBF00E37222 /* Housemate */ = {
 			isa = PBXGroup;
 			children = (
-				5E7528FA19B8DBBF00E37222 /* AppDelegate.h */,
-				5E7528FB19B8DBBF00E37222 /* AppDelegate.m */,
+				5EA7622619E2288700AA3A48 /* Images.xcassets */,
+				5EA7622119E2284E00AA3A48 /* Housemate-Info.plist */,
+				5EA7622219E2284E00AA3A48 /* Housemate-Prefix.pch */,
+				5EA7622319E2284E00AA3A48 /* main.m */,
+				5EA7621E19E2284000AA3A48 /* MainStoryboard.storyboard */,
+				5EA7621B19E2283800AA3A48 /* InfoPlist.strings */,
+				5EA7621819E2281900AA3A48 /* AppDelegate.h */,
+				5EA7621919E2281900AA3A48 /* AppDelegate.m */,
+				5E29566319DCFC48005CFEE1 /* Xibs */,
 				5E9936A419DC6FFE00DF1EC3 /* Classes */,
-				5E7528FD19B8DBBF00E37222 /* MainStoryboard.storyboard */,
 				5E29565F19DC7414005CFEE1 /* ViewControllers */,
-				5E75290319B8DBBF00E37222 /* Images.xcassets */,
 				5E7528F219B8DBBF00E37222 /* Supporting Files */,
 			);
 			path = Housemate;
@@ -156,10 +203,6 @@
 		5E7528F219B8DBBF00E37222 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5E7528F319B8DBBF00E37222 /* Housemate-Info.plist */,
-				5E7528F419B8DBBF00E37222 /* InfoPlist.strings */,
-				5E7528F719B8DBBF00E37222 /* main.m */,
-				5E7528F919B8DBBF00E37222 /* Housemate-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -185,18 +228,20 @@
 		5E9936A419DC6FFE00DF1EC3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				5E9936A119DBA48100DF1EC3 /* Necessity.h */,
-				5E9936A219DBA48100DF1EC3 /* Necessity.m */,
-				5E99369819DBA27A00DF1EC3 /* Chore.h */,
-				5E99369919DBA27A00DF1EC3 /* Chore.m */,
-				5E99369B19DBA38200DF1EC3 /* User.h */,
-				5E99369C19DBA38200DF1EC3 /* User.m */,
-				5E99369E19DBA3D800DF1EC3 /* Expense.h */,
-				5E99369F19DBA3D800DF1EC3 /* Expense.m */,
-				5E132ED619CFC092003AF8B6 /* FBGroup.h */,
-				5E132ED719CFC092003AF8B6 /* FBGroup.m */,
+				5EA7620C19E2280500AA3A48 /* Expense.h */,
+				5EA7620D19E2280500AA3A48 /* Expense.m */,
+				5EA7620E19E2280500AA3A48 /* FBGroup.h */,
+				5EA7620F19E2280500AA3A48 /* FBGroup.m */,
+				5EA7621019E2280500AA3A48 /* Necessity.h */,
+				5EA7621119E2280500AA3A48 /* Necessity.m */,
+				5EA7621219E2280500AA3A48 /* User.h */,
+				5EA7621319E2280500AA3A48 /* User.m */,
+				5EA7620919E227E400AA3A48 /* Chore.h */,
+				5EA7620A19E227E400AA3A48 /* Chore.m */,
+				5EA7620619E2269200AA3A48 /* Secrets.h */,
+				5EA7620719E2269200AA3A48 /* Secrets.m */,
 			);
-			name = Classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,9 +322,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E75290419B8DBBF00E37222 /* Images.xcassets in Resources */,
-				5E7528F619B8DBBF00E37222 /* InfoPlist.strings in Resources */,
-				5E7528FF19B8DBBF00E37222 /* MainStoryboard.storyboard in Resources */,
+				5EA7622419E2284E00AA3A48 /* Housemate-Info.plist in Resources */,
+				5EA7622719E2288700AA3A48 /* Images.xcassets in Resources */,
+				5EA7622F19E4C7D300AA3A48 /* ExpenseTableViewCell.xib in Resources */,
+				5EA7621D19E2283800AA3A48 /* InfoPlist.strings in Resources */,
+				5EA7622019E2284000AA3A48 /* MainStoryboard.storyboard in Resources */,
+				5E29566819DCFC6E005CFEE1 /* ChoreTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,14 +379,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EA7621A19E2281900AA3A48 /* AppDelegate.m in Sources */,
+				5E29566219DCFB88005CFEE1 /* ChoreViewController.m in Sources */,
 				5E75290219B8DBBF00E37222 /* ViewController.m in Sources */,
-				5E99369A19DBA27A00DF1EC3 /* Chore.m in Sources */,
-				5E99369D19DBA38200DF1EC3 /* User.m in Sources */,
-				5E132ED819CFC092003AF8B6 /* FBGroup.m in Sources */,
-				5E9936A019DBA3D800DF1EC3 /* Expense.m in Sources */,
-				5E9936A319DBA48100DF1EC3 /* Necessity.m in Sources */,
-				5E7528FC19B8DBBF00E37222 /* AppDelegate.m in Sources */,
-				5E7528F819B8DBBF00E37222 /* main.m in Sources */,
+				5EA7620B19E227E400AA3A48 /* Chore.m in Sources */,
+				5EA7621619E2280500AA3A48 /* Necessity.m in Sources */,
+				5E2AA86419E8A19E0084D717 /* AddExpenseViewController.m in Sources */,
+				5EA7622A19E4C76900AA3A48 /* ExpenseViewController.m in Sources */,
+				5EA7621419E2280500AA3A48 /* Expense.m in Sources */,
+				5EA7621719E2280500AA3A48 /* User.m in Sources */,
+				5EA7620819E2269200AA3A48 /* Secrets.m in Sources */,
+				5E29566719DCFC6E005CFEE1 /* ChoreTableViewCell.m in Sources */,
+				5EA7622519E2284E00AA3A48 /* main.m in Sources */,
+				5EA7622E19E4C7D300AA3A48 /* ExpenseTableViewCell.m in Sources */,
+				5EA7621519E2280500AA3A48 /* FBGroup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,30 +415,28 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5E7528F419B8DBBF00E37222 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5E7528F519B8DBBF00E37222 /* en */,
-			);
-			name = InfoPlist.strings;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		5E7528FD19B8DBBF00E37222 /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5E7528FE19B8DBBF00E37222 /* Base */,
-			);
-			name = MainStoryboard.storyboard;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		5E75291319B8DBBF00E37222 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5E75291419B8DBBF00E37222 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5EA7621B19E2283800AA3A48 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EA7621C19E2283800AA3A48 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5EA7621E19E2284000AA3A48 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EA7621F19E2284000AA3A48 /* Base */,
+			);
+			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

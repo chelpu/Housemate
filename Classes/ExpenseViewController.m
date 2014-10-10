@@ -81,4 +81,9 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 50.0f;
+}
+
 @end
