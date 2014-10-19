@@ -25,5 +25,6 @@
 }
 
 - (IBAction)addPayment:(id)sender {
+    NSString *houseID = @"houseID";
 }
 @end

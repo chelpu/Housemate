@@ -13,7 +13,7 @@
 - (IBAction)addChore:(id)sender;
 @property (strong, nonatomic) IBOutlet UITextField *choreName;
 @property (strong, nonatomic) IBOutlet UITextField *assigneeName;
-@property (strong, nonatomic) IBOutlet UITextField *dateField;
+@property (strong, nonatomic) IBOutlet UIDatePicker *dateField;
 
 
 @end
