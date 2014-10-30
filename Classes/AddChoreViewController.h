@@ -8,12 +8,12 @@
 
 #import "ViewController.h"
 
-@interface AddChoreViewController : ViewController
+@interface AddChoreViewController : ViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 - (IBAction)addChore:(id)sender;
 @property (strong, nonatomic) IBOutlet UITextField *choreName;
-@property (strong, nonatomic) IBOutlet UITextField *assigneeName;
 @property (strong, nonatomic) IBOutlet UIDatePicker *dateField;
+@property (strong, nonatomic) IBOutlet UIPickerView *assigneePicker;
 
 
 @end

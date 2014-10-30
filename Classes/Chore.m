@@ -7,13 +7,13 @@
 //
 
 #import "Chore.h"
+#import <Parse/Parse.h>
 
 @implementation Chore
 
 -(id)initWithDictionary:(NSDictionary *)dictionary {
     if(self = [super init]) {
         self.title = [dictionary objectForKey:@"title"];
-        self.assignee = [dictionary objectForKey:@"assignee"];
         self.dueDate = [dictionary objectForKey:@"dueDate"];
     }
     return self;
