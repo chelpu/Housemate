@@ -39,7 +39,6 @@
                                          @"chore": self.title.text,
                                          @"name": user.name};
                 [manager GET:@"http://housem8.ngrok.com/remind" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                    NSLog(@"JSON: %@", responseObject);
                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                     NSLog(@"Error: %@", error);
                 }];

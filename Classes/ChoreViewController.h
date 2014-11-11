@@ -6,9 +6,7 @@
 //  Copyright (c) 2014 Chelsea Pugh. All rights reserved.
 //
 
-#import "ViewController.h"
-
-@interface ChoreViewController : ViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ChoreViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 

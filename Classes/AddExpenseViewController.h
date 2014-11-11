@@ -6,9 +6,7 @@
 //  Copyright (c) 2014 Chelsea Pugh. All rights reserved.
 //
 
-#import "ViewController.h"
-
-@interface AddExpenseViewController : ViewController
+@interface AddExpenseViewController : UIViewController
 - (IBAction)addPayment:(id)sender;
 @property (strong, nonatomic) IBOutlet UITextField *expenseName;
 @property (strong, nonatomic) IBOutlet UITextField *assigneeName;

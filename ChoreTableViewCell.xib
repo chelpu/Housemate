@@ -38,7 +38,7 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
-                            <action selector="remind:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ens-Vb-t9t"/>
+                            <action selector="remind:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="byE-i8-WBg"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfQ-tL-Tff">

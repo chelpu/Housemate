@@ -6,9 +6,8 @@
 //  Copyright (c) 2014 Chelsea Pugh. All rights reserved.
 //
 
-#import "ViewController.h"
 
-@interface ExpenseViewController : ViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ExpenseViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
