@@ -1,4 +1,6 @@
-Classes/Secrets.*
+twilioServer/secrets.sh
+Classes/Secrets.h
+Classes/Secrets.m
 .DS_Store
 # Xcode
 #
