@@ -31,12 +31,10 @@
     [query whereKey:@"houseID" equalTo:@"houseID"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            NSLog(@"Got some");
             // The find succeeded.
             // Do something with the found objects
             for (PFObject *object in objects) {
                 User *u = [[User alloc] initWithDictionary:(NSDictionary *)object];
-                NSLog(@"USER: %@", u.name);
                 [_assignees addObject:u.name];
             }
             [self.assigneePicker reloadAllComponents];
@@ -83,6 +81,9 @@
         }
     }];
     
+}
+- (IBAction)cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)resetFields {
