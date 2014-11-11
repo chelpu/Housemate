@@ -26,10 +26,18 @@
     
     UINib *nib = [UINib nibWithNibName:@"ChoreTableViewCell" bundle:nil];
     [[self tableView] registerNib:nib forCellReuseIdentifier:@"ChoreTableViewCell"];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self getNewData]; 
+}
+
+// TODO: actually get ONLY new data
+- (void)getNewData {
     PFQuery *query = [PFQuery queryWithClassName:@"Chore"];
     [query whereKey:@"houseID" equalTo:@"houseID"];
     [query includeKey:@"assignee"];
+    [query orderByAscending:@"dueDate"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
@@ -44,7 +52,6 @@
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,6 +88,16 @@
     cell.dueDate.text = [formatter stringFromDate:c.dueDate];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // remove from database yoooo
+        [_chores removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else {
+        NSLog(@"Unhandled editing style! %ld", editingStyle);
+    }
 }
 
 @end

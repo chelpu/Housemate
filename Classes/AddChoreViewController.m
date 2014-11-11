@@ -76,11 +76,13 @@
             chore[@"houseID"] = @"houseID";
             [chore saveInBackground];
             [self resetFields];
+            [self dismissViewControllerAnimated:YES completion:nil];
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
+    
 }
 
 - (void)resetFields {

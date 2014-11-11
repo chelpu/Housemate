@@ -13,5 +13,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *title;
 @property (strong, nonatomic) IBOutlet UILabel *dueDate;
 @property (strong, nonatomic) IBOutlet UILabel *assigneeName;
+- (IBAction)remind:(id)sender;
+- (IBAction)completeChore:(id)sender;
 
 @end
