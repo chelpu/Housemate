@@ -6,9 +6,7 @@
 //  Copyright (c) 2014 Chelsea Pugh. All rights reserved.
 //
 
-#import "ViewController.h"
-
-@interface AddChoreViewController : ViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface AddChoreViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 - (IBAction)addChore:(id)sender;
 @property (strong, nonatomic) IBOutlet UITextField *choreName;

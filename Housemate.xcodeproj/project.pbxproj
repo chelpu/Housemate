@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E04E6431A1304830072C1D5 /* AddChoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E04E6421A1304830072C1D5 /* AddChoreViewController.m */; };
 		5E29566219DCFB88005CFEE1 /* ChoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E29566119DCFB88005CFEE1 /* ChoreViewController.m */; };
 		5E29566719DCFC6E005CFEE1 /* ChoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E29566519DCFC6E005CFEE1 /* ChoreTableViewCell.m */; };
 		5E29566819DCFC6E005CFEE1 /* ChoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E29566619DCFC6E005CFEE1 /* ChoreTableViewCell.xib */; };
@@ -28,7 +29,6 @@
 		5EA7621A19E2281900AA3A48 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7621919E2281900AA3A48 /* AppDelegate.m */; };
 		5EA7621D19E2283800AA3A48 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5EA7621B19E2283800AA3A48 /* InfoPlist.strings */; };
 		5EA7622019E2284000AA3A48 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EA7621E19E2284000AA3A48 /* MainStoryboard.storyboard */; };
-		5EA7622419E2284E00AA3A48 /* Housemate-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EA7622119E2284E00AA3A48 /* Housemate-Info.plist */; };
 		5EA7622519E2284E00AA3A48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7622319E2284E00AA3A48 /* main.m */; };
 		5EA7622719E2288700AA3A48 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EA7622619E2288700AA3A48 /* Images.xcassets */; };
 		5EA7622A19E4C76900AA3A48 /* ExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7622919E4C76900AA3A48 /* ExpenseViewController.m */; };
@@ -49,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		1EF9BC613901430EA0388D74 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E04E6411A1304830072C1D5 /* AddChoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddChoreViewController.h; path = Classes/AddChoreViewController.h; sourceTree = SOURCE_ROOT; };
+		5E04E6421A1304830072C1D5 /* AddChoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddChoreViewController.m; path = Classes/AddChoreViewController.m; sourceTree = SOURCE_ROOT; };
 		5E29566019DCFB88005CFEE1 /* ChoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChoreViewController.h; path = Classes/ChoreViewController.h; sourceTree = SOURCE_ROOT; };
 		5E29566119DCFB88005CFEE1 /* ChoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChoreViewController.m; path = Classes/ChoreViewController.m; sourceTree = SOURCE_ROOT; };
 		5E29566419DCFC6E005CFEE1 /* ChoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoreTableViewCell.h; sourceTree = SOURCE_ROOT; };
@@ -131,6 +133,8 @@
 		5E29565F19DC7414005CFEE1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5E04E6411A1304830072C1D5 /* AddChoreViewController.h */,
+				5E04E6421A1304830072C1D5 /* AddChoreViewController.m */,
 				5E29566019DCFB88005CFEE1 /* ChoreViewController.h */,
 				5E29566119DCFB88005CFEE1 /* ChoreViewController.m */,
 				5EA7622819E4C76900AA3A48 /* ExpenseViewController.h */,
@@ -295,7 +299,7 @@
 		5E7528E019B8DBBF00E37222 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Chelsea Pugh";
 				TargetAttributes = {
 					5E75290819B8DBBF00E37222 = {
@@ -327,7 +331,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EA7622419E2284E00AA3A48 /* Housemate-Info.plist in Resources */,
 				5EA7622719E2288700AA3A48 /* Images.xcassets in Resources */,
 				5EA7622F19E4C7D300AA3A48 /* ExpenseTableViewCell.xib in Resources */,
 				5EA7621D19E2283800AA3A48 /* InfoPlist.strings in Resources */,
@@ -394,6 +397,7 @@
 				5EA7621719E2280500AA3A48 /* User.m in Sources */,
 				5EA7620819E2269200AA3A48 /* Secrets.m in Sources */,
 				5E29566719DCFC6E005CFEE1 /* ChoreTableViewCell.m in Sources */,
+				5E04E6431A1304830072C1D5 /* AddChoreViewController.m in Sources */,
 				5EA7622519E2284E00AA3A48 /* main.m in Sources */,
 				5EA7622E19E4C7D300AA3A48 /* ExpenseTableViewCell.m in Sources */,
 				5EA7621519E2280500AA3A48 /* FBGroup.m in Sources */,

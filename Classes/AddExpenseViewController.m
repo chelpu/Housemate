@@ -27,4 +27,7 @@
 - (IBAction)addPayment:(id)sender {
     NSString *houseID = @"houseID";
 }
+- (IBAction)cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end
