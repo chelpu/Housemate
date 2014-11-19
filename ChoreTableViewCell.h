@@ -8,12 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ChoreTableViewCell : UITableViewCell
+@interface ChoreTableViewCell : UITableViewCell <UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *title;
 @property (strong, nonatomic) IBOutlet UILabel *dueDate;
 @property (strong, nonatomic) IBOutlet UILabel *assigneeName;
+@property (strong, nonatomic) IBOutlet UIView *myContentView;
+@property (strong, nonatomic) IBOutlet UIButton *completeButton;
+@property (strong, nonatomic) IBOutlet UIButton *remindButton;
+
+- (void)openCell;
+
 - (IBAction)remind:(id)sender;
 - (IBAction)completeChore:(id)sender;
+
+// Gesture recognizer
+@property (nonatomic, strong) UIPanGestureRecognizer *panRecognizer;
+@property (nonatomic, assign) CGPoint panStartPoint;
+@property (nonatomic, assign) CGFloat startingRightLayoutConstraintConstant;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *contentViewRightConstraint;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *contentViewLeftConstraint;
 
 @end
