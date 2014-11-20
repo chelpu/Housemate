@@ -201,6 +201,23 @@ static CGFloat const kBounceValue = 20.0f;
 }
 
 - (IBAction)completeChore:(id)sender {
+    PFQuery *assigneeQuery = [PFQuery queryWithClassName:@"User"];
+    [assigneeQuery whereKey:@"name" equalTo:self.assigneeName.text];
+    [assigneeQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        PFQuery *query = [PFQuery queryWithClassName:@"Chore"];
+        [query whereKey:@"houseID" equalTo:@"houseID"];
+        [query whereKey:@"assignee" equalTo:objects[0]];
+        [query whereKey:@"title" equalTo:self.title.text];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                [PFObject deleteAllInBackground:objects];
+            } else {
+                // Log details of the failure
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+        }];
+    }];
+    
 }
 
 - (void)openCell {

@@ -9,6 +9,5 @@
 @interface ChoreViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSMutableSet *cellsCurrentlyEditing;
 
 @end

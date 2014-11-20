@@ -23,23 +23,16 @@
 {
     [super viewDidLoad];
     _chores = [[NSMutableArray alloc] init];
-    self.cellsCurrentlyEditing = [NSMutableSet new];
     
     UINib *nib = [UINib nibWithNibName:@"ChoreTableViewCell" bundle:nil];
     [[self tableView] registerNib:nib forCellReuseIdentifier:@"ChoreTableViewCell"];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self getNewData]; 
-}
-
-- (void)cellDidOpen:(UITableViewCell *)cell {
-    NSIndexPath *currentEditingIndexPath = [self.tableView indexPathForCell:cell];
-    [self.cellsCurrentlyEditing addObject:currentEditingIndexPath];
-}
-
-- (void)cellDidClose:(UITableViewCell *)cell {
-    [self.cellsCurrentlyEditing removeObject:[self.tableView indexPathForCell:cell]];
+    _chores = [[NSMutableArray alloc] init];
+    [self getNewData];
 }
 
 // TODO: actually get ONLY new data
@@ -90,10 +83,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChoreTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"ChoreTableViewCell"];
     
-    if ([self.cellsCurrentlyEditing containsObject:indexPath]) {
-        [cell openCell];
-    }
-    
     Chore *c = [_chores objectAtIndex:indexPath.row];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM/dd/yyyy"];
@@ -102,7 +91,19 @@
     cell.assigneeName.text = c.assignee.name;
     cell.dueDate.text = [formatter stringFromDate:c.dueDate];
     
+    [cell.completeButton addTarget:self action:@selector(didCompleteChore:) forControlEvents:UIControlEventTouchUpInside];
+    
     return cell;
+}
+
+- (void)didCompleteChore:(id)sender {
+    NSLog(@"touched!");
+    ChoreTableViewCell *cell = (ChoreTableViewCell *)[[sender superview] superview];
+    NSIndexPath *ip = [self.tableView indexPathForCell:cell];
+    NSArray *ips = @[ip];
+    [_chores removeObjectAtIndex:ip.row];
+    [self.tableView deleteRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationAutomatic];
+
 }
 
 @end
