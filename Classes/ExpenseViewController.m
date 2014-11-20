@@ -28,6 +28,7 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"Expense"];
     [query whereKey:@"houseID" equalTo:@"houseID"];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.

@@ -7,16 +7,38 @@
 //
 
 #import "AddExpenseViewController.h"
+#import <Parse/Parse.h>
+#import "User.h"
 
 @interface AddExpenseViewController ()
 
 @end
 
-@implementation AddExpenseViewController
+@implementation AddExpenseViewController {
+    NSMutableArray *_assignees;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    _assignees = [[NSMutableArray alloc] init];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    [query whereKey:@"houseID" equalTo:@"houseID"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            // Do something with the found objects
+            for (PFObject *object in objects) {
+                User *u = [[User alloc] initWithDictionary:(NSDictionary *)object];
+                [_assignees addObject:u.name];
+            }
+            [self.assigneePicker reloadAllComponents];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,8 +48,26 @@
 
 - (IBAction)addPayment:(id)sender {
     NSString *houseID = @"houseID";
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)cancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+# pragma picker
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return _assignees.count;
+}
+
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return _assignees[row];
+}
+
 @end
