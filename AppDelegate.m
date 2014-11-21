@@ -11,6 +11,7 @@
 #import "MFSideMenu.h"
 #import <Parse/Parse.h>
 #import "Secrets.h"
+#import "UIColor+HMColor.h"
 
 @implementation AppDelegate
 
@@ -26,6 +27,8 @@
 {
     // Override point for customization after application launch.
     [FBLoginView class];
+    
+    [[UITabBar appearance] setTintColor:[UIColor HMbloodOrangeColor]];
     
     Secrets *secrets = [[Secrets alloc] init];
     [Parse setApplicationId:secrets.parseID

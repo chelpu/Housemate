@@ -20,6 +20,7 @@
 		5E75290D19B8DBBF00E37222 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7528EF19B8DBBF00E37222 /* UIKit.framework */; };
 		5E75291519B8DBBF00E37222 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E75291319B8DBBF00E37222 /* InfoPlist.strings */; };
 		5E75291719B8DBBF00E37222 /* HousemateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E75291619B8DBBF00E37222 /* HousemateTests.m */; };
+		5E877EDE1A1F0C440019CBA8 /* UIColor+HMColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E877EDD1A1F0C440019CBA8 /* UIColor+HMColor.m */; };
 		5EA7620819E2269200AA3A48 /* Secrets.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7620719E2269200AA3A48 /* Secrets.m */; };
 		5EA7620B19E227E400AA3A48 /* Chore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7620A19E227E400AA3A48 /* Chore.m */; };
 		5EA7621419E2280500AA3A48 /* Expense.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7620D19E2280500AA3A48 /* Expense.m */; };
@@ -67,6 +68,8 @@
 		5E75291219B8DBBF00E37222 /* HousemateTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HousemateTests-Info.plist"; sourceTree = "<group>"; };
 		5E75291419B8DBBF00E37222 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5E75291619B8DBBF00E37222 /* HousemateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HousemateTests.m; sourceTree = "<group>"; };
+		5E877EDC1A1F0C440019CBA8 /* UIColor+HMColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+HMColor.h"; path = "Classes/UIColor+HMColor.h"; sourceTree = SOURCE_ROOT; };
+		5E877EDD1A1F0C440019CBA8 /* UIColor+HMColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+HMColor.m"; path = "Classes/UIColor+HMColor.m"; sourceTree = SOURCE_ROOT; };
 		5EA7620619E2269200AA3A48 /* Secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Secrets.h; path = Classes/Secrets.h; sourceTree = SOURCE_ROOT; };
 		5EA7620719E2269200AA3A48 /* Secrets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Secrets.m; path = Classes/Secrets.m; sourceTree = SOURCE_ROOT; };
 		5EA7620919E227E400AA3A48 /* Chore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chore.h; path = Classes/Chore.h; sourceTree = SOURCE_ROOT; };
@@ -237,6 +240,8 @@
 		5E9936A419DC6FFE00DF1EC3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5E877EDC1A1F0C440019CBA8 /* UIColor+HMColor.h */,
+				5E877EDD1A1F0C440019CBA8 /* UIColor+HMColor.m */,
 				5EA7620C19E2280500AA3A48 /* Expense.h */,
 				5EA7620D19E2280500AA3A48 /* Expense.m */,
 				5EA7620E19E2280500AA3A48 /* FBGroup.h */,
@@ -401,6 +406,7 @@
 				5EA7622519E2284E00AA3A48 /* main.m in Sources */,
 				5EA7622E19E4C7D300AA3A48 /* ExpenseTableViewCell.m in Sources */,
 				5EA7621519E2280500AA3A48 /* FBGroup.m in Sources */,
+				5E877EDE1A1F0C440019CBA8 /* UIColor+HMColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
