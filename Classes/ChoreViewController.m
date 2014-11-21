@@ -22,6 +22,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationBar.barTintColor = [UIColor HMbloodOrangeColor];
+    self.navigationBar.barStyle = UIBarStyleBlack;
+    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    self.navigationBar.tintColor = [UIColor whiteColor];
+    
     _chores = [[NSMutableArray alloc] init];
     
     UINib *nib = [UINib nibWithNibName:@"ChoreTableViewCell" bundle:nil];
@@ -82,7 +88,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChoreTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"ChoreTableViewCell"];
-    
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     Chore *c = [_chores objectAtIndex:indexPath.row];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM/dd/yyyy"];
@@ -92,6 +98,8 @@
     cell.dueDate.text = [formatter stringFromDate:c.dueDate];
     
     [cell.completeButton addTarget:self action:@selector(didCompleteChore:) forControlEvents:UIControlEventTouchUpInside];
+    cell.completeButton.backgroundColor = [UIColor HMpeachColor];
+    cell.remindButton.backgroundColor = [UIColor HMtangerineColor];
     
     return cell;
 }

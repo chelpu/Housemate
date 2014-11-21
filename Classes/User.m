@@ -14,6 +14,7 @@
     if(self = [super init]) {
         self.phoneNumber = [dictionary objectForKey:@"phoneNumber"];
         self.name = [dictionary objectForKey:@"name"];
+        self.userID = [dictionary objectForKey:@"userID"];
     }
     return self;
 }

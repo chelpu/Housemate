@@ -12,6 +12,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *choreName;
 @property (strong, nonatomic) IBOutlet UIDatePicker *dateField;
 @property (strong, nonatomic) IBOutlet UIPickerView *assigneePicker;
+@property (strong, nonatomic) IBOutlet UINavigationBar *navigationBar;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *navigationBarButton;
 
 
 @end

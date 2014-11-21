@@ -22,6 +22,9 @@ static CGFloat const kBounceValue = 20.0f;
     self.panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panThisCell:)];
     self.panRecognizer.delegate = self;
     [self.myContentView addGestureRecognizer:self.panRecognizer];
+    self.title.textColor = [UIColor HMcharcoalColor];
+    self.dueDate.textColor = [UIColor HMcharcoalColor];
+    self.assigneeName.textColor = [UIColor HMcharcoalColor];
 }
 
 - (void)prepareForReuse {

@@ -15,5 +15,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *dueDate;
 @property (strong, nonatomic) IBOutlet UILabel *price;
 
+@property (strong, nonatomic) IBOutlet UIButton *actionButton;
 
 @end

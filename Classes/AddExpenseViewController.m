@@ -21,6 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationBar.barTintColor = [UIColor HMbloodOrangeColor];
+    self.navigationBar.barStyle = UIBarStyleBlack;
+    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    self.navigationBar.tintColor = [UIColor whiteColor];
+    
     _assignees = [[NSMutableArray alloc] init];
     
     PFQuery *query = [PFQuery queryWithClassName:@"User"];
@@ -47,8 +52,39 @@
 }
 
 - (IBAction)addPayment:(id)sender {
-    NSString *houseID = @"houseID";
-    [self dismissViewControllerAnimated:YES completion:nil];
+    PFObject *expense = [PFObject objectWithClassName:@"Expense"];
+    expense[@"title"] = self.expenseName.text;
+    expense[@"amount"] = [NSNumber numberWithFloat:[[self.amountField.text substringFromIndex:1] floatValue]];
+    NSLog(@"%@" ,self.amountField.text);
+    // Will grab user from database eventually...
+    
+    NSString *name = [self pickerView:self.assigneePicker titleForRow:[self.assigneePicker selectedRowInComponent:0] forComponent:0];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    [query whereKey:@"name" equalTo:name];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            PFObject *obj = objects[0];
+            expense[@"assignee"] = obj;
+            expense[@"houseID"] = @"houseID";
+            [expense saveInBackground];
+            [self resetFields];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+}
+
+- (void)resetFields {
+    for (UIView *view in self.view.subviews) {
+        if ([view isKindOfClass:[UITextField class]]) {
+            UITextField *textField = (UITextField *)view;
+            textField.text = @"";
+        }
+    }
 }
 - (IBAction)cancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

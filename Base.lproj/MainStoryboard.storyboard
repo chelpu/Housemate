@@ -46,6 +46,8 @@
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addButtonItem" destination="mTl-CA-30O" id="RXa-fU-iaL"/>
+                        <outlet property="navigationBar" destination="ah6-jh-Bq8" id="w7g-pf-f3U"/>
                         <outlet property="tableView" destination="Php-Jr-ZfR" id="tYT-Ml-E5L"/>
                     </connections>
                 </viewController>
@@ -77,13 +79,13 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sCI-VH-MXV">
-                                <rect key="frame" x="52" y="299" width="252" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sCI-VH-MXV">
+                                <rect key="frame" x="52" y="276" width="252" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cg4-ah-sAs">
-                                <rect key="frame" x="34" y="334" width="252" height="30"/>
+                                <rect key="frame" x="34" y="311" width="252" height="30"/>
                                 <state key="normal" title="Add Expense">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -92,7 +94,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amount?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZI-I3-aLh">
-                                <rect key="frame" x="24" y="272" width="194" height="23"/>
+                                <rect key="frame" x="24" y="249" width="194" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -128,7 +130,10 @@
                     <connections>
                         <outlet property="amountField" destination="sCI-VH-MXV" id="Dkj-dL-7PX"/>
                         <outlet property="assigneePicker" destination="HDS-pq-ddX" id="ptp-uj-sCR"/>
+                        <outlet property="cancelButtonItem" destination="cg8-UX-y7n" id="BYu-Cy-MRz"/>
                         <outlet property="expenseName" destination="pYH-36-acN" id="ZWV-1T-hqj"/>
+                        <outlet property="navigationBar" destination="AaJ-tE-7XB" id="wJj-Ma-vEj"/>
+                        <outlet property="navigationItem" destination="4H1-L2-wqi" id="INb-Fd-F2C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IOb-3e-vAk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -148,7 +153,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Shopping" id="CTI-NJ-lSi"/>
+                    <tabBarItem key="tabBarItem" title="Shopping" image="shopping_cart_empty-50" id="CTI-NJ-lSi"/>
                     <navigationItem key="navigationItem" id="znH-aJ-UH6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mnL-90-oJW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -210,8 +215,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Chores" id="YJC-9s-EMj"/>
+                    <tabBarItem key="tabBarItem" title="Chores" selectedImage="broom-50" id="YJC-9s-EMj"/>
                     <connections>
+                        <outlet property="addButtonItem" destination="eHq-nB-LEp" id="Lm2-3N-Sv7"/>
+                        <outlet property="navigationBar" destination="1zD-D7-38n" id="mXN-qY-ftY"/>
                         <outlet property="tableView" destination="X6e-2T-BFR" id="7kI-9Z-KPv"/>
                     </connections>
                 </viewController>
@@ -296,6 +303,8 @@
                         <outlet property="assigneePicker" destination="oyG-Un-Efk" id="yLU-md-tHu"/>
                         <outlet property="choreName" destination="cHU-M8-NLN" id="DKy-cG-iR2"/>
                         <outlet property="dateField" destination="F55-gt-dtV" id="DWA-hG-ZFC"/>
+                        <outlet property="navigationBar" destination="bB9-QQ-ZE1" id="dfO-RQ-xHr"/>
+                        <outlet property="navigationBarButton" destination="UNQ-GZ-bAe" id="R2z-tS-Sun"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z3o-iq-JKF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -303,6 +312,10 @@
             <point key="canvasLocation" x="819" y="1002"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="broom-50" width="50" height="50"/>
+        <image name="shopping_cart_empty-50" width="50" height="50"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

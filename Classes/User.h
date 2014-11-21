@@ -12,7 +12,7 @@
 
 @property (strong, nonatomic) NSString *phoneNumber;
 @property (strong, nonatomic) NSString *name;
-
+@property (strong, nonatomic) NSString *userID;
 -(id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

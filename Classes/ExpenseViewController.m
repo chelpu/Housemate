@@ -21,6 +21,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationBar.barTintColor = [UIColor HMbloodOrangeColor];
+    self.navigationBar.barStyle = UIBarStyleBlack;
+    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    self.navigationBar.tintColor = [UIColor whiteColor];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     _expenses = [[NSMutableArray alloc] init];
     
     UINib *nib = [UINib nibWithNibName:@"ExpenseTableViewCell" bundle:nil];
@@ -28,7 +37,7 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"Expense"];
     [query whereKey:@"houseID" equalTo:@"houseID"];
-    
+    [query includeKey:@"assignee"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
@@ -36,6 +45,8 @@
             
             for (PFObject *object in objects) {
                 Expense *e = [[Expense alloc] initWithDictionary:(NSDictionary *)object];
+                PFObject *user = [object objectForKey:@"assignee"];
+                e.payer = [[User alloc] initWithDictionary:(NSDictionary *)user];
                 [_expenses addObject:e];
             }
             [self.tableView reloadData];
@@ -79,7 +90,25 @@
     cell.dueDate.text = [formatter stringFromDate:e.dueDate];
     cell.price.text = [NSString stringWithFormat:@"$%.2f", e.amount];
     
+    // replace with id from user defaults
+    if([e.payer.userID isEqualToString:@"10152791884095087"]) {
+        [cell.actionButton addTarget:self action:@selector(payForItem:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.actionButton setTitle:@"Pay" forState:UIControlStateNormal];
+    } else {
+        [cell.actionButton addTarget:self action:@selector(remind:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.actionButton setTitle:@"Remind" forState:UIControlStateNormal];
+
+    }
+    
     return cell;
+}
+
+- (void)remind:(id)sender {
+    
+}
+
+- (void)payForItem:(id)sender {
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
