@@ -89,7 +89,7 @@ static CGFloat const kBounceValue = 20.0f;
         case UIGestureRecognizerStateEnded:
             if (self.startingRightLayoutConstraintConstant == 0) { //1
                 //Cell was opening
-                CGFloat halfOfButtonOne = CGRectGetWidth(self.remindButton.frame) / 2; //2
+                CGFloat halfOfButtonOne = CGRectGetWidth(self.completeButton.frame) / 2; //2
                 if (self.contentViewRightConstraint.constant >= halfOfButtonOne) { //3
                     //Open all the way
                     [self setConstraintsToShowAllButtons:YES notifyDelegateDidOpen:YES];
@@ -99,7 +99,7 @@ static CGFloat const kBounceValue = 20.0f;
                 }
             } else {
                 //Cell was closing
-                CGFloat buttonOnePlusHalfOfButton2 = CGRectGetWidth(self.remindButton.frame) + (CGRectGetWidth(self.completeButton.frame) / 2); //4
+                CGFloat buttonOnePlusHalfOfButton2 = CGRectGetWidth(self.completeButton.frame); //4
                 if (self.contentViewRightConstraint.constant >= buttonOnePlusHalfOfButton2) { //5
                     //Re-open all the way
                     [self setConstraintsToShowAllButtons:YES notifyDelegateDidOpen:YES];
@@ -135,7 +135,7 @@ static CGFloat const kBounceValue = 20.0f;
 }
 
 - (CGFloat)buttonTotalWidth {
-    return CGRectGetWidth(self.frame) - CGRectGetMinX(self.remindButton.frame);
+    return CGRectGetWidth(self.frame) - CGRectGetMinX(self.completeButton.frame);
 }
 
 - (void)resetConstraintContstantsToZero:(BOOL)animated notifyDelegateDidClose:(BOOL)endEditing
@@ -176,51 +176,6 @@ static CGFloat const kBounceValue = 20.0f;
             self.startingRightLayoutConstraintConstant = self.contentViewRightConstraint.constant;
         }];
     }];
-}
-
-- (IBAction)remind:(id)sender {
-    PFQuery *query = [PFQuery queryWithClassName:@"User"];
-    [query whereKey:@"name" equalTo:self.assigneeName.text];
-    [query whereKey:@"houseID" equalTo:@"houseID"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            for (PFObject *object in objects) {
-                NSLog(@"%@", object.objectId);
-                User *user = [[User alloc] initWithDictionary:(NSDictionary *)object];
-                AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-                NSDictionary *params = @{@"number": user.phoneNumber,
-                                         @"chore": self.title.text,
-                                         @"name": user.name};
-                [manager GET:@"http://housem8.ngrok.com/remind" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                    NSLog(@"Error: %@", error);
-                }];
-                
-            }
-        } else {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
-}
-
-- (IBAction)completeChore:(id)sender {
-    PFQuery *assigneeQuery = [PFQuery queryWithClassName:@"User"];
-    [assigneeQuery whereKey:@"name" equalTo:self.assigneeName.text];
-    [assigneeQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        PFQuery *query = [PFQuery queryWithClassName:@"Chore"];
-        [query whereKey:@"houseID" equalTo:@"houseID"];
-        [query whereKey:@"assignee" equalTo:objects[0]];
-        [query whereKey:@"title" equalTo:self.title.text];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (!error) {
-                [PFObject deleteAllInBackground:objects];
-            } else {
-                // Log details of the failure
-                NSLog(@"Error: %@ %@", error, [error userInfo]);
-            }
-        }];
-    }];
-    
 }
 
 - (void)openCell {

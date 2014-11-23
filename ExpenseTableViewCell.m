@@ -11,6 +11,9 @@
 @implementation ExpenseTableViewCell
 
 - (void)awakeFromNib {
+    self.title.textColor = [UIColor HMcharcoalColor];
+    self.price.textColor = [UIColor HMcharcoalColor];
+    self.assigneeName.textColor = [UIColor HMcharcoalColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

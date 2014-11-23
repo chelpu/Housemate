@@ -10,6 +10,7 @@
 #import "ChoreTableViewCell.h"
 #import <Parse/Parse.h>
 #import "Chore.h"
+#import <AFNetworking/AFHTTPRequestOperationManager.h>
 
 @interface ChoreViewController ()
 
@@ -97,21 +98,68 @@
     cell.assigneeName.text = c.assignee.name;
     cell.dueDate.text = [formatter stringFromDate:c.dueDate];
     
-    [cell.completeButton addTarget:self action:@selector(didCompleteChore:) forControlEvents:UIControlEventTouchUpInside];
-    cell.completeButton.backgroundColor = [UIColor HMpeachColor];
-    cell.remindButton.backgroundColor = [UIColor HMtangerineColor];
+    cell.completeButton.backgroundColor = [UIColor HMtangerineColor];
+    
+    // Replace with id from user defaults
+    if(![c.assignee.userID isEqualToString:@"10152791884095087"]) {
+        [cell.completeButton setTitle:@"Remind" forState:UIControlStateNormal];
+        [cell.completeButton addTarget:self action:@selector(remindOfChore:) forControlEvents:UIControlEventTouchUpInside];
+    } else {
+        [cell.completeButton addTarget:self action:@selector(didCompleteChore:) forControlEvents:UIControlEventTouchUpInside];
+    }
     
     return cell;
 }
 
 - (void)didCompleteChore:(id)sender {
-    NSLog(@"touched!");
     ChoreTableViewCell *cell = (ChoreTableViewCell *)[[sender superview] superview];
+    PFQuery *assigneeQuery = [PFQuery queryWithClassName:@"User"];
+    [assigneeQuery whereKey:@"name" equalTo:cell.assigneeName.text];
+    [assigneeQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        PFQuery *query = [PFQuery queryWithClassName:@"Chore"];
+        [query whereKey:@"houseID" equalTo:@"houseID"];
+        [query whereKey:@"assignee" equalTo:objects[0]];
+        [query whereKey:@"title" equalTo:cell.title.text];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                [PFObject deleteAllInBackground:objects];
+            } else {
+                // Log details of the failure
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+        }];
+    }];
     NSIndexPath *ip = [self.tableView indexPathForCell:cell];
     NSArray *ips = @[ip];
     [_chores removeObjectAtIndex:ip.row];
     [self.tableView deleteRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationAutomatic];
 
+}
+
+- (void)remindOfChore:(id)sender {
+    ChoreTableViewCell *cell = (ChoreTableViewCell *)[[sender superview] superview];
+    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    [query whereKey:@"name" equalTo:cell.assigneeName.text];
+    [query whereKey:@"houseID" equalTo:@"houseID"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object.objectId);
+                User *user = [[User alloc] initWithDictionary:(NSDictionary *)object];
+                AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+                NSDictionary *params = @{@"number": user.phoneNumber,
+                                         @"chore": cell.title.text,
+                                         @"name": user.name};
+                [manager GET:@"http://housem8.ngrok.com/remind" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    NSLog(@"Error: %@", error);
+                }];
+                
+            }
+        } else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
 }
 
 @end

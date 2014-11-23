@@ -15,11 +15,11 @@
 }
 
 + (UIColor *)HMtangerineColor {
-    return [UIColor colorWithRed:248.0/255.0 green:118.0/255.0 blue:66.0/255.0 alpha:1.0f];
+    return [UIColor colorWithRed:248.0/255.0 green:118.0/255.0 blue:66.0/255.0 alpha:0.8f];
 
 }
 + (UIColor *)HMpeachColor {
-    return [UIColor colorWithRed:235.0/255.0 green:78.0/255.0 blue:57.0/255.0 alpha:1.0f];
+    return [UIColor colorWithRed:235.0/255.0 green:78.0/255.0 blue:57.0/255.0 alpha:0.8f];
 
 }
 +(UIColor *)HMcharcoalColor {

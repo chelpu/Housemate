@@ -22,39 +22,25 @@
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
-                        <connections>
-                            <action selector="completeChore:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7bf-4a-d3L"/>
-                        </connections>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMW-4W-MNb">
-                        <rect key="frame" x="174" y="0.0" width="73" height="100"/>
-                        <color key="backgroundColor" red="0.91723984479999998" green="0.64369875190000003" blue="0.59974908829999996" alpha="1" colorSpace="calibratedRGB"/>
-                        <state key="normal" title="Remind">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <connections>
-                            <action selector="remind:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="kXI-Hy-SqL"/>
-                        </connections>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kBt-XO-sd3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JL3-xN-adK">
                                 <rect key="frame" x="8" y="8" width="171" height="26"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GtW-Uv-kqT">
                                 <rect key="frame" x="8" y="42" width="171" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtC-b3-GW7">
                                 <rect key="frame" x="8" y="70" width="171" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -67,7 +53,6 @@
                     <constraint firstItem="kBt-XO-sd3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="9jh-mb-Zew"/>
                     <constraint firstAttribute="trailingMargin" secondItem="see-tU-Nq8" secondAttribute="trailing" constant="-8" id="ATu-dW-TS9"/>
                     <constraint firstItem="kBt-XO-sd3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="Y35-p4-YGT"/>
-                    <constraint firstItem="see-tU-Nq8" firstAttribute="leading" secondItem="gMW-4W-MNb" secondAttribute="trailing" id="hLd-B9-M1V"/>
                     <constraint firstAttribute="bottomMargin" secondItem="kBt-XO-sd3" secondAttribute="bottom" constant="-9" id="xrq-OA-eH8"/>
                 </constraints>
             </tableViewCellContentView>
@@ -78,7 +63,6 @@
                 <outlet property="contentViewRightConstraint" destination="7Ab-p2-qw6" id="wXl-ma-fMO"/>
                 <outlet property="dueDate" destination="qtC-b3-GW7" id="Pak-Bb-K8K"/>
                 <outlet property="myContentView" destination="kBt-XO-sd3" id="sDv-u5-hhx"/>
-                <outlet property="remindButton" destination="gMW-4W-MNb" id="r6o-7y-0dr"/>
                 <outlet property="title" destination="JL3-xN-adK" id="BKp-c8-45P"/>
             </connections>
             <point key="canvasLocation" x="140" y="156"/>

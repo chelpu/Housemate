@@ -15,11 +15,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *assigneeName;
 @property (strong, nonatomic) IBOutlet UIView *myContentView;
 @property (strong, nonatomic) IBOutlet UIButton *completeButton;
-@property (strong, nonatomic) IBOutlet UIButton *remindButton;
 
 - (void)openCell;
 
-- (IBAction)remind:(id)sender;
 - (IBAction)completeChore:(id)sender;
 
 // Gesture recognizer
