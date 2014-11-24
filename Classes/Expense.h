@@ -13,6 +13,7 @@
 
 @property (assign, nonatomic) double amount;
 @property (strong, nonatomic) User *payer;
+@property (strong, nonatomic) User *charger;
 @property (strong, nonatomic) NSDate *dueDate;
 @property (strong, nonatomic) NSString *title;
 

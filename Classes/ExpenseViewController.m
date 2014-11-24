@@ -39,6 +39,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Expense"];
     [query whereKey:@"houseID" equalTo:@"houseID"];
     [query includeKey:@"assignee"];
+    [query includeKey:@"charger"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
@@ -47,7 +48,9 @@
             for (PFObject *object in objects) {
                 Expense *e = [[Expense alloc] initWithDictionary:(NSDictionary *)object];
                 PFObject *user = [object objectForKey:@"assignee"];
+                PFObject *charger = [object objectForKey:@"charger"];
                 e.payer = [[User alloc] initWithDictionary:(NSDictionary *)user];
+                e.charger = [[User alloc] initWithDictionary:(NSDictionary *)charger];
                 [_expenses addObject:e];
             }
             [self.tableView reloadData];
@@ -112,7 +115,8 @@
     ExpenseTableViewCell *cell = (ExpenseTableViewCell *)[[sender superview] superview];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     Expense *e = [_expenses objectAtIndex:indexPath.row];
-    NSString *fullURL = [NSString stringWithFormat:@"https://venmo.com/?txn=pay&amount=%f&note=%@&audience=public", e.amount, e.title];
+    NSString *fullURL = [NSString stringWithFormat:@"https://venmo.com/?txn=pay&amount=%f&note=%@&audience=public&recipients=%@", e.amount, e.title, e.charger.phoneNumber];
+    NSLog(@"%@", fullURL);
     NSString *encoded = [fullURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *url = [NSURL URLWithString:encoded];
     KAWModalWebViewController *kaw = [[KAWModalWebViewController alloc] init];

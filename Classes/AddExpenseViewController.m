@@ -36,7 +36,9 @@
             // Do something with the found objects
             for (PFObject *object in objects) {
                 User *u = [[User alloc] initWithDictionary:(NSDictionary *)object];
-                [_assignees addObject:u.name];
+                if(![u.userID isEqualToString:@"10152791884095087"]) {
+                    [_assignees addObject:u.name];
+                }
             }
             [self.assigneePicker reloadAllComponents];
         } else {
