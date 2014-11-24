@@ -9,6 +9,7 @@
 #import "ExpenseViewController.h"
 #import "ExpenseTableViewCell.h"
 #import <Parse/Parse.h>
+#import <KAWebViewController/KAWebViewController.h>
 #import "Expense.h"
 
 @interface ExpenseViewController ()
@@ -108,7 +109,16 @@
 }
 
 - (void)payForItem:(id)sender {
-    
+    ExpenseTableViewCell *cell = (ExpenseTableViewCell *)[[sender superview] superview];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    Expense *e = [_expenses objectAtIndex:indexPath.row];
+    NSString *fullURL = [NSString stringWithFormat:@"https://venmo.com/?txn=pay&amount=%f&note=%@&audience=public", e.amount, e.title];
+    NSString *encoded = [fullURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *url = [NSURL URLWithString:encoded];
+    KAWModalWebViewController *kaw = [[KAWModalWebViewController alloc] init];
+    kaw.url = url;
+
+    [self presentViewController:kaw animated:YES completion:^{}];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
