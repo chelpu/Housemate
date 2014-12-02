@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LaunchScreen">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="LaunchScreen">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="housemate_icon" translatesAutoresizingMaskIntoConstraints="NO" id="cP7-ht-xgg">
+                    <rect key="frame" x="143" y="196" width="315" height="315"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.93503355980000002" green="0.34670647980000002" blue="0.2643824816" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="cP7-ht-xgg" secondAttribute="centerX" id="R0A-Le-tvU"/>
+                <constraint firstAttribute="centerY" secondItem="cP7-ht-xgg" secondAttribute="centerY" id="yGr-ZI-a5i"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="housemate_icon" width="818" height="962"/>
+    </resources>
+</document>

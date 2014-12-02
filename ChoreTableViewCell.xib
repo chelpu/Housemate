@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,57 +14,42 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="see-tU-Nq8">
-                        <rect key="frame" x="247" y="0.0" width="73" height="100"/>
-                        <color key="backgroundColor" red="0.93397092820000005" green="0.2387894243" blue="0.15763992069999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uga-pH-U2E">
+                        <rect key="frame" x="8" y="70" width="171" height="20"/>
+                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eci-S1-tYm">
+                        <rect key="frame" x="8" y="8" width="171" height="26"/>
+                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0b4-UQ-0fr">
+                        <rect key="frame" x="8" y="42" width="171" height="20"/>
+                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="see-tU-Nq8">
+                        <rect key="frame" x="228" y="35" width="84" height="31"/>
+                        <color key="backgroundColor" red="0.99061185119999995" green="0.51704353089999999" blue="0.25419685240000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                         <state key="normal" title="Complete">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kBt-XO-sd3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JL3-xN-adK">
-                                <rect key="frame" x="8" y="8" width="171" height="26"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GtW-Uv-kqT">
-                                <rect key="frame" x="8" y="42" width="171" height="20"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtC-b3-GW7">
-                                <rect key="frame" x="8" y="70" width="171" height="20"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
                 </subviews>
-                <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="kBt-XO-sd3" secondAttribute="trailing" constant="-8" id="7Ab-p2-qw6"/>
-                    <constraint firstItem="kBt-XO-sd3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="9jh-mb-Zew"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="see-tU-Nq8" secondAttribute="trailing" constant="-8" id="ATu-dW-TS9"/>
-                    <constraint firstItem="kBt-XO-sd3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="Y35-p4-YGT"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="kBt-XO-sd3" secondAttribute="bottom" constant="-9" id="xrq-OA-eH8"/>
-                </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="assigneeName" destination="GtW-Uv-kqT" id="g44-BO-EgG"/>
+                <outlet property="assigneeName" destination="0b4-UQ-0fr" id="i3T-dA-Zag"/>
                 <outlet property="completeButton" destination="see-tU-Nq8" id="aSf-4f-6V1"/>
-                <outlet property="contentViewLeftConstraint" destination="9jh-mb-Zew" id="VP5-Eb-L1c"/>
-                <outlet property="contentViewRightConstraint" destination="7Ab-p2-qw6" id="wXl-ma-fMO"/>
-                <outlet property="dueDate" destination="qtC-b3-GW7" id="Pak-Bb-K8K"/>
-                <outlet property="myContentView" destination="kBt-XO-sd3" id="sDv-u5-hhx"/>
-                <outlet property="title" destination="JL3-xN-adK" id="BKp-c8-45P"/>
+                <outlet property="dueDate" destination="uga-pH-U2E" id="Xtg-1C-EUE"/>
+                <outlet property="title" destination="Eci-S1-tYm" id="wH6-Rr-KHn"/>
             </connections>
-            <point key="canvasLocation" x="140" y="156"/>
+            <point key="canvasLocation" x="140" y="154"/>
         </tableViewCell>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -12,5 +12,6 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (strong, nonatomic) IBOutlet UINavigationItem *addButtonItem;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @end

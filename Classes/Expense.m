@@ -16,6 +16,7 @@
         self.amount = [[dictionary objectForKey:@"amount"] doubleValue];
         self.title = [dictionary objectForKey:@"title"];
         self.dueDate = [dictionary objectForKey:@"dueDate"];
+        self.expenseID = [dictionary objectForKey:@"objectId"];
     }
     return self;
 }

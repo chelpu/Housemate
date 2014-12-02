@@ -21,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.addExpenseButton.layer.cornerRadius = 5;
+    
     self.navigationBar.barTintColor = [UIColor HMbloodOrangeColor];
     self.navigationBar.barStyle = UIBarStyleBlack;
     [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
@@ -69,9 +71,25 @@
             PFObject *obj = objects[0];
             expense[@"assignee"] = obj;
             expense[@"houseID"] = @"houseID";
-            [expense saveInBackground];
-            [self resetFields];
-            [self dismissViewControllerAnimated:YES completion:nil];
+            
+            // replace with nsuserdefaults
+            
+            PFQuery *query = [PFQuery queryWithClassName:@"User"];
+            [query whereKey:@"userID" equalTo:@"10152791884095087"];
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if(!error) {
+                    PFObject *obj = objects[0];
+                    expense[@"houseID"] = @"houseID";
+                    expense[@"charger"] = obj;
+                    [expense saveInBackground];
+                    [self resetFields];
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                } else {
+                    NSLog(@"Error here");
+                }
+            }];
+            
+
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);

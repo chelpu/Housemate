@@ -14,6 +14,8 @@
     self.title.textColor = [UIColor HMcharcoalColor];
     self.price.textColor = [UIColor HMcharcoalColor];
     self.assigneeName.textColor = [UIColor HMcharcoalColor];
+    self.actionButton.backgroundColor = [UIColor HMtangerineColor];
+    self.actionButton.layer.cornerRadius = 5;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

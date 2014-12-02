@@ -13,5 +13,6 @@
 @property (strong, nonatomic) IBOutlet UIPickerView *assigneePicker;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *cancelButtonItem;
+@property (strong, nonatomic) IBOutlet UIButton *addExpenseButton;
 
 @end

@@ -23,19 +23,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _expenses = [[NSMutableArray alloc] init];
+    
+    [self getNewData];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor HMpeachColor];
+    self.refreshControl.tintColor = [UIColor whiteColor];
+    [self.refreshControl addTarget:nil
+                            action:@selector(getNewData)
+                  forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
+    
     self.navigationBar.barTintColor = [UIColor HMbloodOrangeColor];
     self.navigationBar.barStyle = UIBarStyleBlack;
     [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     self.navigationBar.tintColor = [UIColor whiteColor];
     
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    _expenses = [[NSMutableArray alloc] init];
-    
     UINib *nib = [UINib nibWithNibName:@"ExpenseTableViewCell" bundle:nil];
     [[self tableView] registerNib:nib forCellReuseIdentifier:@"ExpenseTableViewCell"];
     
+}
+
+- (void)getNewData {
     PFQuery *query = [PFQuery queryWithClassName:@"Expense"];
     [query whereKey:@"houseID" equalTo:@"houseID"];
     [query includeKey:@"assignee"];
@@ -51,9 +60,24 @@
                 PFObject *charger = [object objectForKey:@"charger"];
                 e.payer = [[User alloc] initWithDictionary:(NSDictionary *)user];
                 e.charger = [[User alloc] initWithDictionary:(NSDictionary *)charger];
-                [_expenses addObject:e];
+//                [_expenses addObject:e];
+                
+                BOOL found = NO;
+                for(Expense *existing in _expenses) {
+                    if([existing.expenseID isEqualToString:e.expenseID]) {
+                        found = YES;
+                        NSLog(@" %@, %@", existing.expenseID, e.expenseID);
+                    }
+                }
+                if(!found) {
+                    [_expenses insertObject:e atIndex:0];
+                }
             }
             [self.tableView reloadData];
+            
+            if (self.refreshControl) {
+                [self.refreshControl endRefreshing];
+            }
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -70,7 +94,7 @@
 #pragma mark - UITableView
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 110.0f;
+    return 88.0f;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

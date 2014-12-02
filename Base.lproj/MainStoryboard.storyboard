@@ -83,13 +83,16 @@
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sCI-VH-MXV">
-                                <rect key="frame" x="52" y="276" width="252" height="30"/>
+                                <rect key="frame" x="190" y="103" width="116" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cg4-ah-sAs">
-                                <rect key="frame" x="34" y="311" width="252" height="30"/>
-                                <state key="normal" title="Add Expense">
+                                <rect key="frame" x="42" y="275" width="237" height="31"/>
+                                <color key="backgroundColor" red="0.99061185119999995" green="0.51704353089999999" blue="0.25419685240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="15"/>
+                                <state key="normal" title="Submit Expense">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -97,30 +100,30 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amount?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZI-I3-aLh">
-                                <rect key="frame" x="24" y="249" width="194" height="23"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="190" y="70" width="121" height="23"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What's it for?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QqO-uS-wPw">
-                                <rect key="frame" x="20" y="72" width="194" height="23"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="13" y="70" width="152" height="23"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pYH-36-acN">
-                                <rect key="frame" x="48" y="103" width="252" height="30"/>
+                                <rect key="frame" x="13" y="103" width="169" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Which housemate?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPr-9q-14q">
-                                <rect key="frame" x="20" y="153" width="194" height="23"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="13" y="146" width="194" height="23"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HDS-pq-ddX">
-                                <rect key="frame" x="48" y="134" width="252" height="120"/>
+                                <rect key="frame" x="34" y="129" width="252" height="100"/>
                                 <connections>
                                     <outlet property="dataSource" destination="MGD-Mx-Ime" id="yTU-W8-cto"/>
                                     <outlet property="delegate" destination="MGD-Mx-Ime" id="1gk-WH-iZv"/>
@@ -131,6 +134,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="wmS-c4-5bV"/>
                     <connections>
+                        <outlet property="addExpenseButton" destination="cg4-ah-sAs" id="Cuc-53-LVR"/>
                         <outlet property="amountField" destination="sCI-VH-MXV" id="Dkj-dL-7PX"/>
                         <outlet property="assigneePicker" destination="HDS-pq-ddX" id="ptp-uj-sCR"/>
                         <outlet property="cancelButtonItem" destination="cg8-UX-y7n" id="BYu-Cy-MRz"/>
@@ -141,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IOb-3e-vAk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="332" y="-262"/>
+            <point key="canvasLocation" x="332" y="-257"/>
         </scene>
         <!--Shopping-->
         <scene sceneID="mUi-g4-voa">

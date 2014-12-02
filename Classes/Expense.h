@@ -16,6 +16,7 @@
 @property (strong, nonatomic) User *charger;
 @property (strong, nonatomic) NSDate *dueDate;
 @property (strong, nonatomic) NSString *title;
+@property (strong, nonatomic) NSString *expenseID;
 
 -(id)initWithDictionary:(NSDictionary *)dictionary;
 
