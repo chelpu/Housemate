@@ -21,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     self.navigationBar.barTintColor = [UIColor HMbloodOrangeColor];
     self.navigationBar.barStyle = UIBarStyleBlack;
     [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
@@ -35,14 +37,16 @@
     _assignees = [[NSMutableArray alloc] init];
     
     PFQuery *query = [PFQuery queryWithClassName:@"User"];
-    [query whereKey:@"houseID" equalTo:@"houseID"];
+    [query whereKey:@"houseID" equalTo:[defaults objectForKey:@"houseID"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
                 User *u = [[User alloc] initWithDictionary:(NSDictionary *)object];
                 // user defaults
-                if(![u.userID isEqualToString:@"10152791884095087"]) {
+                if(![u.phoneNumber isEqualToString:[defaults objectForKey:@"id"]]) {
                     [_assignees addObject:u.name];
+                } else {
+                     [_assignees addObject:@"Me"];
                 }
             }
             [self.assigneePicker reloadAllComponents];
@@ -63,6 +67,8 @@
 }
 
 - (IBAction)addChore:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     if(!(self.choreName.text && self.choreName.text.length > 0)) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Chore incomplete!"
                                                         message:@"Please fill out all fields."
@@ -81,13 +87,17 @@
     
     NSString *name = [self pickerView:self.assigneePicker titleForRow:[self.assigneePicker selectedRowInComponent:0] forComponent:0];
     
+    if([name isEqualToString:@"Me"]) {
+        name = [defaults objectForKey:@"name"];
+    }
+    
     PFQuery *query = [PFQuery queryWithClassName:@"User"];
     [query whereKey:@"name" equalTo:name];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             PFObject *obj = objects[0];
             chore[@"assignee"] = obj;
-            chore[@"houseID"] = @"houseID";
+            chore[@"houseID"] = [defaults objectForKey:@"houseID"];
             [chore saveInBackground];
             [self resetFields];
             [self dismissViewControllerAnimated:YES completion:nil];

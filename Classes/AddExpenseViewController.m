@@ -21,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     self.addExpenseButton.layer.cornerRadius = 5;
     
     self.navigationBar.barTintColor = [UIColor HMbloodOrangeColor];
@@ -31,7 +33,7 @@
     _assignees = [[NSMutableArray alloc] init];
     
     PFQuery *query = [PFQuery queryWithClassName:@"User"];
-    [query whereKey:@"houseID" equalTo:@"houseID"];
+    [query whereKey:@"houseID" equalTo:[defaults objectForKey:@"houseID"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
@@ -39,7 +41,7 @@
             for (PFObject *object in objects) {
                 User *u = [[User alloc] initWithDictionary:(NSDictionary *)object];
                 // user defaults
-                if(![u.userID isEqualToString:@"10152791884095087"]) {
+                if(![u.phoneNumber isEqualToString:[defaults objectForKey:@"id"]]) {
                     [_assignees addObject:u.name];
                 }
             }
@@ -57,6 +59,18 @@
 }
 
 - (IBAction)addPayment:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if(![self.assigneePicker numberOfRowsInComponent:0]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No housemates to pay you!"
+                                                        message:@"Please invite your housemates."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
     PFObject *expense = [PFObject objectWithClassName:@"Expense"];
     if(!(self.expenseName.text && self.expenseName.text.length > 0) ||
        !(self.amountField.text && ![self.amountField.text isEqualToString:@"$"]) ) {
@@ -79,16 +93,16 @@
         if (!error) {
             PFObject *obj = objects[0];
             expense[@"assignee"] = obj;
-            expense[@"houseID"] = @"houseID";
+            expense[@"houseID"] = [defaults objectForKey:@"houseID"];
             
             // replace with nsuserdefaults
             
             PFQuery *query = [PFQuery queryWithClassName:@"User"];
-            [query whereKey:@"userID" equalTo:@"10152791884095087"];
+            [query whereKey:@"phoneNumber" equalTo:[defaults objectForKey:@"id"]];
             [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                 if(!error) {
                     PFObject *obj = objects[0];
-                    expense[@"houseID"] = @"houseID";
+                    expense[@"houseID"] = [defaults objectForKey:@"houseID"];
                     expense[@"charger"] = obj;
                     [expense saveInBackground];
                     [self resetFields];

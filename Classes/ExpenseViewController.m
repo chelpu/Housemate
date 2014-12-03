@@ -47,8 +47,9 @@
 }
 
 - (void)getNewData {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     PFQuery *query = [PFQuery queryWithClassName:@"Expense"];
-    [query whereKey:@"houseID" equalTo:@"houseID"];
+    [query whereKey:@"houseID" equalTo:[defaults objectForKey:@"houseID"]];
     [query includeKey:@"assignee"];
     [query includeKey:@"charger"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -125,6 +126,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     ExpenseTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"ExpenseTableViewCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     Expense *e = [_expenses objectAtIndex:indexPath.row];
@@ -137,7 +139,7 @@
     cell.price.text = [NSString stringWithFormat:@"$%.2f", e.amount];
     
     // replace with id from user defaults
-    if([e.payer.userID isEqualToString:@"10152791884095087"]) {
+    if([e.payer.phoneNumber isEqualToString:[defaults objectForKey:@"id"]]) {
         [cell.actionButton addTarget:self action:@selector(payForItem:) forControlEvents:UIControlEventTouchUpInside];
         [cell.actionButton setTitle:@"Pay" forState:UIControlStateNormal];
     } else {

@@ -49,8 +49,9 @@
 }
 
 - (void)getNewData {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     PFQuery *query = [PFQuery queryWithClassName:@"Chore"];
-    [query whereKey:@"houseID" equalTo:@"houseID"];
+    [query whereKey:@"houseID" equalTo:[defaults objectForKey:@"houseID"]];
     [query includeKey:@"assignee"];
     [query orderByAscending:@"dueDate"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -106,6 +107,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     ChoreTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"ChoreTableViewCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
@@ -120,7 +122,7 @@
     cell.completeButton.backgroundColor = [UIColor HMtangerineColor];
     
     // Replace with id from user defaults
-    if(![c.assignee.userID isEqualToString:@"10152791884095087"]) {
+    if(![c.assignee.phoneNumber isEqualToString:[defaults objectForKey:@"id"]]) {
         [cell.completeButton setTitle:@"Remind" forState:UIControlStateNormal];
         [cell.completeButton addTarget:self action:@selector(remindOfChore:) forControlEvents:UIControlEventTouchUpInside];
     } else {
@@ -131,12 +133,13 @@
 }
 
 - (void)didCompleteChore:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     ChoreTableViewCell *cell = (ChoreTableViewCell *)[[sender superview] superview];
     PFQuery *assigneeQuery = [PFQuery queryWithClassName:@"User"];
     [assigneeQuery whereKey:@"name" equalTo:cell.assigneeName.text];
     [assigneeQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         PFQuery *query = [PFQuery queryWithClassName:@"Chore"];
-        [query whereKey:@"houseID" equalTo:@"houseID"];
+        [query whereKey:@"houseID" equalTo:[defaults objectForKey:@"houseID"]];
         [query whereKey:@"assignee" equalTo:objects[0]];
         [query whereKey:@"title" equalTo:cell.title.text];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -156,10 +159,11 @@
 }
 
 - (void)remindOfChore:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     ChoreTableViewCell *cell = (ChoreTableViewCell *)[[sender superview] superview];
     PFQuery *query = [PFQuery queryWithClassName:@"User"];
     [query whereKey:@"name" equalTo:cell.assigneeName.text];
-    [query whereKey:@"houseID" equalTo:@"houseID"];
+    [query whereKey:@"houseID" equalTo:[defaults objectForKey:@"houseID"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {

@@ -46,6 +46,7 @@
         [self.createHouseButton setHidden:NO];
         [self.joinHouseButton setHidden:NO];
         [self.joinHouseButton addTarget:self action:@selector(joinHouse:) forControlEvents:UIControlEventTouchUpInside];
+        [self.createHouseButton addTarget:self action:@selector(createHouse:) forControlEvents:UIControlEventTouchUpInside];
     } else {
         [_phoneNumberField setHidden:YES];
         [_nameField setHidden:YES];
@@ -65,6 +66,14 @@
     NSString *replacementString = [NSString stringWithFormat:@"%@%@",textField.text,string];
     textField.text = [self addPhoneNumberBracesAndHiphensForString:replacementString];
     return NO;
+}
+
+- (IBAction)createHouse:(id)sender {
+    NSLog(@"creating!");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter house name: " message:nil delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Create", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    alert.delegate = self;
+    [alert show];
 }
 
 - (IBAction)addToHouse:(id)sender {
@@ -160,7 +169,7 @@
             }
         }];
     }
-    else if([title isEqual:@"Send"]) {
+    else if([title isEqualToString:@"Send"]) {
         UITextField *phoneNumberField = [alertView textFieldAtIndex:0];
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         NSDictionary *params = @{@"number": phoneNumberField.text,
@@ -170,6 +179,31 @@
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
         }];
+    } else if([title isEqualToString:@"Create"]) {
+        UITextField *houseNameField = [alertView textFieldAtIndex:0];
+        PFObject *group = [PFObject objectWithClassName:@"Group"];
+        group[@"houseName"] = houseNameField.text;
+        [group saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if(!error) {
+                // add self to this new house
+                PFQuery *query = [PFQuery queryWithClassName:@"User"];
+                [query whereKey:@"phoneNumber" equalTo:[defaults objectForKey:@"id"]];
+                [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                    if (!error) {
+                        PFObject *user = [objects objectAtIndex:0];
+                        user[@"houseID"] = houseNameField.text;
+                        [user saveInBackground];
+                        [_joinHouseButton removeTarget:self action:@selector(joinHouse:) forControlEvents:UIControlEventTouchUpInside];
+                        [_joinHouseButton setTitle:@"Add to House" forState:UIControlStateNormal];
+                        [_joinHouseButton addTarget:self action:@selector(addToHouse:) forControlEvents:UIControlEventTouchUpInside];
+                        [_createHouseButton setHidden:YES];
+                        [defaults setObject:houseNameField.text forKey:@"houseID"];
+                        [defaults synchronize];
+                    }
+                }];
+            }
+        }];
+        
     }
 }
 
