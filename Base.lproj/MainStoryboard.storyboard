@@ -88,9 +88,9 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cg4-ah-sAs">
-                                <rect key="frame" x="42" y="275" width="237" height="31"/>
+                                <rect key="frame" x="42" y="269" width="237" height="43"/>
                                 <color key="backgroundColor" red="0.99061185119999995" green="0.51704353089999999" blue="0.25419685240000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                 <state key="normal" title="Submit Expense">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -123,7 +123,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HDS-pq-ddX">
-                                <rect key="frame" x="34" y="129" width="252" height="100"/>
+                                <rect key="frame" x="34" y="129" width="252" height="162"/>
                                 <connections>
                                     <outlet property="dataSource" destination="MGD-Mx-Ime" id="yTU-W8-cto"/>
                                     <outlet property="delegate" destination="MGD-Mx-Ime" id="1gk-WH-iZv"/>
@@ -181,11 +181,88 @@
                         <segue destination="N7Q-rS-5Q7" kind="relationship" relationship="viewControllers" id="qzs-Bb-prH"/>
                         <segue destination="Xga-E8-gft" kind="relationship" relationship="viewControllers" id="qsg-eZ-7Du"/>
                         <segue destination="Zdf-oS-d8g" kind="relationship" relationship="viewControllers" id="mCd-AX-m2z"/>
+                        <segue destination="DuN-sp-jpR" kind="relationship" relationship="viewControllers" id="5Mb-2O-1tA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tCV-K7-QfO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-383" y="454"/>
+        </scene>
+        <!--Me-->
+        <scene sceneID="OPt-wR-QCo">
+            <objects>
+                <viewController storyboardIdentifier="AccountViewController" title="Me" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DuN-sp-jpR" customClass="AccountViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eA8-Md-uCX"/>
+                        <viewControllerLayoutGuide type="bottom" id="hM0-4a-JPi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tZM-34-7Hb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJU-kR-pZx">
+                                <rect key="frame" x="16" y="180" width="288" height="45"/>
+                                <color key="backgroundColor" red="0.99061185119999995" green="0.51704353089999999" blue="0.25419685240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWR-zS-Cwn">
+                                <rect key="frame" x="16" y="276" width="288" height="45"/>
+                                <color key="backgroundColor" red="0.99061185119999995" green="0.51704353089999999" blue="0.25419685240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Create House">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="(555)-123-4567" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OCg-gp-10O" customClass="TSValidatedTextField">
+                                <rect key="frame" x="16" y="142" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Acg-6W-Wnd">
+                                <rect key="frame" x="16" y="105" width="288" height="36"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLo-Ug-cj4">
+                                <rect key="frame" x="16" y="28" width="288" height="36"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bobby Smith" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m4c-ap-yrx">
+                                <rect key="frame" x="16" y="72" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQQ-QE-h6y">
+                                <rect key="frame" x="16" y="228" width="288" height="45"/>
+                                <color key="backgroundColor" red="0.99061185119999995" green="0.51704353089999999" blue="0.25419685240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Join House">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Account" image="user_male" id="tYf-7B-nmS"/>
+                    <connections>
+                        <outlet property="buttonOutlet" destination="CJU-kR-pZx" id="N0V-mW-tdl"/>
+                        <outlet property="createHouseButton" destination="eWR-zS-Cwn" id="iZp-xc-0bb"/>
+                        <outlet property="joinHouseButton" destination="MQQ-QE-h6y" id="n01-Fu-Z2l"/>
+                        <outlet property="nameField" destination="m4c-ap-yrx" id="HrR-ig-1KX"/>
+                        <outlet property="nameHeader" destination="XLo-Ug-cj4" id="J0q-8G-FLV"/>
+                        <outlet property="phoneNumberField" destination="OCg-gp-10O" id="CYq-Fw-m2y"/>
+                        <outlet property="phoneNumberHeader" destination="Acg-6W-Wnd" id="RSU-ML-9cH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hlp-Qa-k2h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-102" y="1163"/>
         </scene>
         <!--Chores-->
         <scene sceneID="Rky-tk-M35">
@@ -252,36 +329,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of the chore?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rz3-3e-aCy">
-                                <rect key="frame" x="20" y="76" width="194" height="23"/>
+                                <rect key="frame" x="13" y="76" width="194" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cHU-M8-NLN">
-                                <rect key="frame" x="48" y="107" width="252" height="30"/>
+                                <rect key="frame" x="13" y="107" width="252" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Which housemate?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAd-7a-tbk">
-                                <rect key="frame" x="20" y="157" width="194" height="23"/>
+                                <rect key="frame" x="13" y="153" width="194" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="When should it be done?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2L-z1-Hcq">
-                                <rect key="frame" x="20" y="306" width="194" height="23"/>
+                                <rect key="frame" x="20" y="272" width="194" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="F55-gt-dtV">
-                                <rect key="frame" x="48" y="337" width="252" height="120"/>
+                                <rect key="frame" x="34" y="291" width="252" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="435375523.97412801">
                                     <!--2014-10-19 01:38:43 +0000-->
                                 </date>
                             </datePicker>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oyG-Un-Efk">
-                                <rect key="frame" x="48" y="157" width="252" height="120"/>
+                                <rect key="frame" x="34" y="131" width="252" height="162"/>
                                 <connections>
                                     <outlet property="dataSource" destination="JwK-tg-orq" id="rBQ-cb-49i"/>
                                     <outlet property="delegate" destination="JwK-tg-orq" id="RhI-2h-FQa"/>
@@ -300,8 +377,11 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apd-gF-unx">
-                                <rect key="frame" x="34" y="497" width="252" height="30"/>
+                                <rect key="frame" x="34" y="441" width="252" height="43"/>
+                                <color key="backgroundColor" red="0.99061185119999995" green="0.51704353089999999" blue="0.25419685240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                 <state key="normal" title="Add Chore">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -313,6 +393,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="addChoreButton" destination="Apd-gF-unx" id="PgS-ka-ZMz"/>
                         <outlet property="assigneePicker" destination="oyG-Un-Efk" id="yLU-md-tHu"/>
                         <outlet property="choreName" destination="cHU-M8-NLN" id="DKy-cG-iR2"/>
                         <outlet property="dateField" destination="F55-gt-dtV" id="DWA-hG-ZFC"/>
@@ -322,13 +403,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z3o-iq-JKF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="819" y="1002"/>
+            <point key="canvasLocation" x="819" y="939"/>
         </scene>
     </scenes>
     <resources>
         <image name="broom" width="25" height="25"/>
         <image name="shopping_cart_empty" width="25" height="25"/>
         <image name="usd" width="25" height="25"/>
+        <image name="user_male" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

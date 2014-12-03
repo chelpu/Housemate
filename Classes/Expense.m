@@ -11,12 +11,12 @@
 
 @implementation Expense
 
--(id)initWithDictionary:(NSDictionary *)dictionary {
+-(id)initWithDictionary:(NSDictionary *)dictionary objId:(NSString *)objId {
     if(self = [super init]) {
         self.amount = [[dictionary objectForKey:@"amount"] doubleValue];
         self.title = [dictionary objectForKey:@"title"];
         self.dueDate = [dictionary objectForKey:@"dueDate"];
-        self.expenseID = [dictionary objectForKey:@"objectId"];
+        self.expenseID = objId;
     }
     return self;
 }

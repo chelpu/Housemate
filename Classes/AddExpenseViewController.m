@@ -38,6 +38,7 @@
             // Do something with the found objects
             for (PFObject *object in objects) {
                 User *u = [[User alloc] initWithDictionary:(NSDictionary *)object];
+                // user defaults
                 if(![u.userID isEqualToString:@"10152791884095087"]) {
                     [_assignees addObject:u.name];
                 }
@@ -57,10 +58,18 @@
 
 - (IBAction)addPayment:(id)sender {
     PFObject *expense = [PFObject objectWithClassName:@"Expense"];
+    if(!(self.expenseName.text && self.expenseName.text.length > 0) ||
+       !(self.amountField.text && ![self.amountField.text isEqualToString:@"$"]) ) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Expense incomplete!"
+                                                        message:@"Please fill out all fields."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
     expense[@"title"] = self.expenseName.text;
     expense[@"amount"] = [NSNumber numberWithFloat:[[self.amountField.text substringFromIndex:1] floatValue]];
-    NSLog(@"%@" ,self.amountField.text);
-    // Will grab user from database eventually...
     
     NSString *name = [self pickerView:self.assigneePicker titleForRow:[self.assigneePicker selectedRowInComponent:0] forComponent:0];
     

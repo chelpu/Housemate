@@ -34,6 +34,12 @@
     [Parse setApplicationId:secrets.parseID
                   clientKey:secrets.parseKey];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if(![defaults objectForKey:@"id"]) {
+        [self showAccountViewController:YES];
+    }
+    
     return YES;
 }
 							
@@ -62,6 +68,17 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)showAccountViewController:(BOOL)animated {
+    // Get login screen from storyboard and present it
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    // "loginView" is the Storyboard Id for the Login ViewController
+    UIViewController *viewController = (UIViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AccountViewController"];
+    [self.window makeKeyAndVisible];
+    [self.window.rootViewController presentViewController:viewController
+                                                 animated:animated
+                                               completion:nil];
 }
 
 @end

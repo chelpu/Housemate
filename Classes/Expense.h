@@ -18,6 +18,6 @@
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *expenseID;
 
--(id)initWithDictionary:(NSDictionary *)dictionary;
+-(id)initWithDictionary:(NSDictionary *)dictionary objId:(NSString *)objId;
 
 @end

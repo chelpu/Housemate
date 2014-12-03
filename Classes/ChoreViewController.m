@@ -24,6 +24,16 @@
 {
     [super viewDidLoad];
     
+    [self getNewData];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor HMpeachColor];
+    self.refreshControl.tintColor = [UIColor whiteColor];
+    [self.refreshControl addTarget:nil
+                            action:@selector(getNewData)
+                  forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
+    
     self.navigationBar.barTintColor = [UIColor HMbloodOrangeColor];
     self.navigationBar.barStyle = UIBarStyleBlack;
     [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
@@ -34,15 +44,10 @@
     UINib *nib = [UINib nibWithNibName:@"ChoreTableViewCell" bundle:nil];
     [[self tableView] registerNib:nib forCellReuseIdentifier:@"ChoreTableViewCell"];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.separatorColor = [UIColor HMpeachColor];
 
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    _chores = [[NSMutableArray alloc] init];
-    [self getNewData];
-}
-
-// TODO: actually get ONLY new data
 - (void)getNewData {
     PFQuery *query = [PFQuery queryWithClassName:@"Chore"];
     [query whereKey:@"houseID" equalTo:@"houseID"];
@@ -51,10 +56,23 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
-                Chore *c = [[Chore alloc] initWithDictionary:(NSDictionary *)object];
+                Chore *c = [[Chore alloc] initWithDictionary:(NSDictionary *)object objId:[object objectId
+                                                                                           ]];
                 PFObject *user = [object objectForKey:@"assignee"];
                 c.assignee = [[User alloc] initWithDictionary:(NSDictionary *)user];
-                [_chores addObject:c];
+                
+                BOOL found = NO;
+                for(Chore *existing in _chores) {
+                    if([existing.choreID isEqualToString:c.choreID]) {
+                        found = YES;
+                    }
+                }
+                if(!found) {
+                    [_chores insertObject:c atIndex:0];
+                }
+            }
+            if (self.refreshControl) {
+                [self.refreshControl endRefreshing];
             }
             [self.tableView reloadData];
         } else {
@@ -89,6 +107,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChoreTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"ChoreTableViewCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     Chore *c = [_chores objectAtIndex:indexPath.row];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];

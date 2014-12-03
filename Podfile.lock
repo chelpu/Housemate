@@ -27,6 +27,7 @@ PODS:
   - Parse (1.4.1):
     - Bolts (~> 1.1.2)
   - SSKeychain (1.2.2)
+  - TSValidatedTextField (1.0.0)
   - VENCore (3.0.1):
     - CMDQueryStringSerialization (~> 0.2.0)
   - Venmo-iOS-SDK (1.3.0):
@@ -40,6 +41,7 @@ DEPENDENCIES:
   - KAWebViewController (~> 0.2)
   - MFSideMenu
   - Parse (~> 1.4)
+  - TSValidatedTextField (~> 1.0)
   - Venmo-iOS-SDK (~> 1.3)
 
 SPEC CHECKSUMS:
@@ -51,6 +53,7 @@ SPEC CHECKSUMS:
   MFSideMenu: 0493b0f57385dd036cc5443407a31fda6dee81ac
   Parse: db1a09c832b7509edcc88a65dc07229f5e578c73
   SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
+  TSValidatedTextField: 5f90b3b777f8c739a7ba7f5c452cb82171c6655f
   VENCore: 944d7fc21a27670cf57342b35ce3d715ce514ca5
   Venmo-iOS-SDK: 2915f7c1df71c51025409be9f507a341248b8735
 

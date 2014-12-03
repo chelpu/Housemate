@@ -41,7 +41,8 @@
     
     UINib *nib = [UINib nibWithNibName:@"ExpenseTableViewCell" bundle:nil];
     [[self tableView] registerNib:nib forCellReuseIdentifier:@"ExpenseTableViewCell"];
-    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.separatorColor = [UIColor HMpeachColor];
 }
 
 - (void)getNewData {
@@ -53,14 +54,13 @@
         if (!error) {
             // The find succeeded.
             NSLog(@"Successfully retrieved %lu expenses.", (unsigned long)[objects count]);
-            
+            NSMutableArray *curExpenses = [[NSMutableArray alloc] init];
             for (PFObject *object in objects) {
-                Expense *e = [[Expense alloc] initWithDictionary:(NSDictionary *)object];
+                Expense *e = [[Expense alloc] initWithDictionary:(NSDictionary *)object objId:[object objectId]];
                 PFObject *user = [object objectForKey:@"assignee"];
                 PFObject *charger = [object objectForKey:@"charger"];
                 e.payer = [[User alloc] initWithDictionary:(NSDictionary *)user];
                 e.charger = [[User alloc] initWithDictionary:(NSDictionary *)charger];
-//                [_expenses addObject:e];
                 
                 BOOL found = NO;
                 for(Expense *existing in _expenses) {
@@ -72,7 +72,23 @@
                 if(!found) {
                     [_expenses insertObject:e atIndex:0];
                 }
+                
+                [curExpenses addObject:e];
             }
+            
+            NSMutableArray *removed = [[NSMutableArray alloc] initWithArray:_expenses];
+            for(Expense *old in _expenses) {
+                for(Expense *cur in curExpenses) {
+                    if([old.expenseID isEqualToString: cur.expenseID]) {
+                        [removed removeObject:old];
+                    }
+                }
+            }
+            
+            for(Expense *remExpense in removed) {
+                [_expenses removeObject:remExpense];
+            }
+            
             [self.tableView reloadData];
             
             if (self.refreshControl) {
@@ -109,6 +125,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ExpenseTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"ExpenseTableViewCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     Expense *e = [_expenses objectAtIndex:indexPath.row];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM/dd/yyyy"];

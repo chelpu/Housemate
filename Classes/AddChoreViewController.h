@@ -15,5 +15,6 @@
 @property (strong, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *navigationBarButton;
 
+@property (strong, nonatomic) IBOutlet UIButton *addChoreButton;
 
 @end

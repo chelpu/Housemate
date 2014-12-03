@@ -26,6 +26,8 @@
     [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     self.navigationBar.tintColor = [UIColor whiteColor];
     
+    self.addChoreButton.layer.cornerRadius = 5;
+    self.addChoreButton.backgroundColor = [UIColor HMtangerineColor];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                           action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
@@ -36,20 +38,19 @@
     [query whereKey:@"houseID" equalTo:@"houseID"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            // The find succeeded.
-            // Do something with the found objects
             for (PFObject *object in objects) {
                 User *u = [[User alloc] initWithDictionary:(NSDictionary *)object];
-                [_assignees addObject:u.name];
+                // user defaults
+                if(![u.userID isEqualToString:@"10152791884095087"]) {
+                    [_assignees addObject:u.name];
+                }
             }
             [self.assigneePicker reloadAllComponents];
         } else {
-            // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
 
-    // Do any additional setup after loading the view.
 }
 
 - (void)dismissKeyboard {
@@ -62,11 +63,21 @@
 }
 
 - (IBAction)addChore:(id)sender {
+    if(!(self.choreName.text && self.choreName.text.length > 0)) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Chore incomplete!"
+                                                        message:@"Please fill out all fields."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+
     PFObject *chore = [PFObject objectWithClassName:@"Chore"];
+
+    
     chore[@"dueDate"] = self.dateField.date;
     chore[@"title"] = self.choreName.text;
-
-    // Will grab user from database eventually...
     
     NSString *name = [self pickerView:self.assigneePicker titleForRow:[self.assigneePicker selectedRowInComponent:0] forComponent:0];
     

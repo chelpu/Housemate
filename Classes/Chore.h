@@ -14,7 +14,8 @@
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) User *assignee;
 @property (strong, nonatomic) NSDate *dueDate;
+@property (strong, nonatomic) NSString *choreID;
 
--(id)initWithDictionary:(NSDictionary *)dictionary;
+-(id)initWithDictionary:(NSDictionary *)dictionary objId:(NSString *)objId;
 
 @end
