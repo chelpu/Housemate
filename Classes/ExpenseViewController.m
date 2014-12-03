@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 #import <KAWebViewController/KAWebViewController.h>
 #import "Expense.h"
+#import <AFHTTPRequestOperationManager.h>
 
 @interface ExpenseViewController ()
 
@@ -150,6 +151,33 @@
 
 - (void)remind:(id)sender {
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    ExpenseTableViewCell *cell = (ExpenseTableViewCell *)[[sender superview] superview];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    Expense *e = [_expenses objectAtIndex:indexPath.row];
+    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    [query whereKey:@"name" equalTo:cell.assigneeName.text];
+    [query whereKey:@"houseID" equalTo:[defaults objectForKey:@"houseID"]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                User *user = [[User alloc] initWithDictionary:(NSDictionary *)object];
+                AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+                NSDictionary *params = @{@"number": user.phoneNumber,
+                                         @"expense": cell.title.text,
+                                         @"name": user.name,
+                                         @"requesterName": e.charger.name};
+                [manager GET:@"http://housem8.ngrok.com/expenseRemind" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    NSLog(@"Error: %@", error);
+                }];
+                
+            }
+        } else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
 }
 
 - (void)payForItem:(id)sender {

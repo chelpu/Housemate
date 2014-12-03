@@ -8,6 +8,7 @@
 
 #import "AccountViewController.h"
 #import <Parse/Parse.h>
+#import <AFHTTPRequestOperationManager.h>
 
 @interface AccountViewController ()
 
@@ -54,6 +55,7 @@
         [self.createHouseButton setHidden:YES];
         [_joinHouseButton removeTarget:self action:@selector(joinHouse:) forControlEvents:UIControlEventTouchUpInside];
         [_joinHouseButton setTitle:@"Add to House" forState:UIControlStateNormal];
+        [_joinHouseButton addTarget:self action:@selector(addToHouse:) forControlEvents:UIControlEventTouchUpInside];
         [self.joinHouseButton setHidden:NO];
 
     }
@@ -63,6 +65,14 @@
     NSString *replacementString = [NSString stringWithFormat:@"%@%@",textField.text,string];
     textField.text = [self addPhoneNumberBracesAndHiphensForString:replacementString];
     return NO;
+}
+
+- (IBAction)addToHouse:(id)sender {
+    NSLog(@"adding!");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"What's their phone number?" message:nil delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Send", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    alert.delegate = self;
+    [alert show];
 }
 
 
@@ -126,13 +136,13 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
-    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
     if([title isEqualToString:@"Join"])
     {
         UITextField *houseID = [alertView textFieldAtIndex:0];
         
         // get user
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         PFQuery *query = [PFQuery queryWithClassName:@"User"];
         [query whereKey:@"phoneNumber" equalTo:[defaults objectForKey:@"id"]];
         NSLog(@"%@", [defaults objectForKey:@"id"]);
@@ -143,8 +153,22 @@
                 [user saveInBackground];
                 [_joinHouseButton removeTarget:self action:@selector(joinHouse:) forControlEvents:UIControlEventTouchUpInside];
                 [_joinHouseButton setTitle:@"Add to House" forState:UIControlStateNormal];
+                [_joinHouseButton addTarget:self action:@selector(addToHouse:) forControlEvents:UIControlEventTouchUpInside];
+                [_createHouseButton setHidden:YES];
                 [defaults setObject:houseID.text forKey:@"houseID"];
+                [defaults synchronize];
             }
+        }];
+    }
+    else if([title isEqual:@"Send"]) {
+        UITextField *phoneNumberField = [alertView textFieldAtIndex:0];
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        NSDictionary *params = @{@"number": phoneNumberField.text,
+                                 @"house_id": [defaults objectForKey:@"houseID"],
+                                 @"name": [defaults objectForKey:@"name"]};
+        [manager GET:@"http://housem8.ngrok.com/invite" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
         }];
     }
 }
