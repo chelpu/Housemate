@@ -21,13 +21,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0v-z0-Hy2">
-                        <rect key="frame" x="198" y="10" width="97" height="26"/>
+                        <rect key="frame" x="213" y="10" width="97" height="26"/>
                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ch-fa-U0o">
-                        <rect key="frame" x="214" y="46" width="81" height="28"/>
+                        <rect key="frame" x="229" y="46" width="81" height="28"/>
                         <color key="backgroundColor" red="0.98431384563446045" green="0.62779569625854492" blue="0.43109047412872314" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                         <state key="normal" title="Remind">

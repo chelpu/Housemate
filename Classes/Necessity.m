@@ -10,10 +10,11 @@
 
 @implementation Necessity
 
--(id)initWithDictionary:(NSDictionary *)dictionary {
+-(id)initWithDictionary:(NSDictionary *)dictionary objId:(NSString *)objId {
     if(self = [super init]) {
         self.name = [dictionary objectForKey:@"name"];
         self.dateNeeded = [dictionary objectForKey:@"dateNeeded"];
+        self.necID = objId;
     }
     return self;
 }

@@ -12,7 +12,8 @@
 
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSDate *dateNeeded;
+@property (strong, nonatomic) NSString *necID;
 
--(id)initWithDictionary:(NSDictionary *)dictionary;
+-(id)initWithDictionary:(NSDictionary *)dictionary objId:(NSString *)objId;
 
 @end

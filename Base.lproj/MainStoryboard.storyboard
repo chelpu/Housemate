@@ -18,16 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ta3-Y2-fLU">
-                                <rect key="frame" x="0.0" y="66" width="320" height="453"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ta3-Y2-fLU">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Xga-E8-gft" id="TMc-yB-55a"/>
                                     <outlet property="delegate" destination="Xga-E8-gft" id="1xA-ip-tra"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VZg-nZ-eTu">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VZg-nZ-eTu">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="Expenses" id="s8Z-V7-gyx">
                                         <barButtonItem key="rightBarButtonItem" title="+" id="hxx-Fs-Ijr">
@@ -40,12 +40,6 @@
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="ta3-Y2-fLU" secondAttribute="trailing" constant="-16" id="8w8-fq-71E"/>
-                            <constraint firstItem="ta3-Y2-fLU" firstAttribute="top" secondItem="VZg-nZ-eTu" secondAttribute="bottom" id="QsI-SW-LMU"/>
-                            <constraint firstItem="6BK-cy-FmF" firstAttribute="top" secondItem="ta3-Y2-fLU" secondAttribute="bottom" id="dc6-7l-hkN"/>
-                            <constraint firstItem="ta3-Y2-fLU" firstAttribute="leading" secondItem="r29-iG-fIY" secondAttribute="leadingMargin" constant="-16" id="ta8-W7-qOi"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Expenses" image="usd" id="gsJ-jz-oxl"/>
                     <connections>
@@ -150,7 +144,7 @@
         <!--Shopping-->
         <scene sceneID="mUi-g4-voa">
             <objects>
-                <viewController id="Zdf-oS-d8g" sceneMemberID="viewController">
+                <viewController id="Zdf-oS-d8g" customClass="ShoppingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n7u-ty-wt9"/>
                         <viewControllerLayoutGuide type="bottom" id="E0R-hu-UzT"/>
@@ -158,14 +152,119 @@
                     <view key="view" contentMode="scaleToFill" id="nfm-1l-aV6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xGz-Mh-fDb">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Zdf-oS-d8g" id="JtP-1K-tBA"/>
+                                    <outlet property="delegate" destination="Zdf-oS-d8g" id="8RX-mA-F1X"/>
+                                </connections>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BN6-h8-7Kl">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Shopping" id="LWj-qf-iye">
+                                        <barButtonItem key="rightBarButtonItem" title="+" id="CXL-zx-1bv">
+                                            <connections>
+                                                <segue destination="3tj-iv-M5L" kind="modal" id="aCx-PQ-PxY"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Shopping" image="shopping_cart_empty" id="CTI-NJ-lSi"/>
                     <navigationItem key="navigationItem" id="znH-aJ-UH6"/>
+                    <connections>
+                        <outlet property="addButtonItem" destination="LWj-qf-iye" id="TTL-kF-8sc"/>
+                        <outlet property="navigationBar" destination="BN6-h8-7Kl" id="Or6-V4-GaG"/>
+                        <outlet property="tableView" destination="xGz-Mh-fDb" id="teb-vR-Nlo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mnL-90-oJW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="834" y="294"/>
+        </scene>
+        <!--Add Necessity View Controller-->
+        <scene sceneID="XDS-e2-pGf">
+            <objects>
+                <viewController id="3tj-iv-M5L" customClass="AddNecessityViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uGM-jP-DxC"/>
+                        <viewControllerLayoutGuide type="bottom" id="xln-cL-vIH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lZb-Df-d9e">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WPh-ZK-Vxd">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Add Necessity" id="bRZ-lH-0qZ">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6RU-12-xLM">
+                                            <connections>
+                                                <action selector="cancel:" destination="3tj-iv-M5L" id="z4J-EL-CsM"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What does the house need?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqc-AC-qxw">
+                                <rect key="frame" x="16" y="75" width="252" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Frm-50-QUf">
+                                <rect key="frame" x="16" y="106" width="252" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="When is it needed by?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPC-Oo-8uj">
+                                <rect key="frame" x="16" y="148" width="194" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="kR5-he-mue">
+                                <rect key="frame" x="34" y="176" width="252" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="435375523.97412801">
+                                    <!--2014-10-19 01:38:43 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gm-Kg-rh4">
+                                <rect key="frame" x="34" y="350" width="252" height="43"/>
+                                <color key="backgroundColor" red="0.99061185119999995" green="0.51704353089999999" blue="0.25419685240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
+                                <state key="normal" title="Add Necessity">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addChore:" destination="WTD-Sp-eP5" eventType="touchUpInside" id="Lyb-UP-96s"/>
+                                    <action selector="addNecessity:" destination="3tj-iv-M5L" eventType="touchUpInside" id="nwR-e4-D7G"/>
+                                    <action selector="addPayment:" destination="MGD-Mx-Ime" eventType="touchUpInside" id="mDo-xy-rJa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="addNecessityButton" destination="6gm-Kg-rh4" id="RQm-Sx-yhj"/>
+                        <outlet property="cancelButton" destination="bRZ-lH-0qZ" id="eAc-dJ-GZo"/>
+                        <outlet property="datePicker" destination="kR5-he-mue" id="1DH-dE-o1g"/>
+                        <outlet property="navigationBar" destination="WPh-ZK-Vxd" id="AxC-AT-onw"/>
+                        <outlet property="needLabel" destination="cqc-AC-qxw" id="8fy-Ff-zes"/>
+                        <outlet property="needTextField" destination="Frm-50-QUf" id="C6Y-IW-aPA"/>
+                        <outlet property="neededByLabel" destination="pPC-Oo-8uj" id="DX4-Qy-C3b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t3q-gc-lW9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1344" y="272"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="E22-sE-IfR">
@@ -402,6 +501,95 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z3o-iq-JKF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="819" y="939"/>
+        </scene>
+        <!--Add Chore View Controller-->
+        <scene sceneID="Bkc-rb-PKV">
+            <objects>
+                <viewController id="WTD-Sp-eP5" customClass="AddChoreViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QPh-Cc-LBY"/>
+                        <viewControllerLayoutGuide type="bottom" id="ydU-qj-4QP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Nd-HD-rcY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of the chore?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Sy-UM-Nxc">
+                                <rect key="frame" x="13" y="76" width="194" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IWP-Mc-Hrr">
+                                <rect key="frame" x="13" y="107" width="252" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Which housemate?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZN-UB-Jlg">
+                                <rect key="frame" x="13" y="153" width="194" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="When should it be done?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jl-5U-hS2">
+                                <rect key="frame" x="20" y="272" width="194" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="zJ3-cB-PDn">
+                                <rect key="frame" x="34" y="291" width="252" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="435375523.97412801">
+                                    <!--2014-10-19 01:38:43 +0000-->
+                                </date>
+                            </datePicker>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wfz-8U-ZC5">
+                                <rect key="frame" x="34" y="131" width="252" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="WTD-Sp-eP5" id="Lts-JY-f3O"/>
+                                    <outlet property="delegate" destination="WTD-Sp-eP5" id="87E-mj-IWW"/>
+                                </connections>
+                            </pickerView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xU9-AA-cIx">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Add Chore" id="GeK-IK-MhL">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="NxX-e6-VHw">
+                                            <connections>
+                                                <action selector="cancel:" destination="WTD-Sp-eP5" id="c1W-CT-1Fw"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="br5-cF-C9i">
+                                <rect key="frame" x="34" y="441" width="252" height="43"/>
+                                <color key="backgroundColor" red="0.99061185119999995" green="0.51704353089999999" blue="0.25419685240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
+                                <state key="normal" title="Add Chore">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addChore:" destination="WTD-Sp-eP5" eventType="touchUpInside" id="Rpo-zh-hko"/>
+                                    <action selector="addPayment:" destination="MGD-Mx-Ime" eventType="touchUpInside" id="bGN-K9-OpW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="addChoreButton" destination="br5-cF-C9i" id="oQJ-o2-95F"/>
+                        <outlet property="assigneePicker" destination="Wfz-8U-ZC5" id="veS-iv-L8L"/>
+                        <outlet property="choreName" destination="IWP-Mc-Hrr" id="jEe-Uh-7PV"/>
+                        <outlet property="dateField" destination="zJ3-cB-PDn" id="BUu-xg-E9u"/>
+                        <outlet property="navigationBar" destination="xU9-AA-cIx" id="Qkk-FB-49L"/>
+                        <outlet property="navigationBarButton" destination="NxX-e6-VHw" id="hjq-a5-BMd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C4Q-f4-anY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="819" y="939"/>
         </scene>
