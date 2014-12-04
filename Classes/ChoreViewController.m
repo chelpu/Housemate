@@ -20,11 +20,15 @@
     NSMutableArray *_chores;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self getNewData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    [self getNewData];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor HMpeachColor];
@@ -121,7 +125,7 @@
     
     cell.title.text = c.title;
     cell.assigneeName.text = c.assignee.name;
-    cell.dueDate.text = [formatter stringFromDate:c.dueDate];
+    cell.dueDate.text = [NSString stringWithFormat:@"Get done by: %@", [formatter stringFromDate:c.dueDate]];
     
     cell.completeButton.backgroundColor = [UIColor HMtangerineColor];
     

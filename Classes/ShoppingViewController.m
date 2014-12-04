@@ -21,12 +21,16 @@
 
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self getNewData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     _necessities = [[NSMutableArray alloc] init];
     
-    [self getNewData];
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor HMpeachColor];
     self.refreshControl.tintColor = [UIColor whiteColor];

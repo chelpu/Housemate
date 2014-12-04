@@ -27,7 +27,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ch-fa-U0o">
-                        <rect key="frame" x="229" y="46" width="81" height="28"/>
+                        <rect key="frame" x="227" y="47" width="85" height="32"/>
                         <color key="backgroundColor" red="0.98431384563446045" green="0.62779569625854492" blue="0.43109047412872314" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                         <state key="normal" title="Remind">

@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uga-pH-U2E">
-                        <rect key="frame" x="22" y="70" width="171" height="20"/>
+                        <rect key="frame" x="22" y="72" width="197" height="20"/>
                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -33,7 +33,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="see-tU-Nq8">
-                        <rect key="frame" x="226" y="35" width="84" height="31"/>
+                        <rect key="frame" x="227" y="60" width="85" height="32"/>
                         <color key="backgroundColor" red="0.99061185119999995" green="0.51704353089999999" blue="0.25419685240000001" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                         <state key="normal" title="Complete">
@@ -49,7 +49,7 @@
                 <outlet property="dueDate" destination="uga-pH-U2E" id="Xtg-1C-EUE"/>
                 <outlet property="title" destination="Eci-S1-tYm" id="wH6-Rr-KHn"/>
             </connections>
-            <point key="canvasLocation" x="140" y="154"/>
+            <point key="canvasLocation" x="140" y="153"/>
         </tableViewCell>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

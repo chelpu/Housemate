@@ -22,12 +22,16 @@
     NSMutableArray *_expenses;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self getNewData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     _expenses = [[NSMutableArray alloc] init];
     
-    [self getNewData];
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor HMpeachColor];
     self.refreshControl.tintColor = [UIColor whiteColor];
@@ -207,6 +211,8 @@
 }
 
 - (void)payForItem:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     ExpenseTableViewCell *cell = (ExpenseTableViewCell *)[[sender superview] superview];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     Expense *e = [_expenses objectAtIndex:indexPath.row];
@@ -217,7 +223,29 @@
     KAWModalWebViewController *kaw = [[KAWModalWebViewController alloc] init];
     kaw.url = url;
 
-    [self presentViewController:kaw animated:YES completion:^{}];
+    [self presentViewController:kaw animated:YES completion:^{
+        
+        PFQuery *assigneeQuery = [PFQuery queryWithClassName:@"User"];
+        [assigneeQuery whereKey:@"name" equalTo:cell.assigneeName.text];
+        [assigneeQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            PFQuery *query = [PFQuery queryWithClassName:@"Expense"];
+            [query whereKey:@"houseID" equalTo:[defaults objectForKey:@"houseID"]];
+            [query whereKey:@"assignee" equalTo:objects[0]];
+            [query whereKey:@"title" equalTo:cell.title.text];
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if (!error) {
+                    [PFObject deleteAllInBackground:objects];
+                } else {
+                    // Log details of the failure
+                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+                }
+            }];
+        }];
+        
+        NSArray *ips = @[indexPath];
+        [_expenses removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationAutomatic];
+    }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
