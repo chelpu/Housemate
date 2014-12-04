@@ -12,6 +12,7 @@
 #import <KAWebViewController/KAWebViewController.h>
 #import "Expense.h"
 #import <AFHTTPRequestOperationManager.h>
+#import "Secrets.h"
 
 @interface ExpenseViewController ()
 
@@ -48,6 +49,10 @@
 
 - (void)getNewData {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if(![defaults objectForKey:@"houseID"]) {
+        return;
+    }
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Expense"];
     [query whereKey:@"houseID" equalTo:[defaults objectForKey:@"houseID"]];
     [query includeKey:@"assignee"];
@@ -158,6 +163,10 @@
     ExpenseTableViewCell *cell = (ExpenseTableViewCell *)[[sender superview] superview];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     Expense *e = [_expenses objectAtIndex:indexPath.row];
+    
+    NSString *fullURL = [NSString stringWithFormat:@"https://venmo.com/?txn=pay&amount=%f&note=%@&audience=public&recipients=%@", e.amount, e.title, e.charger.phoneNumber];
+    NSString *encodedFull = [fullURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
     PFQuery *query = [PFQuery queryWithClassName:@"User"];
     [query whereKey:@"name" equalTo:cell.assigneeName.text];
     [query whereKey:@"houseID" equalTo:[defaults objectForKey:@"houseID"]];
@@ -166,14 +175,29 @@
             for (PFObject *object in objects) {
                 User *user = [[User alloc] initWithDictionary:(NSDictionary *)object];
                 AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-                NSDictionary *params = @{@"number": user.phoneNumber,
-                                         @"expense": cell.title.text,
-                                         @"name": user.name,
-                                         @"requesterName": e.charger.name};
-                [manager GET:@"http://housem8.ngrok.com/expenseRemind" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                Secrets *s = [[Secrets alloc] init];
+                NSDictionary *bitlyParams = @{@"access_token": s.bitlyToken,
+                                              @"longUrl": encodedFull};
+                [manager GET:@"https://api-ssl.bitly.com/v3/shorten" parameters:bitlyParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    NSDictionary *data = (NSDictionary *)responseObject[@"data"];
+                    NSString *shortUrlString = [NSString stringWithString:data[@"url"]];
+                    NSString *encoded = [shortUrlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                    
+                    NSDictionary *params = @{@"number": user.phoneNumber,
+                                             @"expense": cell.title.text,
+                                             @"name": user.name,
+                                             @"requesterName": e.charger.name,
+                                              @"url": encoded};
+                    [manager GET:@"http://housem8.ngrok.com/expenseRemind" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                        NSLog(@"Error: %@", error);
+                    }];
+                    
                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                    NSLog(@"Error: %@", error);
+                    NSLog(@"Bitly failed");
                 }];
+                
+                
                 
             }
         } else {

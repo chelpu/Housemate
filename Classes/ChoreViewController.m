@@ -50,6 +50,10 @@
 
 - (void)getNewData {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if(![defaults objectForKey:@"houseID"]) {
+        return;
+    }
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Chore"];
     [query whereKey:@"houseID" equalTo:[defaults objectForKey:@"houseID"]];
     [query includeKey:@"assignee"];

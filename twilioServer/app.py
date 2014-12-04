@@ -25,6 +25,7 @@ def expenseRemind():
     name = request.args.get('name', '')
     requesterName = request.args.get('requesterName', '')
     expense = request.args.get('expense', '')
+    url = request.args.get('url', '')
     # twil_client = TwilioRestClient(os.environ['TWILIO_ACCOUNT_SID'], os.environ['TWILIO_AUTH_TOKEN'])
      
     print to_num
@@ -32,7 +33,7 @@ def expenseRemind():
     print name 
 
     # message = twil_client.messages.create(body="Hey, " + name + "! Could you please " + chore, to="+"+to_num, from_="+15005550006")
-    print "Hey, " + name + "! Could you please pay " + requesterName + " for " + expense + "? You can pay in the Housemate app."
+    print "Hey, " + name + "! Could you please pay " + requesterName + " for " + expense + "? Pay here: " + url
     return 'OK'
 
 @app.route("/invite")

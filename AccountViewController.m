@@ -63,13 +63,12 @@
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSString *replacementString = [NSString stringWithFormat:@"%@%@",textField.text,string];
+    NSString *replacementString = [NSString stringWithFormat:@"%@",textField.text];
     textField.text = [self addPhoneNumberBracesAndHiphensForString:replacementString];
-    return NO;
+    return YES;
 }
 
 - (IBAction)createHouse:(id)sender {
-    NSLog(@"creating!");
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter house name: " message:nil delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Create", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     alert.delegate = self;
@@ -77,7 +76,6 @@
 }
 
 - (IBAction)addToHouse:(id)sender {
-    NSLog(@"adding!");
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"What's their phone number?" message:nil delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Send", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     alert.delegate = self;
@@ -93,7 +91,6 @@
     aString = [aString stringByReplacingOccurrencesOfString:@"-" withString:@""];
     
     NSMutableString *hippenedString = [NSMutableString stringWithString:aString];
-    //NSLog(@"Removed String %@",hippenedString);
     
     if (hippenedString.length > 0 && hippenedString.length < 4) {
         [hippenedString insertString:@"(" atIndex:0];
@@ -153,6 +150,7 @@
         
         // get user
         PFQuery *query = [PFQuery queryWithClassName:@"User"];
+        
         [query whereKey:@"phoneNumber" equalTo:[defaults objectForKey:@"id"]];
         NSLog(@"%@", [defaults objectForKey:@"id"]);
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -175,6 +173,7 @@
         NSDictionary *params = @{@"number": phoneNumberField.text,
                                  @"house_id": [defaults objectForKey:@"houseID"],
                                  @"name": [defaults objectForKey:@"name"]};
+        
         [manager GET:@"http://housem8.ngrok.com/invite" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
@@ -191,13 +190,13 @@
                 [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                     if (!error) {
                         PFObject *user = [objects objectAtIndex:0];
-                        user[@"houseID"] = houseNameField.text;
+                        user[@"houseID"] = [group objectId];
                         [user saveInBackground];
                         [_joinHouseButton removeTarget:self action:@selector(joinHouse:) forControlEvents:UIControlEventTouchUpInside];
                         [_joinHouseButton setTitle:@"Add to House" forState:UIControlStateNormal];
                         [_joinHouseButton addTarget:self action:@selector(addToHouse:) forControlEvents:UIControlEventTouchUpInside];
                         [_createHouseButton setHidden:YES];
-                        [defaults setObject:houseNameField.text forKey:@"houseID"];
+                        [defaults setObject:[group objectId] forKey:@"houseID"];
                         [defaults synchronize];
                     }
                 }];
@@ -206,15 +205,5 @@
         
     }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
