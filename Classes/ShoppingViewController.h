@@ -14,5 +14,7 @@
 @property (strong, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (strong, nonatomic) IBOutlet UINavigationItem *addButtonItem;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) UILabel *noResultsLabel;
+@property (strong, nonatomic) UILabel *noHousematesLabel;
 
 @end

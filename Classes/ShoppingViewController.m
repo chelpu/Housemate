@@ -29,6 +29,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _noHousematesLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 60.0, 300.0, 45.0)];
+    _noHousematesLabel.textColor = [UIColor HMcharcoalColor];
+    _noHousematesLabel.text = @"No housemates! Add some.";
+    _noHousematesLabel.textAlignment = NSTextAlignmentCenter;
+    _noHousematesLabel.font = [UIFont fontWithName:@"Verdana" size:17.0];
+    
+    _noResultsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 60.0, 300.0, 45.0)];
+    _noResultsLabel.textColor = [UIColor HMcharcoalColor];
+    _noResultsLabel.text = @"You don't need anything!";
+    _noResultsLabel.textAlignment = NSTextAlignmentCenter;
+    _noResultsLabel.font = [UIFont fontWithName:@"Verdana" size:17.0];
+    
+    [self.view addSubview:_noHousematesLabel];
+    [self.view addSubview:_noResultsLabel];
+    
     _necessities = [[NSMutableArray alloc] init];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -41,7 +56,7 @@
     
     self.navigationBar.barTintColor = [UIColor HMbloodOrangeColor];
     self.navigationBar.barStyle = UIBarStyleBlack;
-    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     self.navigationBar.tintColor = [UIColor whiteColor];
     
     UINib *nib = [UINib nibWithNibName:@"NecessityTableViewCell" bundle:nil];
@@ -53,43 +68,31 @@
 - (void)getNewData {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if(![defaults objectForKey:@"houseID"]) {
+        // display no housemates
+        [_noResultsLabel setHidden:YES];
+        [_noHousematesLabel setHidden:NO];
         return;
+    } else {
+        [_noHousematesLabel setHidden:YES];
     }
     
     PFQuery *query = [PFQuery queryWithClassName:@"Necessity"];
     [query whereKey:@"houseID" equalTo:[defaults objectForKey:@"houseID"]];
+    
+    [_necessities removeAllObjects];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            // The find succeeded.
-            NSMutableArray *curNecessities = [[NSMutableArray alloc] init];
+            if(![objects count]) {
+                // display no results
+                [_noHousematesLabel setHidden:YES];
+                [_noResultsLabel setHidden:NO];
+            } else {
+                [_noResultsLabel setHidden:YES];
+            }
+            
             for (PFObject *object in objects) {
                 Necessity *n = [[Necessity alloc] initWithDictionary:(NSDictionary *)object objId:[object objectId]];
-                
-                BOOL found = NO;
-                for(Necessity *existing in _necessities) {
-                    if([existing.necID isEqualToString:n.necID]) {
-                        found = YES;
-                        NSLog(@" %@, %@", existing.necID, n.necID);
-                    }
-                }
-                if(!found) {
-                    [_necessities insertObject:n atIndex:0];
-                }
-                
-                [curNecessities addObject:n];
-            }
-            
-            NSMutableArray *removed = [[NSMutableArray alloc] initWithArray:_necessities];
-            for(Necessity *old in _necessities) {
-                for(Necessity *cur in curNecessities) {
-                    if([old.necID isEqualToString: cur.necID]) {
-                        [removed removeObject:old];
-                    }
-                }
-            }
-            
-            for(Necessity *remNec in removed) {
-                [_necessities removeObject:remNec];
+                [_necessities addObject:n];
             }
             
             [self.tableView reloadData];
@@ -134,7 +137,7 @@
     [formatter setDateFormat:@"MM/dd/yyyy"];
     
     cell.nameLabel.text = n.name;
-    cell.dueDateLabel.text = [NSString stringWithFormat:@"Needed by: %@",[formatter stringFromDate:n.dateNeeded]];
+    cell.dueDateLabel.text = [NSString stringWithFormat:@"Need by %@",[formatter stringFromDate:n.dateNeeded]];
     
     [cell.boughtItButton addTarget:self action:@selector(bought:) forControlEvents:UIControlEventTouchUpInside];
 
@@ -148,7 +151,7 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"Necessity"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        PFQuery *query = [PFQuery queryWithClassName:@"Chore"];
+        PFQuery *query = [PFQuery queryWithClassName:@"Necessity"];
         [query whereKey:@"houseID" equalTo:[defaults objectForKey:@"houseID"]];
         [query whereKey:@"name" equalTo:cell.nameLabel.text];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -162,6 +165,11 @@
     }];
     NSArray *ips = @[indexPath];
     [_necessities removeObjectAtIndex:indexPath.row];
+    
+    if(![_necessities count]) {
+        [_noHousematesLabel setHidden:YES];
+        [_noResultsLabel setHidden:NO];
+    }
     [self.tableView deleteRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationAutomatic];
    
 }

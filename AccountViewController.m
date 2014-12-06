@@ -21,6 +21,7 @@
     self.buttonOutlet.layer.cornerRadius = 5;
     self.createHouseButton.layer.cornerRadius = 5;
     self.joinHouseButton.layer.cornerRadius = 5;
+    self.hausLabel.textColor = [UIColor HMcharcoalColor];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     _nameHeader.textColor = [UIColor HMcharcoalColor];
@@ -36,6 +37,7 @@
         [self.buttonOutlet addTarget:self action:@selector(createAccount:) forControlEvents:UIControlEventTouchUpInside];
         [self.createHouseButton setHidden:YES];
         [self.joinHouseButton setHidden:YES];
+        [self.hausLabel setHidden:YES];
 
     } else if(![defaults objectForKey:@"houseID"]) {
         [self.buttonOutlet setHidden:YES];
@@ -47,6 +49,7 @@
         [self.joinHouseButton setHidden:NO];
         [self.joinHouseButton addTarget:self action:@selector(joinHouse:) forControlEvents:UIControlEventTouchUpInside];
         [self.createHouseButton addTarget:self action:@selector(createHouse:) forControlEvents:UIControlEventTouchUpInside];
+        [self.hausLabel setHidden:YES];
     } else {
         [_phoneNumberField setHidden:YES];
         [_nameField setHidden:YES];
@@ -58,6 +61,8 @@
         [_joinHouseButton setTitle:@"Add to House" forState:UIControlStateNormal];
         [_joinHouseButton addTarget:self action:@selector(addToHouse:) forControlEvents:UIControlEventTouchUpInside];
         [self.joinHouseButton setHidden:NO];
+        
+        self.hausLabel.text = [NSString stringWithFormat:@"Welcome to %@", [defaults objectForKey:@"houseName"]];
 
     }
 }
@@ -78,6 +83,8 @@
 - (IBAction)addToHouse:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"What's their phone number?" message:nil delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Send", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    UITextField *avTextField = [alert textFieldAtIndex:0];
+    avTextField.delegate = self;
     alert.delegate = self;
     [alert show];
 }
@@ -149,23 +156,33 @@
         UITextField *houseID = [alertView textFieldAtIndex:0];
         
         // get user
-        PFQuery *query = [PFQuery queryWithClassName:@"User"];
-        
-        [query whereKey:@"phoneNumber" equalTo:[defaults objectForKey:@"id"]];
-        NSLog(@"%@", [defaults objectForKey:@"id"]);
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (!error) {
-                PFObject *user = [objects objectAtIndex:0];
-                user[@"houseID"] = houseID.text;
-                [user saveInBackground];
-                [_joinHouseButton removeTarget:self action:@selector(joinHouse:) forControlEvents:UIControlEventTouchUpInside];
-                [_joinHouseButton setTitle:@"Add to House" forState:UIControlStateNormal];
-                [_joinHouseButton addTarget:self action:@selector(addToHouse:) forControlEvents:UIControlEventTouchUpInside];
-                [_createHouseButton setHidden:YES];
-                [defaults setObject:houseID.text forKey:@"houseID"];
-                [defaults synchronize];
-            }
+        PFQuery *houseQ = [PFQuery queryWithClassName:@"Group"];
+        [houseQ whereKey:@"objectId" equalTo:houseID.text];
+        [houseQ findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            NSDictionary *house = objects[0];
+            NSString *houseName = house[@"name"];
+            PFQuery *query = [PFQuery queryWithClassName:@"User"];
+            
+            [query whereKey:@"phoneNumber" equalTo:[defaults objectForKey:@"id"]];
+            NSLog(@"%@", [defaults objectForKey:@"id"]);
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if (!error) {
+                    // get house name
+                    PFObject *user = [objects objectAtIndex:0];
+                    user[@"houseID"] = houseID.text;
+                    [user saveInBackground];
+                    [_joinHouseButton removeTarget:self action:@selector(joinHouse:) forControlEvents:UIControlEventTouchUpInside];
+                    [_joinHouseButton setTitle:@"Add to House" forState:UIControlStateNormal];
+                    [_joinHouseButton addTarget:self action:@selector(addToHouse:) forControlEvents:UIControlEventTouchUpInside];
+                    [_createHouseButton setHidden:YES];
+                    [defaults setObject:houseID.text forKey:@"houseID"];
+                    [defaults setObject:houseName forKey:@"houseName"];
+                    [defaults synchronize];
+                    
+                }
+            }];
         }];
+        
     }
     else if([title isEqualToString:@"Send"]) {
         UITextField *phoneNumberField = [alertView textFieldAtIndex:0];
@@ -196,6 +213,7 @@
                         [_joinHouseButton setTitle:@"Add to House" forState:UIControlStateNormal];
                         [_joinHouseButton addTarget:self action:@selector(addToHouse:) forControlEvents:UIControlEventTouchUpInside];
                         [_createHouseButton setHidden:YES];
+                        [defaults setObject:houseNameField.text forKey:@"houseName"];
                         [defaults setObject:[group objectId] forKey:@"houseID"];
                         [defaults synchronize];
                     }

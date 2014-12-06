@@ -30,6 +30,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _noHousematesLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 60.0, 300.0, 45.0)];
+    _noHousematesLabel.textColor = [UIColor HMcharcoalColor];
+    _noHousematesLabel.text = @"No housemates! Add some.";
+    _noHousematesLabel.textAlignment = NSTextAlignmentCenter;
+    _noHousematesLabel.font = [UIFont fontWithName:@"Verdana" size:17.0];
+    
+    _noResultsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 60.0, 300.0, 45.0)];
+    _noResultsLabel.textColor = [UIColor HMcharcoalColor];
+    _noResultsLabel.text = @"No outstanding expenses!";
+    _noResultsLabel.textAlignment = NSTextAlignmentCenter;
+    _noResultsLabel.font = [UIFont fontWithName:@"Verdana" size:17.0];
+    
+    [self.view addSubview:_noHousematesLabel];
+    [self.view addSubview:_noResultsLabel];
+    
     _expenses = [[NSMutableArray alloc] init];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -54,50 +69,34 @@
 - (void)getNewData {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if(![defaults objectForKey:@"houseID"]) {
+        [_noResultsLabel setHidden:YES];
+        [_noHousematesLabel setHidden:NO];
         return;
+    } else {
+        [_noHousematesLabel setHidden:YES];
     }
     
     PFQuery *query = [PFQuery queryWithClassName:@"Expense"];
     [query whereKey:@"houseID" equalTo:[defaults objectForKey:@"houseID"]];
     [query includeKey:@"assignee"];
     [query includeKey:@"charger"];
+    
+    [_expenses removeAllObjects];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %lu expenses.", (unsigned long)[objects count]);
-            NSMutableArray *curExpenses = [[NSMutableArray alloc] init];
+            if(![objects count]) {
+                [_noResultsLabel setHidden:NO];
+                return;
+            } else {
+                [_noResultsLabel setHidden:YES];
+            }
             for (PFObject *object in objects) {
                 Expense *e = [[Expense alloc] initWithDictionary:(NSDictionary *)object objId:[object objectId]];
                 PFObject *user = [object objectForKey:@"assignee"];
                 PFObject *charger = [object objectForKey:@"charger"];
                 e.payer = [[User alloc] initWithDictionary:(NSDictionary *)user];
                 e.charger = [[User alloc] initWithDictionary:(NSDictionary *)charger];
-                
-                BOOL found = NO;
-                for(Expense *existing in _expenses) {
-                    if([existing.expenseID isEqualToString:e.expenseID]) {
-                        found = YES;
-                        NSLog(@" %@, %@", existing.expenseID, e.expenseID);
-                    }
-                }
-                if(!found) {
-                    [_expenses insertObject:e atIndex:0];
-                }
-                
-                [curExpenses addObject:e];
-            }
-            
-            NSMutableArray *removed = [[NSMutableArray alloc] initWithArray:_expenses];
-            for(Expense *old in _expenses) {
-                for(Expense *cur in curExpenses) {
-                    if([old.expenseID isEqualToString: cur.expenseID]) {
-                        [removed removeObject:old];
-                    }
-                }
-            }
-            
-            for(Expense *remExpense in removed) {
-                [_expenses removeObject:remExpense];
+                [_expenses addObject:e];
             }
             
             [self.tableView reloadData];

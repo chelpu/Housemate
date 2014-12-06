@@ -29,6 +29,21 @@
 {
     [super viewDidLoad];
     
+    _noHousematesLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 60.0, 300.0, 45.0)];
+    _noHousematesLabel.textColor = [UIColor HMcharcoalColor];
+    _noHousematesLabel.text = @"No housemates! Add some.";
+    _noHousematesLabel.textAlignment = NSTextAlignmentCenter;
+    _noHousematesLabel.font = [UIFont fontWithName:@"Verdana" size:17.0];
+    
+    _noResultsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 60.0, 300.0, 45.0)];
+    _noResultsLabel.textColor = [UIColor HMcharcoalColor];
+    _noResultsLabel.text = @"No chores to do!";
+    _noResultsLabel.textAlignment = NSTextAlignmentCenter;
+    _noResultsLabel.font = [UIFont fontWithName:@"Verdana" size:17.0];
+    
+    [self.view addSubview:_noHousematesLabel];
+    [self.view addSubview:_noResultsLabel];
+    
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor HMpeachColor];
@@ -55,37 +70,38 @@
 - (void)getNewData {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if(![defaults objectForKey:@"houseID"]) {
+        [_noResultsLabel setHidden:YES];
+        [_noHousematesLabel setHidden:NO];
         return;
+    } else {
+        [_noHousematesLabel setHidden:YES];
     }
     
     PFQuery *query = [PFQuery queryWithClassName:@"Chore"];
     [query whereKey:@"houseID" equalTo:[defaults objectForKey:@"houseID"]];
     [query includeKey:@"assignee"];
     [query orderByAscending:@"dueDate"];
+    
+    [_chores removeAllObjects];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
+            if(![objects count]) {
+                [_noResultsLabel setHidden:NO];
+                return;
+            } else {
+                [_noResultsLabel setHidden:YES];
+            }
             for (PFObject *object in objects) {
-                Chore *c = [[Chore alloc] initWithDictionary:(NSDictionary *)object objId:[object objectId
-                                                                                           ]];
+                Chore *c = [[Chore alloc] initWithDictionary:(NSDictionary *)object objId:[object objectId]];
                 PFObject *user = [object objectForKey:@"assignee"];
                 c.assignee = [[User alloc] initWithDictionary:(NSDictionary *)user];
-                
-                BOOL found = NO;
-                for(Chore *existing in _chores) {
-                    if([existing.choreID isEqualToString:c.choreID]) {
-                        found = YES;
-                    }
-                }
-                if(!found) {
-                    [_chores insertObject:c atIndex:0];
-                }
+                [_chores addObject:c];
             }
             if (self.refreshControl) {
                 [self.refreshControl endRefreshing];
             }
             [self.tableView reloadData];
         } else {
-            // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
@@ -132,8 +148,11 @@
     // Replace with id from user defaults
     if(![c.assignee.phoneNumber isEqualToString:[defaults objectForKey:@"id"]]) {
         [cell.completeButton setTitle:@"Remind" forState:UIControlStateNormal];
+        [cell.completeButton removeTarget:self action:@selector(didCompleteChore:) forControlEvents:UIControlEventTouchUpInside];
         [cell.completeButton addTarget:self action:@selector(remindOfChore:) forControlEvents:UIControlEventTouchUpInside];
     } else {
+        [cell.completeButton setTitle:@"Complete" forState:UIControlStateNormal];
+        [cell.completeButton removeTarget:self action:@selector(remindOfChore:) forControlEvents:UIControlEventTouchUpInside];
         [cell.completeButton addTarget:self action:@selector(didCompleteChore:) forControlEvents:UIControlEventTouchUpInside];
     }
     

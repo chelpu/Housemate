@@ -337,6 +337,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbD-bY-Ge9">
+                                <rect key="frame" x="16" y="234" width="288" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQQ-QE-h6y">
                                 <rect key="frame" x="16" y="228" width="288" height="45"/>
                                 <color key="backgroundColor" red="0.99061185119999995" green="0.51704353089999999" blue="0.25419685240000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -352,6 +358,7 @@
                     <connections>
                         <outlet property="buttonOutlet" destination="CJU-kR-pZx" id="N0V-mW-tdl"/>
                         <outlet property="createHouseButton" destination="eWR-zS-Cwn" id="iZp-xc-0bb"/>
+                        <outlet property="hausLabel" destination="tbD-bY-Ge9" id="V4G-ZO-vkR"/>
                         <outlet property="joinHouseButton" destination="MQQ-QE-h6y" id="n01-Fu-Z2l"/>
                         <outlet property="nameField" destination="m4c-ap-yrx" id="HrR-ig-1KX"/>
                         <outlet property="nameHeader" destination="XLo-Ug-cj4" id="J0q-8G-FLV"/>
