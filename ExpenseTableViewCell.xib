@@ -15,13 +15,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tC-VV-mpc">
-                        <rect key="frame" x="22" y="12" width="166" height="26"/>
+                        <rect key="frame" x="22" y="14" width="197" height="26"/>
                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0v-z0-Hy2">
-                        <rect key="frame" x="213" y="10" width="97" height="26"/>
+                        <rect key="frame" x="227" y="11" width="83" height="26"/>
                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -36,8 +36,8 @@
                         </state>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Assignee" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BT5-ih-IRd">
-                        <rect key="frame" x="22" y="46" width="121" height="28"/>
-                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                        <rect key="frame" x="22" y="47" width="197" height="28"/>
+                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -49,7 +49,7 @@
                 <outlet property="price" destination="h0v-z0-Hy2" id="uwD-cT-Pq9"/>
                 <outlet property="title" destination="1tC-VV-mpc" id="Zlh-Ey-7WM"/>
             </connections>
-            <point key="canvasLocation" x="353" y="150"/>
+            <point key="canvasLocation" x="353" y="146"/>
         </tableViewCell>
     </objects>
 </document>

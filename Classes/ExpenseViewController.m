@@ -142,7 +142,7 @@
     [formatter setDateFormat:@"MM/dd/yyyy"];
     
     cell.title.text = e.title;
-    cell.assigneeName.text = e.payer.name;
+    cell.assigneeName.text = [NSString stringWithFormat:@"Payer: %@", e.payer.name];
     cell.dueDate.text = [formatter stringFromDate:e.dueDate];
     cell.price.text = [NSString stringWithFormat:@"$%.2f", e.amount];
     
@@ -171,7 +171,9 @@
     NSString *encodedFull = [fullURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 
     PFQuery *query = [PFQuery queryWithClassName:@"User"];
-    [query whereKey:@"name" equalTo:cell.assigneeName.text];
+    
+    [query whereKey:@"name" equalTo:e.payer.name];
+    
     [query whereKey:@"houseID" equalTo:[defaults objectForKey:@"houseID"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {

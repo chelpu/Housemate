@@ -141,7 +141,7 @@
     
     cell.title.text = c.title;
     cell.assigneeName.text = c.assignee.name;
-    cell.dueDate.text = [NSString stringWithFormat:@"Get done by: %@", [formatter stringFromDate:c.dueDate]];
+    cell.dueDate.text = [NSString stringWithFormat:@"Get done by %@", [formatter stringFromDate:c.dueDate]];
     
     cell.completeButton.backgroundColor = [UIColor HMtangerineColor];
     

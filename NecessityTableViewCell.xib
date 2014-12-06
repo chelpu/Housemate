@@ -27,7 +27,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uve-7i-qQe">
-                        <rect key="frame" x="214" y="8" width="85" height="32"/>
+                        <rect key="frame" x="227" y="44" width="85" height="32"/>
                         <color key="backgroundColor" red="0.98431384560000001" green="0.62779569629999998" blue="0.43109047410000001" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                         <state key="normal" title="Bought It">
