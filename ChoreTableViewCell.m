@@ -21,6 +21,7 @@
     self.assigneeName.textColor = [UIColor HMcharcoalColor];
     self.completeButton.backgroundColor = [UIColor HMtangerineColor];
     self.completeButton.layer.cornerRadius = 5;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)prepareForReuse {

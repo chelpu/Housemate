@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Chelsea Pugh. All rights reserved.
 
 #import "CommonTableViewController.h"
-#import "Constants.h"
 
 @interface ChoreViewController : CommonTableViewController
 

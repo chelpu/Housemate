@@ -7,8 +7,6 @@
 //
 
 #import "CommonTableViewController.h"
-#import "Constants.h"
-
 
 @interface ExpenseViewController : CommonTableViewController
 

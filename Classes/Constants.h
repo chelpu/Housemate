@@ -13,6 +13,12 @@
 #define kDueDateKey @"dueDate"
 #define kNameKey @"name"
 #define kChargerKey @"charger"
+#define kTitleKey @"title"
 #define kDateFormat @"MM/dd/yyyy"
+#define kNecessityIdentifier @"Necessity"
+#define kChoreIdentifier @"Chore"
+#define kUserIdentifier @"User"
+#define kExpenseIdentifier @"Expense"
+#define kExpenseRemindBaseURL @"http://housem8.ngrok.com/expenseRemind"
 #define kChoreRemindBaseURL @"http://housem8.ngrok.com/remind"
 

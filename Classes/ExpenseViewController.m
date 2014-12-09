@@ -14,6 +14,8 @@
 #import <AFHTTPRequestOperationManager.h>
 #import "Secrets.h"
 
+static NSString *kExpenseCellIdentifier = @"ExpenseTableViewCell";
+
 @interface ExpenseViewController ()
 
 @end
@@ -34,8 +36,8 @@
                             action:@selector(getNewData)
                   forControlEvents:UIControlEventValueChanged];
     
-    UINib *nib = [UINib nibWithNibName:@"ExpenseTableViewCell" bundle:nil];
-    [[self tableView] registerNib:nib forCellReuseIdentifier:@"ExpenseTableViewCell"];
+    UINib *nib = [UINib nibWithNibName:kExpenseCellIdentifier bundle:nil];
+    [[self tableView] registerNib:nib forCellReuseIdentifier:kExpenseCellIdentifier];
 }
 
 - (void)getNewData {
@@ -43,7 +45,7 @@
         [self setToStateNoHousemates];
         return;
     }
-    PFQuery *query = [PFQuery queryWithClassName:@"Expense"];
+    PFQuery *query = [PFQuery queryWithClassName:kExpenseIdentifier];
     [query whereKey:kHouseIDKey equalTo:[self.defaults objectForKey:kHouseIDKey]];
     [query includeKey:kAssigneeKey];
     [query includeKey:kChargerKey];
@@ -88,18 +90,14 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ExpenseTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"ExpenseTableViewCell"];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    ExpenseTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:kExpenseCellIdentifier];
     Expense *e = [self.list objectAtIndex:indexPath.row];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:kDateFormat];
     
     cell.title.text = e.title;
     cell.assigneeName.text = [NSString stringWithFormat:@"Payer: %@", e.payer.name];
-    cell.dueDate.text = [formatter stringFromDate:e.dueDate];
+    cell.dueDate.text = [self.formatter stringFromDate:e.dueDate];
     cell.price.text = [NSString stringWithFormat:@"$%.2f", e.amount];
     
-    // replace with id from user defaults
     if([e.payer.phoneNumber isEqualToString:[self.defaults objectForKey:@"id"]]) {
         [cell.actionButton addTarget:self action:@selector(payForItem:) forControlEvents:UIControlEventTouchUpInside];
         [cell.actionButton setTitle:@"Pay" forState:UIControlStateNormal];
@@ -120,7 +118,7 @@
     NSString *fullURL = [NSString stringWithFormat:@"https://venmo.com/?txn=pay&amount=%f&note=%@&audience=public&recipients=%@", e.amount, e.title, e.charger.phoneNumber];
     NSString *encodedFull = [fullURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 
-    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    PFQuery *query = [PFQuery queryWithClassName:kUserIdentifier];
     
     [query whereKey:kNameKey equalTo:e.payer.name];
     
@@ -143,7 +141,7 @@
                                              @"name": user.name,
                                              @"requesterName": e.charger.name,
                                               @"url": encoded};
-                    [manager GET:@"http://housem8.ngrok.com/expenseRemind" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    [manager GET:kExpenseRemindBaseURL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                         NSLog(@"Error: %@", error);
                     }];
@@ -170,13 +168,13 @@
 
     [self presentViewController:kaw animated:YES completion:^{
         
-        PFQuery *assigneeQuery = [PFQuery queryWithClassName:@"User"];
-        [assigneeQuery whereKey:kNameKey equalTo:cell.assigneeName.text];
+        PFQuery *assigneeQuery = [PFQuery queryWithClassName:kUserIdentifier];
+        [assigneeQuery whereKey:kNameKey equalTo:e.payer.name];
         [assigneeQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            PFQuery *query = [PFQuery queryWithClassName:@"Expense"];
+            PFQuery *query = [PFQuery queryWithClassName:kExpenseIdentifier];
             [query whereKey:kHouseIDKey equalTo:[self.defaults objectForKey:kHouseIDKey]];
             [query whereKey:kAssigneeKey equalTo:objects[0]];
-            [query whereKey:@"title" equalTo:cell.title.text];
+            [query whereKey:kTitleKey equalTo:cell.title.text];
             [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                 if (!error) {
                     [PFObject deleteAllInBackground:objects];

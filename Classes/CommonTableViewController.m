@@ -18,6 +18,9 @@
     [super viewDidLoad];
     self.list = [[NSMutableArray alloc] init];
     
+    _formatter = [[NSDateFormatter alloc] init];
+    [_formatter setDateFormat:kDateFormat];
+    
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor HMpeachColor];
     self.refreshControl.tintColor = [UIColor whiteColor];
@@ -44,7 +47,15 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.separatorColor = [UIColor HMpeachColor];
 
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     _defaults = [NSUserDefaults standardUserDefaults];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [UITableViewCell new];
+    return cell;
 }
 
 - (void)setToStateNoHousemates {

@@ -11,6 +11,8 @@
 #import "Necessity.h"
 #import <Parse/Parse.h>
 
+static NSString *kNecessityCellIdentifier = @"NecessityTableViewCell";
+
 @interface ShoppingViewController ()
 
 
@@ -33,8 +35,8 @@
                             action:@selector(getNewData)
                   forControlEvents:UIControlEventValueChanged];
     
-    UINib *nib = [UINib nibWithNibName:@"NecessityTableViewCell" bundle:nil];
-    [[self tableView] registerNib:nib forCellReuseIdentifier:@"NecessityTableViewCell"];
+    UINib *nib = [UINib nibWithNibName:kNecessityCellIdentifier bundle:nil];
+    [[self tableView] registerNib:nib forCellReuseIdentifier:kNecessityCellIdentifier];
 }
 
 - (void)getNewData {
@@ -43,7 +45,7 @@
         return;
     } 
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Necessity"];
+    PFQuery *query = [PFQuery queryWithClassName:kNecessityIdentifier];
     [query whereKey:kHouseIDKey equalTo:[self.defaults objectForKey:kHouseIDKey]];
     
     [self.list removeAllObjects];
@@ -82,14 +84,11 @@
     return 88.0f;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NecessityTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"NecessityTableViewCell"];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    NecessityTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:kNecessityCellIdentifier];
     Necessity *n = [self.list objectAtIndex:indexPath.row];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:kDateFormat];
     
     cell.nameLabel.text = n.name;
-    cell.dueDateLabel.text = [NSString stringWithFormat:@"Need by %@",[formatter stringFromDate:n.dateNeeded]];
+    cell.dueDateLabel.text = [NSString stringWithFormat:@"Need by %@",[self.formatter stringFromDate:n.dateNeeded]];
     
     [cell.boughtItButton addTarget:self action:@selector(bought:) forControlEvents:UIControlEventTouchUpInside];
 
@@ -101,16 +100,15 @@
     NecessityTableViewCell *cell = (NecessityTableViewCell *)[[sender superview] superview];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Necessity"];
+    PFQuery *query = [PFQuery queryWithClassName:kNecessityIdentifier];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        PFQuery *query = [PFQuery queryWithClassName:@"Necessity"];
+        PFQuery *query = [PFQuery queryWithClassName:kNecessityIdentifier];
         [query whereKey:kHouseIDKey equalTo:[defaults objectForKey:kHouseIDKey]];
         [query whereKey:kNameKey equalTo:cell.nameLabel.text];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
                 [PFObject deleteAllInBackground:objects];
             } else {
-                // Log details of the failure
                 NSLog(@"Error: %@ %@", error, [error userInfo]);
             }
         }];
@@ -123,11 +121,6 @@
     }
     [self.tableView deleteRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationAutomatic];
    
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 0.0f;
 }
 
 @end

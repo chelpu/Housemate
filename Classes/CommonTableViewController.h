@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Constants.h"
 
 @interface CommonTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
@@ -17,6 +18,7 @@
 @property (strong, nonatomic) UILabel *noHousematesLabel;
 @property (strong, nonatomic) UILabel *noResultsLabel;
 @property (strong, nonatomic) NSUserDefaults *defaults;
+@property (strong, nonatomic) NSDateFormatter *formatter;
 
 - (void)setToStateNoHousemates;
 - (void)setToStateNoResults;

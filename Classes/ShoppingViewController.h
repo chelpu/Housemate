@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "CommonTableViewController.h"
-#import "Constants.h"
 
 @interface ShoppingViewController : CommonTableViewController
 

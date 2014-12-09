@@ -15,6 +15,8 @@
     self.dueDateLabel.textColor = [UIColor HMcharcoalColor];
     self.boughtItButton.backgroundColor = [UIColor HMtangerineColor];
     self.boughtItButton.layer.cornerRadius = 5;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -44,7 +44,7 @@
         [self.buttonOutlet setHidden:YES];
         [_phoneNumberField setHidden:YES];
         [_nameField setHidden:YES];
-        [_nameHeader setHidden:YES];
+        _nameHeader.text = [NSString stringWithFormat:@"Welcome, %@", [defaults objectForKey:@"name"] ];
         [_phoneNumberHeader setHidden:YES];
         [self.createHouseButton setHidden:NO];
         [self.joinHouseButton setHidden:NO];
@@ -54,17 +54,18 @@
     } else {
         [_phoneNumberField setHidden:YES];
         [_nameField setHidden:YES];
-        [_nameHeader setHidden:YES];
+        _nameHeader.text = [NSString stringWithFormat:@"Welcome, %@", [defaults objectForKey:@"name"] ];
         [_phoneNumberHeader setHidden:YES];
         [self.buttonOutlet setHidden:YES];
         [self.createHouseButton setHidden:YES];
         [_joinHouseButton removeTarget:self action:@selector(joinHouse:) forControlEvents:UIControlEventTouchUpInside];
-        [_joinHouseButton setTitle:@"Add to House" forState:UIControlStateNormal];
+        [_joinHouseButton setTitle:[NSString stringWithFormat:@"Add to %@", [defaults objectForKey:@"houseName"]] forState:UIControlStateNormal];
+
         [_joinHouseButton addTarget:self action:@selector(addToHouse:) forControlEvents:UIControlEventTouchUpInside];
         [self.joinHouseButton setHidden:NO];
         
         self.hausLabel.text = [NSString stringWithFormat:@"Welcome to %@", [defaults objectForKey:@"houseName"]];
-
+        [self.hausLabel setHidden:NO];
     }
 }
 
@@ -211,7 +212,7 @@
                         user[@"houseID"] = [group objectId];
                         [user saveInBackground];
                         [_joinHouseButton removeTarget:self action:@selector(joinHouse:) forControlEvents:UIControlEventTouchUpInside];
-                        [_joinHouseButton setTitle:@"Add to House" forState:UIControlStateNormal];
+                        [_joinHouseButton setTitle:[NSString stringWithFormat:@"Add to %@", [defaults objectForKey:@"houseName"]] forState:UIControlStateNormal];
                         [_joinHouseButton addTarget:self action:@selector(addToHouse:) forControlEvents:UIControlEventTouchUpInside];
                         [_createHouseButton setHidden:YES];
                         [defaults setObject:houseNameField.text forKey:@"houseName"];

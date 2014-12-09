@@ -12,6 +12,8 @@
 #import "Chore.h"
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 
+static NSString *kChoreCellIdentifier = @"ChoreTableViewCell";
+
 @interface ChoreViewController ()
 
 @end
@@ -32,8 +34,8 @@
                             action:@selector(getNewData)
                   forControlEvents:UIControlEventValueChanged];
     
-    UINib *nib = [UINib nibWithNibName:@"ChoreTableViewCell" bundle:nil];
-    [[self tableView] registerNib:nib forCellReuseIdentifier:@"ChoreTableViewCell"];
+    UINib *nib = [UINib nibWithNibName:kChoreCellIdentifier bundle:nil];
+    [[self tableView] registerNib:nib forCellReuseIdentifier:kChoreCellIdentifier];
 }
 
 - (void)getNewData {
@@ -42,7 +44,7 @@
         return;
     } 
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Chore"];
+    PFQuery *query = [PFQuery queryWithClassName:kChoreIdentifier];
     [query whereKey:kHouseIDKey equalTo:[self.defaults objectForKey:kHouseIDKey]];
     [query includeKey:kAssigneeKey];
     [query orderByAscending:kDueDateKey];
@@ -85,27 +87,19 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ChoreTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"ChoreTableViewCell"];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    Chore *c = [self.list objectAtIndex:indexPath.row];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:kDateFormat];
     
+    ChoreTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:kChoreCellIdentifier];
+    Chore *c = [self.list objectAtIndex:indexPath.row];
+
     cell.title.text = c.title;
     cell.assigneeName.text = c.assignee.name;
-    cell.dueDate.text = [NSString stringWithFormat:@"Get done by %@", [formatter stringFromDate:c.dueDate]];
+    cell.dueDate.text = [NSString stringWithFormat:@"Get done by %@", [self.formatter stringFromDate:c.dueDate]];
     
-    cell.completeButton.backgroundColor = [UIColor HMtangerineColor];
-    
-    // Replace with id from user defaults
     if(![c.assignee.phoneNumber isEqualToString:[self.defaults objectForKey:@"id"]]) {
         [cell.completeButton setTitle:@"Remind" forState:UIControlStateNormal];
-        [cell.completeButton removeTarget:self action:@selector(didCompleteChore:) forControlEvents:UIControlEventTouchUpInside];
         [cell.completeButton addTarget:self action:@selector(remindOfChore:) forControlEvents:UIControlEventTouchUpInside];
     } else {
         [cell.completeButton setTitle:@"Complete" forState:UIControlStateNormal];
-        [cell.completeButton removeTarget:self action:@selector(remindOfChore:) forControlEvents:UIControlEventTouchUpInside];
         [cell.completeButton addTarget:self action:@selector(didCompleteChore:) forControlEvents:UIControlEventTouchUpInside];
     }
     
@@ -114,13 +108,13 @@
 
 - (void)didCompleteChore:(id)sender {
     ChoreTableViewCell *cell = (ChoreTableViewCell *)[[sender superview] superview];
-    PFQuery *assigneeQuery = [PFQuery queryWithClassName:@"User"];
+    PFQuery *assigneeQuery = [PFQuery queryWithClassName:kUserIdentifier];
     [assigneeQuery whereKey:kNameKey equalTo:cell.assigneeName.text];
     [assigneeQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        PFQuery *query = [PFQuery queryWithClassName:@"Chore"];
+        PFQuery *query = [PFQuery queryWithClassName:kChoreIdentifier];
         [query whereKey:kHouseIDKey equalTo:[self.defaults objectForKey:kHouseIDKey]];
         [query whereKey:kAssigneeKey equalTo:objects[0]];
-        [query whereKey:@"title" equalTo:cell.title.text];
+        [query whereKey:kTitleKey equalTo:cell.title.text];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
                 [PFObject deleteAllInBackground:objects];
@@ -142,13 +136,12 @@
 
 - (void)remindOfChore:(id)sender {
     ChoreTableViewCell *cell = (ChoreTableViewCell *)[[sender superview] superview];
-    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    PFQuery *query = [PFQuery queryWithClassName:kUserIdentifier];
     [query whereKey:kNameKey equalTo:cell.assigneeName.text];
     [query whereKey:kHouseIDKey equalTo:[self.defaults objectForKey:kHouseIDKey]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
-                NSLog(@"%@", object.objectId);
                 User *user = [[User alloc] initWithDictionary:(NSDictionary *)object];
                 AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
                 NSDictionary *params = @{@"number": user.phoneNumber,

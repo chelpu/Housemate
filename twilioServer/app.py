@@ -30,7 +30,7 @@ def invite():
     from_name = request.args.get('name', '')
     house_id = request.args.get('house_id', '')
     twil_client = TwilioRestClient(os.environ['TWILIO_ACCOUNT_SID'], os.environ['TWILIO_AUTH_TOKEN'])
-    message = twil_client.messages.create(body=(from_name + " invited you to join a house on Housemate. To join, download the app and join the house with id: " + house_id), to="+1"+to_num, from_="+16165281254")
+    message = twil_client.messages.create(body=(from_name + " invited you to join a house on Housemate. To join, download the app and join the house with id: "), to="+1"+to_num, from_="+16165281254")
     message = twil_client.messages.create(body=house_id, to=to_num, from_="+16165281254")
     return 'OK'
 
