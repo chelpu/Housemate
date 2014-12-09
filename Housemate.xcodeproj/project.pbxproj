@@ -27,6 +27,7 @@
 		5E877EF71A30114D0019CBA8 /* NecessityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E877EF51A30114D0019CBA8 /* NecessityTableViewCell.m */; };
 		5E877EF81A30114D0019CBA8 /* NecessityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E877EF61A30114D0019CBA8 /* NecessityTableViewCell.xib */; };
 		5E877EFB1A30157F0019CBA8 /* AddNecessityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E877EFA1A30157F0019CBA8 /* AddNecessityViewController.m */; };
+		5EA6F16C1A36A1CF0095CA25 /* CommonTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6F16B1A36A1CF0095CA25 /* CommonTableViewController.m */; };
 		5EA7620819E2269200AA3A48 /* Secrets.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7620719E2269200AA3A48 /* Secrets.m */; };
 		5EA7620B19E227E400AA3A48 /* Chore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7620A19E227E400AA3A48 /* Chore.m */; };
 		5EA7621419E2280500AA3A48 /* Expense.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7620D19E2280500AA3A48 /* Expense.m */; };
@@ -86,6 +87,9 @@
 		5E877EF61A30114D0019CBA8 /* NecessityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NecessityTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		5E877EF91A30157F0019CBA8 /* AddNecessityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddNecessityViewController.h; path = Classes/AddNecessityViewController.h; sourceTree = SOURCE_ROOT; };
 		5E877EFA1A30157F0019CBA8 /* AddNecessityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddNecessityViewController.m; path = Classes/AddNecessityViewController.m; sourceTree = SOURCE_ROOT; };
+		5EA6F16A1A36A1CF0095CA25 /* CommonTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonTableViewController.h; path = Classes/CommonTableViewController.h; sourceTree = SOURCE_ROOT; };
+		5EA6F16B1A36A1CF0095CA25 /* CommonTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonTableViewController.m; path = Classes/CommonTableViewController.m; sourceTree = SOURCE_ROOT; };
+		5EA6F16D1A36A9010095CA25 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Classes/Constants.h; sourceTree = SOURCE_ROOT; };
 		5EA7620619E2269200AA3A48 /* Secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Secrets.h; path = Classes/Secrets.h; sourceTree = SOURCE_ROOT; };
 		5EA7620719E2269200AA3A48 /* Secrets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Secrets.m; path = Classes/Secrets.m; sourceTree = SOURCE_ROOT; };
 		5EA7620919E227E400AA3A48 /* Chore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chore.h; path = Classes/Chore.h; sourceTree = SOURCE_ROOT; };
@@ -166,6 +170,8 @@
 				5E877EF21A30101D0019CBA8 /* ShoppingViewController.m */,
 				5E877EF91A30157F0019CBA8 /* AddNecessityViewController.h */,
 				5E877EFA1A30157F0019CBA8 /* AddNecessityViewController.m */,
+				5EA6F16A1A36A1CF0095CA25 /* CommonTableViewController.h */,
+				5EA6F16B1A36A1CF0095CA25 /* CommonTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -280,6 +286,7 @@
 				5EA7620A19E227E400AA3A48 /* Chore.m */,
 				5EA7620619E2269200AA3A48 /* Secrets.h */,
 				5EA7620719E2269200AA3A48 /* Secrets.m */,
+				5EA6F16D1A36A9010095CA25 /* Constants.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -422,6 +429,7 @@
 			files = (
 				5EA7621A19E2281900AA3A48 /* AppDelegate.m in Sources */,
 				5E29566219DCFB88005CFEE1 /* ChoreViewController.m in Sources */,
+				5EA6F16C1A36A1CF0095CA25 /* CommonTableViewController.m in Sources */,
 				5EA7620B19E227E400AA3A48 /* Chore.m in Sources */,
 				5EA7621619E2280500AA3A48 /* Necessity.m in Sources */,
 				5E2AA86419E8A19E0084D717 /* AddExpenseViewController.m in Sources */,

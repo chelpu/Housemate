@@ -6,15 +6,14 @@
 //  Copyright (c) 2014 Chelsea Pugh. All rights reserved.
 //
 
+#import "CommonTableViewController.h"
+#import "Constants.h"
 
-@interface ExpenseViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@interface ExpenseViewController : CommonTableViewController
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (strong, nonatomic) IBOutlet UINavigationItem *addButtonItem;
-@property (strong, nonatomic) UIRefreshControl *refreshControl;
-
-@property (strong, nonatomic) UILabel *noResultsLabel;
-@property (strong, nonatomic) UILabel *noHousematesLabel;
 
 @end

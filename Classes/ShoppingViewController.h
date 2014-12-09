@@ -7,14 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonTableViewController.h"
+#import "Constants.h"
 
-@interface ShoppingViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ShoppingViewController : CommonTableViewController
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (strong, nonatomic) IBOutlet UINavigationItem *addButtonItem;
-@property (strong, nonatomic) UIRefreshControl *refreshControl;
-@property (strong, nonatomic) UILabel *noResultsLabel;
-@property (strong, nonatomic) UILabel *noHousematesLabel;
 
 @end

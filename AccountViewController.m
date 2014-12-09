@@ -22,6 +22,7 @@
     self.createHouseButton.layer.cornerRadius = 5;
     self.joinHouseButton.layer.cornerRadius = 5;
     self.hausLabel.textColor = [UIColor HMcharcoalColor];
+    self.phoneNumberHeader.textColor = [UIColor HMcharcoalColor];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     _nameHeader.textColor = [UIColor HMcharcoalColor];

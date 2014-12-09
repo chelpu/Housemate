@@ -16,9 +16,7 @@
 
 @end
 
-@implementation ChoreViewController {
-    NSMutableArray *_chores;
-}
+@implementation ChoreViewController 
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -28,74 +26,41 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    _noHousematesLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 60.0, 300.0, 45.0)];
-    _noHousematesLabel.textColor = [UIColor HMcharcoalColor];
-    _noHousematesLabel.text = @"No housemates! Add some.";
-    _noHousematesLabel.textAlignment = NSTextAlignmentCenter;
-    _noHousematesLabel.font = [UIFont fontWithName:@"Verdana" size:17.0];
-    
-    _noResultsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 60.0, 300.0, 45.0)];
-    _noResultsLabel.textColor = [UIColor HMcharcoalColor];
-    _noResultsLabel.text = @"No chores to do!";
-    _noResultsLabel.textAlignment = NSTextAlignmentCenter;
-    _noResultsLabel.font = [UIFont fontWithName:@"Verdana" size:17.0];
-    
-    [self.view addSubview:_noHousematesLabel];
-    [self.view addSubview:_noResultsLabel];
-    
-    
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = [UIColor HMpeachColor];
-    self.refreshControl.tintColor = [UIColor whiteColor];
+    self.noHousematesLabel.text = @"No housemates! Add some.";
+    self.noResultsLabel.text = @"No chores to do!";
     [self.refreshControl addTarget:nil
                             action:@selector(getNewData)
                   forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:self.refreshControl];
-    
-    self.navigationBar.barTintColor = [UIColor HMbloodOrangeColor];
-    self.navigationBar.barStyle = UIBarStyleBlack;
-    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
-    self.navigationBar.tintColor = [UIColor whiteColor];
-    
-    _chores = [[NSMutableArray alloc] init];
     
     UINib *nib = [UINib nibWithNibName:@"ChoreTableViewCell" bundle:nil];
     [[self tableView] registerNib:nib forCellReuseIdentifier:@"ChoreTableViewCell"];
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.tableView.separatorColor = [UIColor HMpeachColor];
-
 }
 
 - (void)getNewData {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if(![defaults objectForKey:@"houseID"]) {
-        [_noResultsLabel setHidden:YES];
-        [_noHousematesLabel setHidden:NO];
+    if(![self.defaults objectForKey:kHouseIDKey]) {
+        [self setToStateNoHousemates];
         return;
-    } else {
-        [_noHousematesLabel setHidden:YES];
-    }
+    } 
     
     PFQuery *query = [PFQuery queryWithClassName:@"Chore"];
-    [query whereKey:@"houseID" equalTo:[defaults objectForKey:@"houseID"]];
-    [query includeKey:@"assignee"];
-    [query orderByAscending:@"dueDate"];
+    [query whereKey:kHouseIDKey equalTo:[self.defaults objectForKey:kHouseIDKey]];
+    [query includeKey:kAssigneeKey];
+    [query orderByAscending:kDueDateKey];
     
-    [_chores removeAllObjects];
+    [self.list removeAllObjects];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if(![objects count]) {
-                [_noResultsLabel setHidden:NO];
+                [self setToStateNoResults];
                 return;
             } else {
-                [_noResultsLabel setHidden:YES];
+                [self setToStateNormal];
             }
             for (PFObject *object in objects) {
                 Chore *c = [[Chore alloc] initWithDictionary:(NSDictionary *)object objId:[object objectId]];
-                PFObject *user = [object objectForKey:@"assignee"];
+                PFObject *user = [object objectForKey:kAssigneeKey];
                 c.assignee = [[User alloc] initWithDictionary:(NSDictionary *)user];
-                [_chores addObject:c];
+                [self.list addObject:c];
             }
             if (self.refreshControl) {
                 [self.refreshControl endRefreshing];
@@ -110,7 +75,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -120,24 +84,13 @@
     return 100.0f;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [_chores count];
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     ChoreTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"ChoreTableViewCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    Chore *c = [_chores objectAtIndex:indexPath.row];
+    Chore *c = [self.list objectAtIndex:indexPath.row];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MM/dd/yyyy"];
+    [formatter setDateFormat:kDateFormat];
     
     cell.title.text = c.title;
     cell.assigneeName.text = c.assignee.name;
@@ -146,7 +99,7 @@
     cell.completeButton.backgroundColor = [UIColor HMtangerineColor];
     
     // Replace with id from user defaults
-    if(![c.assignee.phoneNumber isEqualToString:[defaults objectForKey:@"id"]]) {
+    if(![c.assignee.phoneNumber isEqualToString:[self.defaults objectForKey:@"id"]]) {
         [cell.completeButton setTitle:@"Remind" forState:UIControlStateNormal];
         [cell.completeButton removeTarget:self action:@selector(didCompleteChore:) forControlEvents:UIControlEventTouchUpInside];
         [cell.completeButton addTarget:self action:@selector(remindOfChore:) forControlEvents:UIControlEventTouchUpInside];
@@ -160,37 +113,38 @@
 }
 
 - (void)didCompleteChore:(id)sender {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     ChoreTableViewCell *cell = (ChoreTableViewCell *)[[sender superview] superview];
     PFQuery *assigneeQuery = [PFQuery queryWithClassName:@"User"];
-    [assigneeQuery whereKey:@"name" equalTo:cell.assigneeName.text];
+    [assigneeQuery whereKey:kNameKey equalTo:cell.assigneeName.text];
     [assigneeQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         PFQuery *query = [PFQuery queryWithClassName:@"Chore"];
-        [query whereKey:@"houseID" equalTo:[defaults objectForKey:@"houseID"]];
-        [query whereKey:@"assignee" equalTo:objects[0]];
+        [query whereKey:kHouseIDKey equalTo:[self.defaults objectForKey:kHouseIDKey]];
+        [query whereKey:kAssigneeKey equalTo:objects[0]];
         [query whereKey:@"title" equalTo:cell.title.text];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
                 [PFObject deleteAllInBackground:objects];
             } else {
-                // Log details of the failure
                 NSLog(@"Error: %@ %@", error, [error userInfo]);
             }
         }];
     }];
+    
+    if(![self.list count]) {
+        [self setToStateNoResults];
+    }
+    
     NSIndexPath *ip = [self.tableView indexPathForCell:cell];
     NSArray *ips = @[ip];
-    [_chores removeObjectAtIndex:ip.row];
+    [self.list removeObjectAtIndex:ip.row];
     [self.tableView deleteRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationAutomatic];
-
 }
 
 - (void)remindOfChore:(id)sender {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     ChoreTableViewCell *cell = (ChoreTableViewCell *)[[sender superview] superview];
     PFQuery *query = [PFQuery queryWithClassName:@"User"];
-    [query whereKey:@"name" equalTo:cell.assigneeName.text];
-    [query whereKey:@"houseID" equalTo:[defaults objectForKey:@"houseID"]];
+    [query whereKey:kNameKey equalTo:cell.assigneeName.text];
+    [query whereKey:kHouseIDKey equalTo:[self.defaults objectForKey:kHouseIDKey]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
@@ -200,11 +154,10 @@
                 NSDictionary *params = @{@"number": user.phoneNumber,
                                          @"chore": cell.title.text,
                                          @"name": user.name};
-                [manager GET:@"http://housem8.ngrok.com/remind" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [manager GET:kChoreRemindBaseURL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                     NSLog(@"Error: %@", error);
                 }];
-                
             }
         } else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
