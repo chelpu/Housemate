@@ -97,9 +97,11 @@ static NSString *kChoreCellIdentifier = @"ChoreTableViewCell";
     
     if(![c.assignee.phoneNumber isEqualToString:[self.defaults objectForKey:@"id"]]) {
         [cell.completeButton setTitle:@"Remind" forState:UIControlStateNormal];
+        [cell.completeButton removeTarget:self action:@selector(didCompleteChore:) forControlEvents:UIControlEventTouchUpInside];
         [cell.completeButton addTarget:self action:@selector(remindOfChore:) forControlEvents:UIControlEventTouchUpInside];
     } else {
         [cell.completeButton setTitle:@"Complete" forState:UIControlStateNormal];
+        [cell.completeButton removeTarget:self action:@selector(remindOfChore:) forControlEvents:UIControlEventTouchUpInside];
         [cell.completeButton addTarget:self action:@selector(didCompleteChore:) forControlEvents:UIControlEventTouchUpInside];
     }
     

@@ -22,6 +22,7 @@
     self.completeButton.backgroundColor = [UIColor HMtangerineColor];
     self.completeButton.layer.cornerRadius = 5;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.backgroundColor = [UIColor HMlightPeachColor];
 }
 
 - (void)prepareForReuse {

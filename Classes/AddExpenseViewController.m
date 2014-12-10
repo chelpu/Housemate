@@ -23,6 +23,7 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
+    self.addExpenseButton.backgroundColor = [UIColor HMtangerineColor];
     self.addExpenseButton.layer.cornerRadius = 5;
     
     self.navigationBar.barTintColor = [UIColor HMbloodOrangeColor];

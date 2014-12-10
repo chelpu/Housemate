@@ -11,6 +11,7 @@
 
 
 @interface AccountViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate>
+@property (strong, nonatomic) IBOutlet UIImageView *houseImageView;
 @property (strong, nonatomic) IBOutlet UIButton *buttonOutlet;
 @property (strong, nonatomic) IBOutlet TSValidatedTextField *phoneNumberField;
 @property (strong, nonatomic) IBOutlet UITextField *nameField;

@@ -11,7 +11,10 @@
 @interface UIColor (HMColor)
 
 + (UIColor *)HMbloodOrangeColor;
++ (UIColor *)HMbloodOrangeColorTranslucent;
 + (UIColor *)HMtangerineColor;
 + (UIColor *)HMpeachColor;
-+(UIColor *)HMcharcoalColor;
++ (UIColor *)HMcharcoalColor;
++ (UIColor *)HMlightPeachColor;
+
 @end

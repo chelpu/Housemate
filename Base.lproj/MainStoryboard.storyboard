@@ -82,7 +82,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cg4-ah-sAs">
-                                <rect key="frame" x="42" y="269" width="237" height="43"/>
+                                <rect key="frame" x="42" y="349" width="237" height="43"/>
                                 <color key="backgroundColor" red="0.99061185119999995" green="0.51704353089999999" blue="0.25419685240000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                 <state key="normal" title="Submit Expense">
@@ -117,7 +117,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HDS-pq-ddX">
-                                <rect key="frame" x="34" y="129" width="252" height="162"/>
+                                <rect key="frame" x="34" y="177" width="252" height="162"/>
                                 <connections>
                                     <outlet property="dataSource" destination="MGD-Mx-Ime" id="yTU-W8-cto"/>
                                     <outlet property="delegate" destination="MGD-Mx-Ime" id="1gk-WH-iZv"/>
@@ -302,55 +302,55 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJU-kR-pZx">
                                 <rect key="frame" x="16" y="180" width="288" height="45"/>
                                 <color key="backgroundColor" red="0.99061185119999995" green="0.51704353089999999" blue="0.25419685240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="15"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWR-zS-Cwn">
-                                <rect key="frame" x="16" y="276" width="288" height="45"/>
+                                <rect key="frame" x="16" y="230" width="288" height="45"/>
                                 <color key="backgroundColor" red="0.99061185119999995" green="0.51704353089999999" blue="0.25419685240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="15"/>
                                 <state key="normal" title="Create House">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="(555)-123-4567" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OCg-gp-10O" customClass="TSValidatedTextField">
-                                <rect key="frame" x="16" y="142" width="288" height="30"/>
+                                <rect key="frame" x="16" y="126" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Acg-6W-Wnd">
-                                <rect key="frame" x="16" y="105" width="288" height="36"/>
+                                <rect key="frame" x="16" y="89" width="288" height="36"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLo-Ug-cj4">
-                                <rect key="frame" x="16" y="28" width="288" height="36"/>
+                                <rect key="frame" x="16" y="27" width="288" height="24"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bobby Smith" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m4c-ap-yrx">
-                                <rect key="frame" x="16" y="72" width="288" height="30"/>
+                                <rect key="frame" x="16" y="59" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbD-bY-Ge9">
-                                <rect key="frame" x="16" y="234" width="288" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQQ-QE-h6y">
-                                <rect key="frame" x="16" y="228" width="288" height="45"/>
+                                <rect key="frame" x="16" y="281" width="288" height="45"/>
                                 <color key="backgroundColor" red="0.99061185119999995" green="0.51704353089999999" blue="0.25419685240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="15"/>
                                 <state key="normal" title="Join House">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tahoe" translatesAutoresizingMaskIntoConstraints="NO" id="CJs-4H-HOg">
+                                <rect key="frame" x="16" y="126" width="288" height="100"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -358,7 +358,7 @@
                     <connections>
                         <outlet property="buttonOutlet" destination="CJU-kR-pZx" id="N0V-mW-tdl"/>
                         <outlet property="createHouseButton" destination="eWR-zS-Cwn" id="iZp-xc-0bb"/>
-                        <outlet property="hausLabel" destination="tbD-bY-Ge9" id="V4G-ZO-vkR"/>
+                        <outlet property="houseImageView" destination="CJs-4H-HOg" id="npm-2t-mX1"/>
                         <outlet property="joinHouseButton" destination="MQQ-QE-h6y" id="n01-Fu-Z2l"/>
                         <outlet property="nameField" destination="m4c-ap-yrx" id="HrR-ig-1KX"/>
                         <outlet property="nameHeader" destination="XLo-Ug-cj4" id="J0q-8G-FLV"/>
@@ -395,6 +395,7 @@
                                 <items>
                                     <navigationItem title="Chores" id="eHq-nB-LEp">
                                         <barButtonItem key="rightBarButtonItem" title="+" id="30h-Po-Oz2">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <segue destination="JwK-tg-orq" kind="modal" id="51A-mV-wJh"/>
                                             </connections>
@@ -535,25 +536,25 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Which housemate?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZN-UB-Jlg">
-                                <rect key="frame" x="13" y="153" width="194" height="23"/>
+                                <rect key="frame" x="13" y="144" width="194" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="When should it be done?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jl-5U-hS2">
-                                <rect key="frame" x="20" y="272" width="194" height="23"/>
+                                <rect key="frame" x="20" y="303" width="194" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="zJ3-cB-PDn">
-                                <rect key="frame" x="34" y="291" width="252" height="162"/>
+                                <rect key="frame" x="34" y="322" width="252" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="435375523.97412801">
                                     <!--2014-10-19 01:38:43 +0000-->
                                 </date>
                             </datePicker>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wfz-8U-ZC5">
-                                <rect key="frame" x="34" y="131" width="252" height="162"/>
+                                <rect key="frame" x="34" y="160" width="252" height="162"/>
                                 <connections>
                                     <outlet property="dataSource" destination="WTD-Sp-eP5" id="Lts-JY-f3O"/>
                                     <outlet property="delegate" destination="WTD-Sp-eP5" id="87E-mj-IWW"/>
@@ -572,7 +573,7 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="br5-cF-C9i">
-                                <rect key="frame" x="34" y="441" width="252" height="43"/>
+                                <rect key="frame" x="34" y="495" width="252" height="43"/>
                                 <color key="backgroundColor" red="0.99061185119999995" green="0.51704353089999999" blue="0.25419685240000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                 <state key="normal" title="Add Chore">
@@ -604,6 +605,7 @@
     <resources>
         <image name="broom" width="25" height="25"/>
         <image name="shopping_cart_empty" width="25" height="25"/>
+        <image name="tahoe" width="3264" height="2448"/>
         <image name="usd" width="25" height="25"/>
         <image name="user_male" width="25" height="25"/>
     </resources>

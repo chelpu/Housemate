@@ -29,7 +29,9 @@
     [FBLoginView class];
     
     [[UITabBar appearance] setTintColor:[UIColor HMbloodOrangeColor]];
-    
+    [[UITabBar appearance] setBackgroundColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+
     Secrets *secrets = [[Secrets alloc] init];
     [Parse setApplicationId:secrets.parseID
                   clientKey:secrets.parseKey];

@@ -36,17 +36,19 @@
     _noResultsLabel.textAlignment = NSTextAlignmentCenter;
     _noResultsLabel.font = [UIFont fontWithName:@"Verdana" size:17.0];
     
+    [_noHousematesLabel setHidden:YES];
+    [_noResultsLabel setHidden:YES];
+    
     [self.view addSubview:_noHousematesLabel];
     [self.view addSubview:_noResultsLabel];
     
-    self.navigationBar.barTintColor = [UIColor HMbloodOrangeColor];
+    self.navigationBar.barTintColor = [UIColor HMbloodOrangeColorTranslucent];
     self.navigationBar.barStyle = UIBarStyleBlack;
-    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
-    self.navigationBar.tintColor = [UIColor whiteColor];
+    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : [UIFont fontWithName:@"Verdana" size:20.0]}];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.tableView.separatorColor = [UIColor HMpeachColor];
-
+    self.tableView.separatorColor = [UIColor HMbloodOrangeColor];
+    self.tableView.backgroundColor = [UIColor HMlightPeachColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

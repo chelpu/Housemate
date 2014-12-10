@@ -22,6 +22,7 @@
                                                                           action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
     
+    self.addNecessityButton.backgroundColor = [UIColor HMtangerineColor];
     self.addNecessityButton.layer.cornerRadius = 5;
     self.needTextField.delegate = self;
     
