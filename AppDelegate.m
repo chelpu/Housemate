@@ -7,31 +7,22 @@
 //
 
 #import "AppDelegate.h"
-#import <FacebookSDK/FacebookSDK.h>
-#import "MFSideMenu.h"
 #import <Parse/Parse.h>
 #import "Secrets.h"
 #import "UIColor+HMColor.h"
+#import "MBProgressHUD.h"
 
 @implementation AppDelegate
-
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation {
-    // attempt to extract a token from the url
-    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [FBLoginView class];
-    
     [[UITabBar appearance] setTintColor:[UIColor HMbloodOrangeColor]];
     [[UITabBar appearance] setBackgroundColor:[UIColor whiteColor]];
+    [[MBProgressHUD appearance] setColor:[UIColor HMpeachColor]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : [UIFont fontWithName:@"Verdana" size:20.0]}];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor HMbloodOrangeColor]];
     Secrets *secrets = [[Secrets alloc] init];
     [Parse setApplicationId:secrets.parseID
                   clientKey:secrets.parseKey];

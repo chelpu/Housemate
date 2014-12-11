@@ -15,6 +15,6 @@
 + (UIColor *)HMtangerineColor;
 + (UIColor *)HMpeachColor;
 + (UIColor *)HMcharcoalColor;
-+ (UIColor *)HMlightPeachColor;
++ (UIColor *)HMlightTanColor;
 
 @end

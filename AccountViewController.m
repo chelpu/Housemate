@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _defaults = [NSUserDefaults standardUserDefaults];
-    self.view.backgroundColor = [UIColor HMlightPeachColor];
+    self.view.backgroundColor = [UIColor HMlightTanColor];
     
     self.buttonOutlet.layer.cornerRadius = 5;
     self.buttonOutlet.backgroundColor = [UIColor HMtangerineColor];
@@ -252,7 +252,6 @@
 
 - (void)setToStateLoggedInWithHouseName{
     // add switch house button
-    NSLog(@"here");
     [_nameHeader setHidden:YES];
     [_nameField setHidden:YES];
     _phoneNumberHeader.text = [NSString stringWithFormat:@"Welcome, %@", [_defaults objectForKey:@"name"] ];

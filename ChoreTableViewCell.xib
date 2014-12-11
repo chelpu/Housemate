@@ -22,13 +22,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eci-S1-tYm">
-                        <rect key="frame" x="18" y="8" width="171" height="26"/>
+                        <rect key="frame" x="18" y="10" width="187" height="38"/>
                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0b4-UQ-0fr">
-                        <rect key="frame" x="18" y="42" width="171" height="20"/>
+                        <rect key="frame" x="18" y="50" width="171" height="20"/>
                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                 <outlet property="dueDate" destination="uga-pH-U2E" id="Xtg-1C-EUE"/>
                 <outlet property="title" destination="Eci-S1-tYm" id="wH6-Rr-KHn"/>
             </connections>
-            <point key="canvasLocation" x="140" y="150"/>
+            <point key="canvasLocation" x="140" y="148"/>
         </tableViewCell>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

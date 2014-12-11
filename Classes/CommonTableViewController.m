@@ -47,7 +47,7 @@
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.separatorColor = [UIColor HMbloodOrangeColor];
-    self.tableView.backgroundColor = [UIColor HMlightPeachColor];
+    self.tableView.backgroundColor = [UIColor HMlightTanColor];
     
     self.hud = [[MBProgressHUD alloc] init];
     [self.view addSubview:self.hud];

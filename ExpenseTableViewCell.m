@@ -17,7 +17,7 @@
     self.actionButton.backgroundColor = [UIColor HMtangerineColor];
     self.actionButton.layer.cornerRadius = 5;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.backgroundColor = [UIColor HMlightPeachColor];
+    self.backgroundColor = [UIColor HMlightTanColor];
 
 }
 

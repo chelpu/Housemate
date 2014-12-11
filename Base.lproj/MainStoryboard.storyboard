@@ -227,7 +227,8 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="Add Necessity" id="bRZ-lH-0qZ">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6RU-12-xLM">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="6RU-12-xLM">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="cancel:" destination="3tj-iv-M5L" id="z4J-EL-CsM"/>
                                             </connections>
@@ -657,47 +658,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of the chore?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Sy-UM-Nxc">
-                                <rect key="frame" x="13" y="76" width="194" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Name of the chore?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Sy-UM-Nxc">
+                                <rect key="frame" x="13" y="76" width="273" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="273" id="KX3-rX-uQi"/>
+                                    <constraint firstAttribute="height" constant="23" id="vl1-63-tcX"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IWP-Mc-Hrr">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IWP-Mc-Hrr">
                                 <rect key="frame" x="13" y="107" width="252" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="252" id="eku-Z7-KfB"/>
+                                    <constraint firstAttribute="height" constant="30" id="vzZ-9t-HwT"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Which housemate?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZN-UB-Jlg">
-                                <rect key="frame" x="13" y="144" width="194" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Which housemate?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZN-UB-Jlg">
+                                <rect key="frame" x="13" y="144" width="273" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="Pu8-fS-4wS"/>
+                                    <constraint firstAttribute="width" constant="273" id="mvA-YF-n1Y"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="When should it be done?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jl-5U-hS2">
-                                <rect key="frame" x="20" y="307" width="284" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="When should it be done?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jl-5U-hS2">
+                                <rect key="frame" x="20" y="307" width="266" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="266" id="GXR-Mx-N10"/>
+                                    <constraint firstAttribute="height" constant="23" id="srP-yg-jnh"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="zJ3-cB-PDn">
+                            <datePicker contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="zJ3-cB-PDn">
                                 <rect key="frame" x="34" y="329" width="252" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="252" id="Rlk-ko-pKQ"/>
+                                    <constraint firstAttribute="height" constant="162" id="oxj-0e-c5j"/>
+                                </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="435375523.97412801">
                                     <!--2014-10-19 01:38:43 +0000-->
                                 </date>
                             </datePicker>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wfz-8U-ZC5">
+                            <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wfz-8U-ZC5">
                                 <rect key="frame" x="34" y="163" width="252" height="162"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="WTD-Sp-eP5" id="Lts-JY-f3O"/>
-                                    <outlet property="delegate" destination="WTD-Sp-eP5" id="87E-mj-IWW"/>
-                                </connections>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="252" id="07r-9d-3JG"/>
+                                    <constraint firstAttribute="height" constant="162" id="cIi-gf-UWH"/>
+                                </constraints>
                             </pickerView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xU9-AA-cIx">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="Add Chore" id="GeK-IK-MhL">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="NxX-e6-VHw">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="cancel:" destination="WTD-Sp-eP5" id="c1W-CT-1Fw"/>
                                             </connections>
@@ -705,9 +727,13 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="br5-cF-C9i">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="br5-cF-C9i">
                                 <rect key="frame" x="34" y="495" width="252" height="43"/>
                                 <color key="backgroundColor" red="0.99061185119999995" green="0.51704353089999999" blue="0.25419685240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="B8x-l2-tWM"/>
+                                    <constraint firstAttribute="width" constant="252" id="tKG-Vl-7DT"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="15"/>
                                 <state key="normal" title="Add Chore">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -721,9 +747,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="zJ3-cB-PDn" secondAttribute="centerX" id="3Fi-mq-kGz"/>
                             <constraint firstItem="xU9-AA-cIx" firstAttribute="top" secondItem="QPh-Cc-LBY" secondAttribute="bottom" id="5eT-z0-yxw"/>
+                            <constraint firstAttribute="centerX" secondItem="Wfz-8U-ZC5" secondAttribute="centerX" id="7uE-JO-8DX"/>
+                            <constraint firstAttribute="centerX" secondItem="rZN-UB-Jlg" secondAttribute="centerX" id="8T4-sK-Lvx"/>
+                            <constraint firstAttribute="centerX" secondItem="br5-cF-C9i" secondAttribute="centerX" id="bhM-D8-xjf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xU9-AA-cIx" secondAttribute="trailing" constant="-16" id="coO-3r-Y87"/>
+                            <constraint firstAttribute="centerX" secondItem="0Sy-UM-Nxc" secondAttribute="centerX" id="d4a-eN-Vpv"/>
                             <constraint firstItem="xU9-AA-cIx" firstAttribute="leading" secondItem="9Nd-HD-rcY" secondAttribute="leadingMargin" constant="-16" id="h7d-zU-k9J"/>
+                            <constraint firstAttribute="centerX" secondItem="6Jl-5U-hS2" secondAttribute="centerX" id="soO-Rt-m8N"/>
+                            <constraint firstAttribute="centerX" secondItem="IWP-Mc-Hrr" secondAttribute="centerX" id="zlO-0L-qGv"/>
                         </constraints>
                     </view>
                     <connections>

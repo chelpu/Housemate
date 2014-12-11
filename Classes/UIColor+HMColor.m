@@ -30,10 +30,7 @@
     return [UIColor colorWithRed:51.0 / 255.0 green:51.0 / 255.0 blue:51.0 / 255.0 alpha:1.0];
 }
 
-+ (UIColor *)HMlightPeachColor {
-    return [UIColor colorWithRed:248.0 / 255.0
-                           green:248.0 / 255.0
-                            blue:248.0 / 255.0
-                           alpha:1.0];;
++ (UIColor *)HMlightTanColor {
+    return [UIColor colorWithRed:248.0 / 255.0 green:248.0 / 255.0 blue:248.0 / 255.0 alpha:1.0];;
 }
 @end

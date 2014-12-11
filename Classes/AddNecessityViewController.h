@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddViewController.h"
 
-@interface AddNecessityViewController : UIViewController <UITextFieldDelegate>
+@interface AddNecessityViewController : AddViewController
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (strong, nonatomic) IBOutlet UILabel *neededByLabel;
 @property (strong, nonatomic) IBOutlet UILabel *needLabel;
