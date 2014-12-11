@@ -51,6 +51,9 @@ static NSString *kExpenseCellIdentifier = @"ExpenseTableViewCell";
     [query includeKey:kChargerKey];
     
     [self.list removeAllObjects];
+    if(!self.refreshControl.isRefreshing) {
+        [self.hud show:YES];
+    }
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if(![objects count]) {
@@ -73,6 +76,8 @@ static NSString *kExpenseCellIdentifier = @"ExpenseTableViewCell";
             if (self.refreshControl) {
                 [self.refreshControl endRefreshing];
             }
+            [self.hud hide:YES];
+            
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -121,7 +126,6 @@ static NSString *kExpenseCellIdentifier = @"ExpenseTableViewCell";
     PFQuery *query = [PFQuery queryWithClassName:kUserIdentifier];
     
     [query whereKey:kNameKey equalTo:e.payer.name];
-    
     [query whereKey:kHouseIDKey equalTo:[self.defaults objectForKey:kHouseIDKey]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {

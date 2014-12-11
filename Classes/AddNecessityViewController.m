@@ -17,6 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor HMlightPeachColor];
+
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                           action:@selector(dismissKeyboard)];
@@ -31,7 +33,6 @@
     
     self.navigationBar.barTintColor = [UIColor HMbloodOrangeColor];
     self.navigationBar.barStyle = UIBarStyleBlack;
-    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     self.navigationBar.tintColor = [UIColor whiteColor];
 }
 

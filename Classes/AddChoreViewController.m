@@ -23,9 +23,10 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
+    self.view.backgroundColor = [UIColor HMlightPeachColor];
+    
     self.navigationBar.barTintColor = [UIColor HMbloodOrangeColor];
     self.navigationBar.barStyle = UIBarStyleBlack;
-    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     self.navigationBar.tintColor = [UIColor whiteColor];
     
     self.addChoreButton.layer.cornerRadius = 5;

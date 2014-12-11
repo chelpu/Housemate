@@ -31,6 +31,9 @@
 }
 
 + (UIColor *)HMlightPeachColor {
-    return [UIColor colorWithRed:247.0 / 255.0 green:235.0 / 255.0 blue:219.0 / 242.0 alpha:1.0];
+    return [UIColor colorWithRed:248.0 / 255.0
+                           green:248.0 / 255.0
+                            blue:248.0 / 255.0
+                           alpha:1.0];;
 }
 @end

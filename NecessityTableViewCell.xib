@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -26,9 +27,13 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uve-7i-qQe">
+                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uve-7i-qQe">
                         <rect key="frame" x="212" y="8" width="100" height="32"/>
                         <color key="backgroundColor" red="0.98431384560000001" green="0.62779569629999998" blue="0.43109047410000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="hj5-LR-FSp"/>
+                            <constraint firstAttribute="width" constant="100" id="rzs-6S-n2l"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="15"/>
                         <state key="normal" title="Bought It">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -36,6 +41,9 @@
                         </state>
                     </button>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="uve-7i-qQe" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-8" id="rC2-wr-Pqf"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="boughtItButton" destination="uve-7i-qQe" id="UFj-r4-gkH"/>

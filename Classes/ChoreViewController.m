@@ -49,6 +49,9 @@ static NSString *kChoreCellIdentifier = @"ChoreTableViewCell";
     [query includeKey:kAssigneeKey];
     [query orderByAscending:kDueDateKey];
     
+    if(!self.refreshControl.isRefreshing) {
+        [self.hud show:YES];
+    }
     [self.list removeAllObjects];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
@@ -67,6 +70,7 @@ static NSString *kChoreCellIdentifier = @"ChoreTableViewCell";
             if (self.refreshControl) {
                 [self.refreshControl endRefreshing];
             }
+            [self.hud hide:YES];
             [self.tableView reloadData];
         } else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -150,6 +154,7 @@ static NSString *kChoreCellIdentifier = @"ChoreTableViewCell";
                                          @"chore": cell.title.text,
                                          @"name": user.name};
                 [manager GET:kChoreRemindBaseURL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    
                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                     NSLog(@"Error: %@", error);
                 }];

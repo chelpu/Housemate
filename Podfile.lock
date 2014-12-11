@@ -23,6 +23,7 @@ PODS:
   - Facebook-iOS-SDK (3.18.0):
     - Bolts
   - KAWebViewController (0.2.1)
+  - MBProgressHUD (0.9)
   - MFSideMenu (0.5.5)
   - Parse (1.4.1):
     - Bolts (~> 1.1.2)
@@ -39,6 +40,7 @@ DEPENDENCIES:
   - AFNetworking (~> 2.2.0)
   - Facebook-iOS-SDK (~> 3.18)
   - KAWebViewController (~> 0.2)
+  - MBProgressHUD (~> 0.8)
   - MFSideMenu
   - Parse (~> 1.4)
   - TSValidatedTextField (~> 1.0)
@@ -50,6 +52,7 @@ SPEC CHECKSUMS:
   CMDQueryStringSerialization: e53570ccbce6004acba30b1c1210e254644cdb92
   Facebook-iOS-SDK: fa12c51cc57bfb6f92e47793c9d4d2c65bc92741
   KAWebViewController: 99586a9dbca3c9e7f0825876ed6bc8be2c062d62
+  MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
   MFSideMenu: 0493b0f57385dd036cc5443407a31fda6dee81ac
   Parse: db1a09c832b7509edcc88a65dc07229f5e578c73
   SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9

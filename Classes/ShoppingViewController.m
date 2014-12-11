@@ -49,6 +49,9 @@ static NSString *kNecessityCellIdentifier = @"NecessityTableViewCell";
     [query whereKey:kHouseIDKey equalTo:[self.defaults objectForKey:kHouseIDKey]];
     
     [self.list removeAllObjects];
+    if(!self.refreshControl.isRefreshing) {
+        [self.hud show:YES];
+    }
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if(![objects count]) {
@@ -67,6 +70,8 @@ static NSString *kNecessityCellIdentifier = @"NecessityTableViewCell";
             if (self.refreshControl) {
                 [self.refreshControl endRefreshing];
             }
+            [self.hud hide:YES];
+
         } else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Constants.h"
+#import "MBProgressHUD.h"
 
 @interface CommonTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
@@ -19,6 +20,7 @@
 @property (strong, nonatomic) UILabel *noResultsLabel;
 @property (strong, nonatomic) NSUserDefaults *defaults;
 @property (strong, nonatomic) NSDateFormatter *formatter;
+@property (strong, nonatomic) MBProgressHUD *hud;
 
 - (void)setToStateNoHousemates;
 - (void)setToStateNoResults;

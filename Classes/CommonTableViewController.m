@@ -44,11 +44,14 @@
     
     self.navigationBar.barTintColor = [UIColor HMbloodOrangeColorTranslucent];
     self.navigationBar.barStyle = UIBarStyleBlack;
-    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : [UIFont fontWithName:@"Verdana" size:20.0]}];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.separatorColor = [UIColor HMbloodOrangeColor];
     self.tableView.backgroundColor = [UIColor HMlightPeachColor];
+    
+    self.hud = [[MBProgressHUD alloc] init];
+    [self.view addSubview:self.hud];
+    self.hud.color = [UIColor HMpeachColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

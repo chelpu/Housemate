@@ -23,12 +23,13 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
+    self.view.backgroundColor = [UIColor HMlightPeachColor];
+    
     self.addExpenseButton.backgroundColor = [UIColor HMtangerineColor];
     self.addExpenseButton.layer.cornerRadius = 5;
     
     self.navigationBar.barTintColor = [UIColor HMbloodOrangeColor];
     self.navigationBar.barStyle = UIBarStyleBlack;
-    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     self.navigationBar.tintColor = [UIColor whiteColor];
     
     _assignees = [[NSMutableArray alloc] init];

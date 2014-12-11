@@ -164,8 +164,11 @@
         PFQuery *houseQ = [PFQuery queryWithClassName:@"Group"];
         [houseQ whereKey:@"objectId" equalTo:houseID.text];
         [houseQ findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if(![objects count]) {
+                return;
+            }
             NSDictionary *house = objects[0];
-            NSString *houseName = house[@"name"];
+            NSString *houseName = house[@"houseName"];
             PFQuery *query = [PFQuery queryWithClassName:@"User"];
             
             [query whereKey:@"phoneNumber" equalTo:[_defaults objectForKey:@"id"]];

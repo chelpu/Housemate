@@ -31,7 +31,7 @@
     [[UITabBar appearance] setTintColor:[UIColor HMbloodOrangeColor]];
     [[UITabBar appearance] setBackgroundColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : [UIFont fontWithName:@"Verdana" size:20.0]}];
     Secrets *secrets = [[Secrets alloc] init];
     [Parse setApplicationId:secrets.parseID
                   clientKey:secrets.parseKey];
