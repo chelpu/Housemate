@@ -58,15 +58,15 @@
 
 /* Begin PBXFileReference section */
 		1EF9BC613901430EA0388D74 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E04E6411A1304830072C1D5 /* AddChoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddChoreViewController.h; path = Classes/AddChoreViewController.h; sourceTree = SOURCE_ROOT; };
-		5E04E6421A1304830072C1D5 /* AddChoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddChoreViewController.m; path = Classes/AddChoreViewController.m; sourceTree = SOURCE_ROOT; };
-		5E29566019DCFB88005CFEE1 /* ChoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChoreViewController.h; path = Classes/ChoreViewController.h; sourceTree = SOURCE_ROOT; };
-		5E29566119DCFB88005CFEE1 /* ChoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChoreViewController.m; path = Classes/ChoreViewController.m; sourceTree = SOURCE_ROOT; };
-		5E29566419DCFC6E005CFEE1 /* ChoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoreTableViewCell.h; sourceTree = SOURCE_ROOT; };
-		5E29566519DCFC6E005CFEE1 /* ChoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoreTableViewCell.m; sourceTree = SOURCE_ROOT; };
-		5E29566619DCFC6E005CFEE1 /* ChoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChoreTableViewCell.xib; sourceTree = SOURCE_ROOT; };
-		5E2AA86219E8A19E0084D717 /* AddExpenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddExpenseViewController.h; path = Classes/AddExpenseViewController.h; sourceTree = SOURCE_ROOT; };
-		5E2AA86319E8A19E0084D717 /* AddExpenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddExpenseViewController.m; path = Classes/AddExpenseViewController.m; sourceTree = SOURCE_ROOT; };
+		5E04E6411A1304830072C1D5 /* AddChoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddChoreViewController.h; path = ViewControllers/AddChoreViewController.h; sourceTree = SOURCE_ROOT; };
+		5E04E6421A1304830072C1D5 /* AddChoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddChoreViewController.m; path = ViewControllers/AddChoreViewController.m; sourceTree = SOURCE_ROOT; };
+		5E29566019DCFB88005CFEE1 /* ChoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChoreViewController.h; path = ViewControllers/ChoreViewController.h; sourceTree = SOURCE_ROOT; };
+		5E29566119DCFB88005CFEE1 /* ChoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChoreViewController.m; path = ViewControllers/ChoreViewController.m; sourceTree = SOURCE_ROOT; };
+		5E29566419DCFC6E005CFEE1 /* ChoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChoreTableViewCell.h; path = CustomViews/ChoreTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		5E29566519DCFC6E005CFEE1 /* ChoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChoreTableViewCell.m; path = CustomViews/ChoreTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		5E29566619DCFC6E005CFEE1 /* ChoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChoreTableViewCell.xib; path = CustomViews/ChoreTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		5E2AA86219E8A19E0084D717 /* AddExpenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddExpenseViewController.h; path = ViewControllers/AddExpenseViewController.h; sourceTree = SOURCE_ROOT; };
+		5E2AA86319E8A19E0084D717 /* AddExpenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddExpenseViewController.m; path = ViewControllers/AddExpenseViewController.m; sourceTree = SOURCE_ROOT; };
 		5E7528E819B8DBBF00E37222 /* Housemate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Housemate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7528EB19B8DBBF00E37222 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5E7528ED19B8DBBF00E37222 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -78,23 +78,23 @@
 		5E75291619B8DBBF00E37222 /* HousemateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HousemateTests.m; sourceTree = "<group>"; };
 		5E877EDC1A1F0C440019CBA8 /* UIColor+HMColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+HMColor.h"; path = "Classes/UIColor+HMColor.h"; sourceTree = SOURCE_ROOT; };
 		5E877EDD1A1F0C440019CBA8 /* UIColor+HMColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+HMColor.m"; path = "Classes/UIColor+HMColor.m"; sourceTree = SOURCE_ROOT; };
-		5E877EEE1A2E5D300019CBA8 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = SOURCE_ROOT; };
-		5E877EEF1A2E5D300019CBA8 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = SOURCE_ROOT; };
-		5E877EF11A30101D0019CBA8 /* ShoppingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShoppingViewController.h; path = Classes/ShoppingViewController.h; sourceTree = SOURCE_ROOT; };
-		5E877EF21A30101D0019CBA8 /* ShoppingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShoppingViewController.m; path = Classes/ShoppingViewController.m; sourceTree = SOURCE_ROOT; };
-		5E877EF41A30114D0019CBA8 /* NecessityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NecessityTableViewCell.h; sourceTree = SOURCE_ROOT; };
-		5E877EF51A30114D0019CBA8 /* NecessityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NecessityTableViewCell.m; sourceTree = SOURCE_ROOT; };
-		5E877EF61A30114D0019CBA8 /* NecessityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NecessityTableViewCell.xib; sourceTree = SOURCE_ROOT; };
-		5E877EF91A30157F0019CBA8 /* AddNecessityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddNecessityViewController.h; path = Classes/AddNecessityViewController.h; sourceTree = SOURCE_ROOT; };
-		5E877EFA1A30157F0019CBA8 /* AddNecessityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddNecessityViewController.m; path = Classes/AddNecessityViewController.m; sourceTree = SOURCE_ROOT; };
-		5EA6F16A1A36A1CF0095CA25 /* CommonTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonTableViewController.h; path = Classes/CommonTableViewController.h; sourceTree = SOURCE_ROOT; };
-		5EA6F16B1A36A1CF0095CA25 /* CommonTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonTableViewController.m; path = Classes/CommonTableViewController.m; sourceTree = SOURCE_ROOT; };
+		5E877EEE1A2E5D300019CBA8 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountViewController.h; path = ViewControllers/AccountViewController.h; sourceTree = SOURCE_ROOT; };
+		5E877EEF1A2E5D300019CBA8 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountViewController.m; path = ViewControllers/AccountViewController.m; sourceTree = SOURCE_ROOT; };
+		5E877EF11A30101D0019CBA8 /* ShoppingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShoppingViewController.h; path = ViewControllers/ShoppingViewController.h; sourceTree = SOURCE_ROOT; };
+		5E877EF21A30101D0019CBA8 /* ShoppingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShoppingViewController.m; path = ViewControllers/ShoppingViewController.m; sourceTree = SOURCE_ROOT; };
+		5E877EF41A30114D0019CBA8 /* NecessityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NecessityTableViewCell.h; path = CustomViews/NecessityTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		5E877EF51A30114D0019CBA8 /* NecessityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NecessityTableViewCell.m; path = CustomViews/NecessityTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		5E877EF61A30114D0019CBA8 /* NecessityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NecessityTableViewCell.xib; path = CustomViews/NecessityTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		5E877EF91A30157F0019CBA8 /* AddNecessityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddNecessityViewController.h; path = ViewControllers/AddNecessityViewController.h; sourceTree = SOURCE_ROOT; };
+		5E877EFA1A30157F0019CBA8 /* AddNecessityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddNecessityViewController.m; path = ViewControllers/AddNecessityViewController.m; sourceTree = SOURCE_ROOT; };
+		5EA6F16A1A36A1CF0095CA25 /* CommonTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonTableViewController.h; path = ViewControllers/CommonTableViewController.h; sourceTree = SOURCE_ROOT; };
+		5EA6F16B1A36A1CF0095CA25 /* CommonTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonTableViewController.m; path = ViewControllers/CommonTableViewController.m; sourceTree = SOURCE_ROOT; };
 		5EA6F16D1A36A9010095CA25 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Classes/Constants.h; sourceTree = SOURCE_ROOT; };
 		5EA6F1741A396F5D0095CA25 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = SOURCE_ROOT; };
-		5EA6F1791A3A5DA60095CA25 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = SOURCE_ROOT; };
-		5EA6F17A1A3A5DA60095CA25 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = SOURCE_ROOT; };
-		5EA6F17C1A3AB59D0095CA25 /* HMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMTableViewCell.h; sourceTree = SOURCE_ROOT; };
-		5EA6F17D1A3AB59D0095CA25 /* HMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		5EA6F1791A3A5DA60095CA25 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddViewController.h; path = ViewControllers/AddViewController.h; sourceTree = SOURCE_ROOT; };
+		5EA6F17A1A3A5DA60095CA25 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddViewController.m; path = ViewControllers/AddViewController.m; sourceTree = SOURCE_ROOT; };
+		5EA6F17C1A3AB59D0095CA25 /* HMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HMTableViewCell.h; path = CustomViews/HMTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		5EA6F17D1A3AB59D0095CA25 /* HMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HMTableViewCell.m; path = CustomViews/HMTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		5EA7620619E2269200AA3A48 /* Secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Secrets.h; path = Classes/Secrets.h; sourceTree = SOURCE_ROOT; };
 		5EA7620719E2269200AA3A48 /* Secrets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Secrets.m; path = Classes/Secrets.m; sourceTree = SOURCE_ROOT; };
 		5EA7620919E227E400AA3A48 /* Chore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chore.h; path = Classes/Chore.h; sourceTree = SOURCE_ROOT; };
@@ -113,11 +113,11 @@
 		5EA7622219E2284E00AA3A48 /* Housemate-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Housemate-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		5EA7622319E2284E00AA3A48 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
 		5EA7622619E2288700AA3A48 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = SOURCE_ROOT; };
-		5EA7622819E4C76900AA3A48 /* ExpenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpenseViewController.h; path = Classes/ExpenseViewController.h; sourceTree = SOURCE_ROOT; };
-		5EA7622919E4C76900AA3A48 /* ExpenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpenseViewController.m; path = Classes/ExpenseViewController.m; sourceTree = SOURCE_ROOT; };
-		5EA7622B19E4C7D300AA3A48 /* ExpenseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseTableViewCell.h; sourceTree = SOURCE_ROOT; };
-		5EA7622C19E4C7D300AA3A48 /* ExpenseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseTableViewCell.m; sourceTree = SOURCE_ROOT; };
-		5EA7622D19E4C7D300AA3A48 /* ExpenseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenseTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		5EA7622819E4C76900AA3A48 /* ExpenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpenseViewController.h; path = ViewControllers/ExpenseViewController.h; sourceTree = SOURCE_ROOT; };
+		5EA7622919E4C76900AA3A48 /* ExpenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpenseViewController.m; path = ViewControllers/ExpenseViewController.m; sourceTree = SOURCE_ROOT; };
+		5EA7622B19E4C7D300AA3A48 /* ExpenseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpenseTableViewCell.h; path = CustomViews/ExpenseTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		5EA7622C19E4C7D300AA3A48 /* ExpenseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpenseTableViewCell.m; path = CustomViews/ExpenseTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		5EA7622D19E4C7D300AA3A48 /* ExpenseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExpenseTableViewCell.xib; path = CustomViews/ExpenseTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		66BB77097F773623E57C89A4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AEAF198B7B98D43C4EB85753 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,7 +181,7 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		5E29566319DCFC48005CFEE1 /* Xibs */ = {
+		5E29566319DCFC48005CFEE1 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
 				5E29566419DCFC6E005CFEE1 /* ChoreTableViewCell.h */,
@@ -196,7 +196,7 @@
 				5EA6F17C1A3AB59D0095CA25 /* HMTableViewCell.h */,
 				5EA6F17D1A3AB59D0095CA25 /* HMTableViewCell.m */,
 			);
-			name = Xibs;
+			name = CustomViews;
 			sourceTree = "<group>";
 		};
 		5E7528DF19B8DBBF00E37222 = {
@@ -243,7 +243,7 @@
 				5EA7621819E2281900AA3A48 /* AppDelegate.h */,
 				5EA7621919E2281900AA3A48 /* AppDelegate.m */,
 				5EA6F1741A396F5D0095CA25 /* LaunchScreen.xib */,
-				5E29566319DCFC48005CFEE1 /* Xibs */,
+				5E29566319DCFC48005CFEE1 /* CustomViews */,
 				5E9936A419DC6FFE00DF1EC3 /* Classes */,
 				5E29565F19DC7414005CFEE1 /* ViewControllers */,
 				5E7528F219B8DBBF00E37222 /* Supporting Files */,

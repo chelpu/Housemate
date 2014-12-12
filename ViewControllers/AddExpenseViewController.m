@@ -66,7 +66,7 @@
                     [self resetFields];
                     [self dismissViewControllerAnimated:YES completion:nil];
                 } else {
-                    NSLog(@"Error here");
+                    NSLog(@"Error");
                 }
             }];
         } else {
