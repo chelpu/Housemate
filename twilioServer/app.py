@@ -10,7 +10,7 @@ def remind():
     name = request.args.get('name', '')
     chore = request.args.get('chore', '')
     twil_client = TwilioRestClient(os.environ['TWILIO_ACCOUNT_SID'], os.environ['TWILIO_AUTH_TOKEN'])
-    message = twil_client.messages.create(body="Hey, " + name + "! Could you please " + chore + "\n(Sent from Housemate)", to=to_num, from_="+16165281254")
+    message = twil_client.messages.create(body="Hey, " + name + "! Could you please " + chore + "?\n(Sent from Housemate)", to=to_num, from_="+16165281254")
     return 'OK'
 
 @app.route("/expenseRemind")

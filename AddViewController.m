@@ -17,6 +17,10 @@
 
 @implementation AddViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    _defaults = [NSUserDefaults standardUserDefaults];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     _defaults = [NSUserDefaults standardUserDefaults];
@@ -44,7 +48,9 @@
                                                                           action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
     self.assignees = [[NSMutableArray alloc] init];
-    [self getAssignees];
+    if([self.defaults objectForKey:kHouseIDKey]) {
+        [self getAssignees];
+    }   
 }
 
 - (void)getAssignees {
@@ -52,6 +58,9 @@
     [query whereKey:kHouseIDKey equalTo:[self.defaults objectForKey:kHouseIDKey]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
+            if(![objects count]) {
+                return;
+            }
             for (PFObject *object in objects) {
                 User *u = [[User alloc] initWithDictionary:(NSDictionary *)object];
                 if(![u.phoneNumber isEqualToString:[self.defaults objectForKey:kIDKey]]) {
@@ -63,9 +72,6 @@
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
-}
-- (void)viewWillAppear:(BOOL)animated {
-    _defaults = [NSUserDefaults standardUserDefaults];
 }
 
 - (void)didReceiveMemoryWarning {

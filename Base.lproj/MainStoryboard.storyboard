@@ -390,9 +390,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJU-kR-pZx">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJU-kR-pZx">
                                 <rect key="frame" x="16" y="180" width="288" height="45"/>
                                 <color key="backgroundColor" red="0.99061185119999995" green="0.51704353089999999" blue="0.25419685240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="Zn8-jL-s35"/>
+                                    <constraint firstAttribute="height" constant="45" id="bqY-Vr-RDQ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="15"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -477,6 +481,7 @@
                             <constraint firstAttribute="centerX" secondItem="CJs-4H-HOg" secondAttribute="centerX" id="BfV-kd-w8g"/>
                             <constraint firstAttribute="centerX" secondItem="Acg-6W-Wnd" secondAttribute="centerX" id="DH4-GF-11I"/>
                             <constraint firstAttribute="centerX" secondItem="m4c-ap-yrx" secondAttribute="centerX" id="QyH-TJ-eP4"/>
+                            <constraint firstAttribute="centerX" secondItem="CJU-kR-pZx" secondAttribute="centerX" id="SLU-kd-nc4"/>
                             <constraint firstAttribute="centerX" secondItem="XLo-Ug-cj4" secondAttribute="centerX" id="WMW-R1-Jmd"/>
                             <constraint firstAttribute="centerX" secondItem="MQQ-QE-h6y" secondAttribute="centerX" id="pnd-t9-QWg"/>
                             <constraint firstAttribute="centerX" secondItem="OCg-gp-10O" secondAttribute="centerX" id="zoR-UP-c8Y"/>

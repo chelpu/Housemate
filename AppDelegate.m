@@ -1,9 +1,6 @@
 //
 //  AppDelegate.m
-//  SidebarDemo
 //
-//  Created by Simon on 28/6/13.
-//  Copyright (c) 2013 Appcoda. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -20,9 +17,14 @@
     [[UITabBar appearance] setTintColor:[UIColor HMbloodOrangeColor]];
     [[UITabBar appearance] setBackgroundColor:[UIColor whiteColor]];
     [[MBProgressHUD appearance] setColor:[UIColor HMpeachColor]];
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : [UIFont fontWithName:@"Verdana" size:20.0]}];
+    
     [[UINavigationBar appearance] setBarTintColor:[UIColor HMbloodOrangeColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : [UIFont fontWithName:@"Verdana" size:20.0]}];
+    
+    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+    [[UIBarButtonItem appearance] setStyle:UIBarButtonItemStylePlain];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : [UIFont fontWithName:@"Verdana" size:14.0]} forState:UIControlStateNormal];
+    
     Secrets *secrets = [[Secrets alloc] init];
     [Parse setApplicationId:secrets.parseID
                   clientKey:secrets.parseKey];

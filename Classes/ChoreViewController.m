@@ -49,6 +49,7 @@ static NSString *kChoreCellIdentifier = @"ChoreTableViewCell";
         if (!error) {
             if(![objects count]) {
                 [self setToStateNoResults];
+                [self postQueryTakedown];
                 return;
             } else {
                 [self setToStateNormal];

@@ -15,7 +15,7 @@
 }
 
 + (UIColor *)HMbloodOrangeColorTranslucent {
-    return [UIColor colorWithRed:250.0/255.0 green:54.0/255.0 blue:53.0/255.0 alpha:0.7f];
+    return [UIColor colorWithRed:250.0/255.0 green:54.0/255.0 blue:53.0/255.0 alpha:1.0f];
 }
 
 + (UIColor *)HMtangerineColor {
@@ -31,6 +31,6 @@
 }
 
 + (UIColor *)HMlightTanColor {
-    return [UIColor colorWithRed:248.0 / 255.0 green:248.0 / 255.0 blue:248.0 / 255.0 alpha:1.0];;
+    return [UIColor colorWithRed:248.0 / 255.0 green:248.0 / 255.0 blue:248.0 / 255.0 alpha:1.0];
 }
 @end

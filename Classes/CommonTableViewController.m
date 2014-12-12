@@ -21,6 +21,8 @@
     _formatter = [[NSDateFormatter alloc] init];
     [_formatter setDateFormat:kDateFormat];
     
+    self.view.backgroundColor = [UIColor HMlightTanColor];
+    
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor HMpeachColor];
     self.refreshControl.tintColor = [UIColor whiteColor];
@@ -44,10 +46,7 @@
     
     [self.view addSubview:_noHousematesLabel];
     [self.view addSubview:_noResultsLabel];
-    
-    self.navigationBar.barTintColor = [UIColor HMbloodOrangeColorTranslucent];
-    self.navigationBar.barStyle = UIBarStyleBlack;
-    
+        
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.separatorColor = [UIColor HMbloodOrangeColor];
     self.tableView.backgroundColor = [UIColor HMlightTanColor];

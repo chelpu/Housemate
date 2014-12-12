@@ -29,9 +29,6 @@ static NSString *kNecessityCellIdentifier = @"NecessityTableViewCell";
     
     self.noHousematesLabel.text = @"No housemates! Add some.";
     self.noResultsLabel.text = @"You don't need anything!";
-//    [self.refreshControl addTarget:nil
-//                            action:@selector(getNewData)
-//                  forControlEvents:UIControlEventValueChanged];
     
     UINib *nib = [UINib nibWithNibName:kNecessityCellIdentifier bundle:nil];
     [[self tableView] registerNib:nib forCellReuseIdentifier:kNecessityCellIdentifier];
@@ -44,10 +41,12 @@ static NSString *kNecessityCellIdentifier = @"NecessityTableViewCell";
     }
     PFQuery *query = [PFQuery queryWithClassName:kNecessityIdentifier];
     [query whereKey:kHouseIDKey equalTo:[self.defaults objectForKey:kHouseIDKey]];
+    [query orderByAscending:kDateNeededKey];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if(![objects count]) {
                 [self setToStateNoResults];
+                [self postQueryTakedown];
             } else {
                 [self setToStateNormal];
             }
