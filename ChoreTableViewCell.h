@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HMTableViewCell.h"
 
-@interface ChoreTableViewCell : UITableViewCell
+@interface ChoreTableViewCell : HMTableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *title;
 @property (strong, nonatomic) IBOutlet UILabel *dueDate;

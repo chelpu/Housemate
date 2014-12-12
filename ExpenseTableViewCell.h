@@ -7,14 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HMTableViewCell.h"
 
-@interface ExpenseTableViewCell : UITableViewCell
+@interface ExpenseTableViewCell : HMTableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *title;
 @property (strong, nonatomic) IBOutlet UILabel *assigneeName;
-@property (strong, nonatomic) IBOutlet UILabel *dueDate;
 @property (strong, nonatomic) IBOutlet UILabel *price;
-
 @property (strong, nonatomic) IBOutlet UIButton *actionButton;
 
 @end

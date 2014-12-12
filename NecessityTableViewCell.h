@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HMTableViewCell.h"
 
-@interface NecessityTableViewCell : UITableViewCell
+@interface NecessityTableViewCell : HMTableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *dueDateLabel;

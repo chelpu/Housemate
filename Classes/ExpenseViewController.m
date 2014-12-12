@@ -85,7 +85,6 @@ static NSString *kExpenseCellIdentifier = @"ExpenseTableViewCell";
     
     cell.title.text = e.title;
     cell.assigneeName.text = [NSString stringWithFormat:@"Payer: %@", e.payer.name];
-    cell.dueDate.text = [self.formatter stringFromDate:e.dueDate];
     cell.price.text = [NSString stringWithFormat:@"$%.2f", e.amount];
     
     if([e.payer.phoneNumber isEqualToString:[self.defaults objectForKey:kIDKey]]) {

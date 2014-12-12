@@ -11,13 +11,7 @@
 @implementation NecessityTableViewCell
 
 - (void)awakeFromNib {
-    self.nameLabel.textColor = [UIColor HMcharcoalColor];
-    self.dueDateLabel.textColor = [UIColor HMcharcoalColor];
-    self.boughtItButton.backgroundColor = [UIColor HMtangerineColor];
-    self.boughtItButton.layer.cornerRadius = 5;
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.backgroundColor = [UIColor HMlightTanColor];
-
+    [super awakeFromNib];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -13,7 +13,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
     [[UITabBar appearance] setTintColor:[UIColor HMbloodOrangeColor]];
     [[UITabBar appearance] setBackgroundColor:[UIColor whiteColor]];
     [[MBProgressHUD appearance] setColor:[UIColor HMpeachColor]];

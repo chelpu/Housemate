@@ -13,27 +13,8 @@
 
 @implementation ChoreTableViewCell
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
     [super awakeFromNib];
-    self.title.textColor = [UIColor HMcharcoalColor];
-    self.dueDate.textColor = [UIColor HMcharcoalColor];
-    self.assigneeName.textColor = [UIColor HMcharcoalColor];
-    self.completeButton.backgroundColor = [UIColor HMtangerineColor];
-    self.completeButton.layer.cornerRadius = 5;
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.backgroundColor = [UIColor HMlightTanColor];
 }
-
-- (void)prepareForReuse {
-    [super prepareForReuse];
-}
-
-#pragma UIGesterRecognizerDelegate methods
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
-{
-    return YES;
-}
-
 
 @end

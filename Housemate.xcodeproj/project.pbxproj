@@ -29,10 +29,10 @@
 		5EA6F16C1A36A1CF0095CA25 /* CommonTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6F16B1A36A1CF0095CA25 /* CommonTableViewController.m */; };
 		5EA6F1751A396F5D0095CA25 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EA6F1741A396F5D0095CA25 /* LaunchScreen.xib */; };
 		5EA6F17B1A3A5DA60095CA25 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6F17A1A3A5DA60095CA25 /* AddViewController.m */; };
+		5EA6F17E1A3AB59D0095CA25 /* HMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6F17D1A3AB59D0095CA25 /* HMTableViewCell.m */; };
 		5EA7620819E2269200AA3A48 /* Secrets.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7620719E2269200AA3A48 /* Secrets.m */; };
 		5EA7620B19E227E400AA3A48 /* Chore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7620A19E227E400AA3A48 /* Chore.m */; };
 		5EA7621419E2280500AA3A48 /* Expense.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7620D19E2280500AA3A48 /* Expense.m */; };
-		5EA7621519E2280500AA3A48 /* FBGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7620F19E2280500AA3A48 /* FBGroup.m */; };
 		5EA7621619E2280500AA3A48 /* Necessity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7621119E2280500AA3A48 /* Necessity.m */; };
 		5EA7621719E2280500AA3A48 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7621319E2280500AA3A48 /* User.m */; };
 		5EA7621A19E2281900AA3A48 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7621919E2281900AA3A48 /* AppDelegate.m */; };
@@ -93,14 +93,14 @@
 		5EA6F1741A396F5D0095CA25 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = SOURCE_ROOT; };
 		5EA6F1791A3A5DA60095CA25 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = SOURCE_ROOT; };
 		5EA6F17A1A3A5DA60095CA25 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = SOURCE_ROOT; };
+		5EA6F17C1A3AB59D0095CA25 /* HMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		5EA6F17D1A3AB59D0095CA25 /* HMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		5EA7620619E2269200AA3A48 /* Secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Secrets.h; path = Classes/Secrets.h; sourceTree = SOURCE_ROOT; };
 		5EA7620719E2269200AA3A48 /* Secrets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Secrets.m; path = Classes/Secrets.m; sourceTree = SOURCE_ROOT; };
 		5EA7620919E227E400AA3A48 /* Chore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chore.h; path = Classes/Chore.h; sourceTree = SOURCE_ROOT; };
 		5EA7620A19E227E400AA3A48 /* Chore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Chore.m; path = Classes/Chore.m; sourceTree = SOURCE_ROOT; };
 		5EA7620C19E2280500AA3A48 /* Expense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Expense.h; path = Classes/Expense.h; sourceTree = SOURCE_ROOT; };
 		5EA7620D19E2280500AA3A48 /* Expense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Expense.m; path = Classes/Expense.m; sourceTree = SOURCE_ROOT; };
-		5EA7620E19E2280500AA3A48 /* FBGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBGroup.h; path = Classes/FBGroup.h; sourceTree = SOURCE_ROOT; };
-		5EA7620F19E2280500AA3A48 /* FBGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBGroup.m; path = Classes/FBGroup.m; sourceTree = SOURCE_ROOT; };
 		5EA7621019E2280500AA3A48 /* Necessity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Necessity.h; path = Classes/Necessity.h; sourceTree = SOURCE_ROOT; };
 		5EA7621119E2280500AA3A48 /* Necessity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Necessity.m; path = Classes/Necessity.m; sourceTree = SOURCE_ROOT; };
 		5EA7621219E2280500AA3A48 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Classes/User.h; sourceTree = SOURCE_ROOT; };
@@ -193,6 +193,8 @@
 				5E877EF41A30114D0019CBA8 /* NecessityTableViewCell.h */,
 				5E877EF51A30114D0019CBA8 /* NecessityTableViewCell.m */,
 				5E877EF61A30114D0019CBA8 /* NecessityTableViewCell.xib */,
+				5EA6F17C1A3AB59D0095CA25 /* HMTableViewCell.h */,
+				5EA6F17D1A3AB59D0095CA25 /* HMTableViewCell.m */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -281,8 +283,6 @@
 				5E877EDD1A1F0C440019CBA8 /* UIColor+HMColor.m */,
 				5EA7620C19E2280500AA3A48 /* Expense.h */,
 				5EA7620D19E2280500AA3A48 /* Expense.m */,
-				5EA7620E19E2280500AA3A48 /* FBGroup.h */,
-				5EA7620F19E2280500AA3A48 /* FBGroup.m */,
 				5EA7621019E2280500AA3A48 /* Necessity.h */,
 				5EA7621119E2280500AA3A48 /* Necessity.m */,
 				5EA7621219E2280500AA3A48 /* User.h */,
@@ -448,12 +448,12 @@
 				5EA7621719E2280500AA3A48 /* User.m in Sources */,
 				5EA7620819E2269200AA3A48 /* Secrets.m in Sources */,
 				5E29566719DCFC6E005CFEE1 /* ChoreTableViewCell.m in Sources */,
+				5EA6F17E1A3AB59D0095CA25 /* HMTableViewCell.m in Sources */,
 				5E04E6431A1304830072C1D5 /* AddChoreViewController.m in Sources */,
 				5E877EF31A30101D0019CBA8 /* ShoppingViewController.m in Sources */,
 				5EA7622519E2284E00AA3A48 /* main.m in Sources */,
 				5EA7622E19E4C7D300AA3A48 /* ExpenseTableViewCell.m in Sources */,
 				5EA6F17B1A3A5DA60095CA25 /* AddViewController.m in Sources */,
-				5EA7621519E2280500AA3A48 /* FBGroup.m in Sources */,
 				5E877EF01A2E5D300019CBA8 /* AccountViewController.m in Sources */,
 				5E877EDE1A1F0C440019CBA8 /* UIColor+HMColor.m in Sources */,
 			);
