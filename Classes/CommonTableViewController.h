@@ -25,5 +25,8 @@
 - (void)setToStateNoHousemates;
 - (void)setToStateNoResults;
 - (void)setToStateNormal;
+- (BOOL)preQuerySetup;
+- (void)postQueryTakedown;
+- (void)removeFromTableIndexPath:(NSIndexPath *)indexPath;
 
 @end

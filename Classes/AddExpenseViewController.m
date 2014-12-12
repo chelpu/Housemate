@@ -56,7 +56,7 @@
             expense[kHouseIDKey] = [self.defaults objectForKey:kHouseIDKey];
                         
             PFQuery *query = [PFQuery queryWithClassName:kUserIdentifier];
-            [query whereKey:@"phoneNumber" equalTo:[self.defaults objectForKey:@"id"]];
+            [query whereKey:kPhoneNumberKey equalTo:[self.defaults objectForKey:kIDKey]];
             [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                 if(!error) {
                     PFObject *obj = objects[0];

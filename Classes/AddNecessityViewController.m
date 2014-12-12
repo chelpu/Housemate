@@ -28,7 +28,6 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
 - (IBAction)addNecessity:(id)sender {
     if(!(self.needTextField.text && self.needTextField.text.length > 0)) {
         [self showIncompleteAlertWithMessage:@"Please fill out all fields." andTitle:@"Necessity incomplete!"];

@@ -25,6 +25,9 @@
     self.refreshControl.backgroundColor = [UIColor HMpeachColor];
     self.refreshControl.tintColor = [UIColor whiteColor];
     [self.tableView addSubview:self.refreshControl];
+    [self.refreshControl addTarget:nil
+                            action:@selector(getNewData)
+                  forControlEvents:UIControlEventValueChanged];
     
     _noHousematesLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 60.0, 300.0, 45.0)];
     _noHousematesLabel.textColor = [UIColor HMcharcoalColor];
@@ -52,6 +55,38 @@
     self.hud = [[MBProgressHUD alloc] init];
     [self.view addSubview:self.hud];
     self.hud.color = [UIColor HMpeachColor];
+}
+
+- (void)getNewData {}
+
+- (BOOL)preQuerySetup {
+    if(![self.defaults objectForKey:kHouseIDKey]) {
+        [self setToStateNoHousemates];
+        return NO;
+    }
+    if(!self.refreshControl.isRefreshing) {
+        [self.hud show:YES];
+    }
+    [self.list removeAllObjects];
+    return YES;
+}
+
+- (void)postQueryTakedown {
+    if (self.refreshControl) {
+        [self.refreshControl endRefreshing];
+    }
+    [self.hud hide:YES];
+    [self.tableView reloadData];
+}
+
+- (void)removeFromTableIndexPath:(NSIndexPath *)indexPath {
+    if(![self.list count]) {
+        [self setToStateNoResults];
+    }
+    
+    NSArray *ips = @[indexPath];
+    [self.list removeObjectAtIndex:indexPath.row];
+    [self.tableView deleteRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

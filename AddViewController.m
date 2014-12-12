@@ -54,7 +54,7 @@
         if (!error) {
             for (PFObject *object in objects) {
                 User *u = [[User alloc] initWithDictionary:(NSDictionary *)object];
-                if(![u.phoneNumber isEqualToString:[self.defaults objectForKey:@"id"]]) {
+                if(![u.phoneNumber isEqualToString:[self.defaults objectForKey:kIDKey]]) {
                     [self.assignees addObject:u.name];
                 }
             }

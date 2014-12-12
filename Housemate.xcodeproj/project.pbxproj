@@ -167,16 +167,16 @@
 				5E2AA86319E8A19E0084D717 /* AddExpenseViewController.m */,
 				5E877EF91A30157F0019CBA8 /* AddNecessityViewController.h */,
 				5E877EFA1A30157F0019CBA8 /* AddNecessityViewController.m */,
+				5EA6F16A1A36A1CF0095CA25 /* CommonTableViewController.h */,
+				5EA6F16B1A36A1CF0095CA25 /* CommonTableViewController.m */,
 				5E29566019DCFB88005CFEE1 /* ChoreViewController.h */,
 				5E29566119DCFB88005CFEE1 /* ChoreViewController.m */,
 				5EA7622819E4C76900AA3A48 /* ExpenseViewController.h */,
 				5EA7622919E4C76900AA3A48 /* ExpenseViewController.m */,
-				5E877EEE1A2E5D300019CBA8 /* AccountViewController.h */,
-				5E877EEF1A2E5D300019CBA8 /* AccountViewController.m */,
 				5E877EF11A30101D0019CBA8 /* ShoppingViewController.h */,
 				5E877EF21A30101D0019CBA8 /* ShoppingViewController.m */,
-				5EA6F16A1A36A1CF0095CA25 /* CommonTableViewController.h */,
-				5EA6F16B1A36A1CF0095CA25 /* CommonTableViewController.m */,
+				5E877EEE1A2E5D300019CBA8 /* AccountViewController.h */,
+				5E877EEF1A2E5D300019CBA8 /* AccountViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";

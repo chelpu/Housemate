@@ -30,29 +30,21 @@ static NSString *kChoreCellIdentifier = @"ChoreTableViewCell";
     [super viewDidLoad];
     self.noHousematesLabel.text = @"No housemates! Add some.";
     self.noResultsLabel.text = @"No chores to do!";
-    [self.refreshControl addTarget:nil
-                            action:@selector(getNewData)
-                  forControlEvents:UIControlEventValueChanged];
     
     UINib *nib = [UINib nibWithNibName:kChoreCellIdentifier bundle:nil];
     [[self tableView] registerNib:nib forCellReuseIdentifier:kChoreCellIdentifier];
 }
 
 - (void)getNewData {
-    if(![self.defaults objectForKey:kHouseIDKey]) {
-        [self setToStateNoHousemates];
+    BOOL success = [self preQuerySetup];
+    if (!success) {
         return;
-    } 
-    
+    }
     PFQuery *query = [PFQuery queryWithClassName:kChoreIdentifier];
     [query whereKey:kHouseIDKey equalTo:[self.defaults objectForKey:kHouseIDKey]];
     [query includeKey:kAssigneeKey];
     [query orderByAscending:kDueDateKey];
     
-    if(!self.refreshControl.isRefreshing) {
-        [self.hud show:YES];
-    }
-    [self.list removeAllObjects];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if(![objects count]) {
@@ -67,11 +59,7 @@ static NSString *kChoreCellIdentifier = @"ChoreTableViewCell";
                 c.assignee = [[User alloc] initWithDictionary:(NSDictionary *)user];
                 [self.list addObject:c];
             }
-            if (self.refreshControl) {
-                [self.refreshControl endRefreshing];
-            }
-            [self.hud hide:YES];
-            [self.tableView reloadData];
+            [self postQueryTakedown];
         } else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
@@ -99,7 +87,7 @@ static NSString *kChoreCellIdentifier = @"ChoreTableViewCell";
     cell.assigneeName.text = c.assignee.name;
     cell.dueDate.text = [NSString stringWithFormat:@"Get done by %@", [self.formatter stringFromDate:c.dueDate]];
     
-    if(![c.assignee.phoneNumber isEqualToString:[self.defaults objectForKey:@"id"]]) {
+    if(![c.assignee.phoneNumber isEqualToString:[self.defaults objectForKey:kIDKey]]) {
         [cell.completeButton setTitle:@"Remind" forState:UIControlStateNormal];
         [cell.completeButton removeTarget:self action:@selector(didCompleteChore:) forControlEvents:UIControlEventTouchUpInside];
         [cell.completeButton addTarget:self action:@selector(remindOfChore:) forControlEvents:UIControlEventTouchUpInside];
@@ -129,15 +117,8 @@ static NSString *kChoreCellIdentifier = @"ChoreTableViewCell";
             }
         }];
     }];
-    
-    if(![self.list count]) {
-        [self setToStateNoResults];
-    }
-    
     NSIndexPath *ip = [self.tableView indexPathForCell:cell];
-    NSArray *ips = @[ip];
-    [self.list removeObjectAtIndex:ip.row];
-    [self.tableView deleteRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self removeFromTableIndexPath:ip];
 }
 
 - (void)remindOfChore:(id)sender {

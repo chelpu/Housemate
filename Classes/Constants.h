@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 
 #define kHouseIDKey @"houseID"
+#define kIDKey @"id"
 #define kAssigneeKey @"assignee"
 #define kDueDateKey @"dueDate"
 #define kDateNeededKey @"dateNeeded"
 #define kNameKey @"name"
+#define kPhoneNumberKey @"phoneNumber"
 #define kChargerKey @"charger"
 #define kTitleKey @"title"
 #define kAmountKey @"amount"

@@ -19,6 +19,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *phoneNumberHeader;
 @property (strong, nonatomic) IBOutlet UIButton *createHouseButton;
 @property (strong, nonatomic) IBOutlet UIButton *joinHouseButton;
-@property (strong, nonatomic) IBOutlet UILabel *hausLabel;
 
 @end

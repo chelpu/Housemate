@@ -37,7 +37,6 @@
     self.joinHouseButton.layer.cornerRadius = 5;
     self.joinHouseButton.backgroundColor = [UIColor HMtangerineColor];
     
-    self.hausLabel.textColor = [UIColor HMcharcoalColor];
     self.phoneNumberHeader.textColor = [UIColor HMcharcoalColor];
     
     _nameHeader.textColor = [UIColor HMcharcoalColor];
@@ -234,7 +233,6 @@
     [self.buttonOutlet addTarget:self action:@selector(createAccount:) forControlEvents:UIControlEventTouchUpInside];
     [self.createHouseButton setHidden:YES];
     [self.joinHouseButton setHidden:YES];
-    [self.hausLabel setHidden:YES];
     [self.houseImageView setHidden:YES];
 }
 
@@ -246,7 +244,6 @@
     [_phoneNumberHeader setHidden:YES];
     [self.createHouseButton setHidden:NO];
     [self.joinHouseButton setHidden:NO];
-    [self.hausLabel setHidden:YES];
     [self.houseImageView setHidden:YES];
 }
 

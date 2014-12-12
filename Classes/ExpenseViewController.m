@@ -32,28 +32,19 @@ static NSString *kExpenseCellIdentifier = @"ExpenseTableViewCell";
     self.noHousematesLabel.text = @"No housemates! Add some.";
     self.noResultsLabel.text = @"No outstanding expenses!";
     
-    [self.refreshControl addTarget:nil
-                            action:@selector(getNewData)
-                  forControlEvents:UIControlEventValueChanged];
-    
     UINib *nib = [UINib nibWithNibName:kExpenseCellIdentifier bundle:nil];
     [[self tableView] registerNib:nib forCellReuseIdentifier:kExpenseCellIdentifier];
 }
 
 - (void)getNewData {
-    if(![self.defaults objectForKey:kHouseIDKey]) {
-        [self setToStateNoHousemates];
+    BOOL success = [self preQuerySetup];
+    if (!success) {
         return;
     }
     PFQuery *query = [PFQuery queryWithClassName:kExpenseIdentifier];
     [query whereKey:kHouseIDKey equalTo:[self.defaults objectForKey:kHouseIDKey]];
     [query includeKey:kAssigneeKey];
     [query includeKey:kChargerKey];
-    
-    [self.list removeAllObjects];
-    if(!self.refreshControl.isRefreshing) {
-        [self.hud show:YES];
-    }
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if(![objects count]) {
@@ -70,14 +61,7 @@ static NSString *kExpenseCellIdentifier = @"ExpenseTableViewCell";
                 e.charger = [[User alloc] initWithDictionary:(NSDictionary *)charger];
                 [self.list addObject:e];
             }
-            
-            [self.tableView reloadData];
-            
-            if (self.refreshControl) {
-                [self.refreshControl endRefreshing];
-            }
-            [self.hud hide:YES];
-            
+            [self postQueryTakedown];
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -103,7 +87,7 @@ static NSString *kExpenseCellIdentifier = @"ExpenseTableViewCell";
     cell.dueDate.text = [self.formatter stringFromDate:e.dueDate];
     cell.price.text = [NSString stringWithFormat:@"$%.2f", e.amount];
     
-    if([e.payer.phoneNumber isEqualToString:[self.defaults objectForKey:@"id"]]) {
+    if([e.payer.phoneNumber isEqualToString:[self.defaults objectForKey:kIDKey]]) {
         [cell.actionButton addTarget:self action:@selector(payForItem:) forControlEvents:UIControlEventTouchUpInside];
         [cell.actionButton setTitle:@"Pay" forState:UIControlStateNormal];
     } else {
@@ -162,8 +146,8 @@ static NSString *kExpenseCellIdentifier = @"ExpenseTableViewCell";
 
 - (void)payForItem:(id)sender {
     ExpenseTableViewCell *cell = (ExpenseTableViewCell *)[[sender superview] superview];
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    Expense *e = [self.list objectAtIndex:indexPath.row];
+    NSIndexPath *ip = [self.tableView indexPathForCell:cell];
+    Expense *e = [self.list objectAtIndex:ip.row];
     NSString *fullURL = [NSString stringWithFormat:@"https://venmo.com/?txn=pay&amount=%f&note=%@&audience=public&recipients=%@", e.amount, e.title, e.charger.phoneNumber];
     NSString *encoded = [fullURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *url = [NSURL URLWithString:encoded];
@@ -187,20 +171,8 @@ static NSString *kExpenseCellIdentifier = @"ExpenseTableViewCell";
                 }
             }];
         }];
-        
-        NSArray *ips = @[indexPath];
-        [self.list removeObjectAtIndex:indexPath.row];
-        [self.tableView deleteRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationAutomatic];
     }];
-    
-    if(![self.list count]) {
-        [self setToStateNoResults];
-    }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 0.0f;
+    [self removeFromTableIndexPath:ip];
 }
 
 @end

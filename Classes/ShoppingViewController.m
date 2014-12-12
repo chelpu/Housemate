@@ -15,7 +15,6 @@ static NSString *kNecessityCellIdentifier = @"NecessityTableViewCell";
 
 @interface ShoppingViewController ()
 
-
 @end
 
 @implementation ShoppingViewController
@@ -30,28 +29,21 @@ static NSString *kNecessityCellIdentifier = @"NecessityTableViewCell";
     
     self.noHousematesLabel.text = @"No housemates! Add some.";
     self.noResultsLabel.text = @"You don't need anything!";
-    
-    [self.refreshControl addTarget:nil
-                            action:@selector(getNewData)
-                  forControlEvents:UIControlEventValueChanged];
+//    [self.refreshControl addTarget:nil
+//                            action:@selector(getNewData)
+//                  forControlEvents:UIControlEventValueChanged];
     
     UINib *nib = [UINib nibWithNibName:kNecessityCellIdentifier bundle:nil];
     [[self tableView] registerNib:nib forCellReuseIdentifier:kNecessityCellIdentifier];
 }
 
 - (void)getNewData {
-    if(![self.defaults objectForKey:kHouseIDKey]) {
-        [self setToStateNoHousemates];
+    BOOL success = [self preQuerySetup];
+    if (!success) {
         return;
-    } 
-    
+    }
     PFQuery *query = [PFQuery queryWithClassName:kNecessityIdentifier];
     [query whereKey:kHouseIDKey equalTo:[self.defaults objectForKey:kHouseIDKey]];
-    
-    [self.list removeAllObjects];
-    if(!self.refreshControl.isRefreshing) {
-        [self.hud show:YES];
-    }
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if(![objects count]) {
@@ -64,14 +56,7 @@ static NSString *kNecessityCellIdentifier = @"NecessityTableViewCell";
                 Necessity *n = [[Necessity alloc] initWithDictionary:(NSDictionary *)object objId:[object objectId]];
                 [self.list addObject:n];
             }
-            
-            [self.tableView reloadData];
-            
-            if (self.refreshControl) {
-                [self.refreshControl endRefreshing];
-            }
-            [self.hud hide:YES];
-
+            [self postQueryTakedown];
         } else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
@@ -82,12 +67,12 @@ static NSString *kNecessityCellIdentifier = @"NecessityTableViewCell";
     [super didReceiveMemoryWarning];
 }
 
-
 #pragma mark - UITableView
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 88.0f;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NecessityTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:kNecessityCellIdentifier];
     Necessity *n = [self.list objectAtIndex:indexPath.row];
@@ -96,19 +81,16 @@ static NSString *kNecessityCellIdentifier = @"NecessityTableViewCell";
     cell.dueDateLabel.text = [NSString stringWithFormat:@"Need by %@",[self.formatter stringFromDate:n.dateNeeded]];
     
     [cell.boughtItButton addTarget:self action:@selector(bought:) forControlEvents:UIControlEventTouchUpInside];
-
     return cell;
 }
 
 - (void)bought:(id)sender {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NecessityTableViewCell *cell = (NecessityTableViewCell *)[[sender superview] superview];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    
     PFQuery *query = [PFQuery queryWithClassName:kNecessityIdentifier];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         PFQuery *query = [PFQuery queryWithClassName:kNecessityIdentifier];
-        [query whereKey:kHouseIDKey equalTo:[defaults objectForKey:kHouseIDKey]];
+        [query whereKey:kHouseIDKey equalTo:[self.defaults objectForKey:kHouseIDKey]];
         [query whereKey:kNameKey equalTo:cell.nameLabel.text];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
@@ -118,14 +100,7 @@ static NSString *kNecessityCellIdentifier = @"NecessityTableViewCell";
             }
         }];
     }];
-    NSArray *ips = @[indexPath];
-    [self.list removeObjectAtIndex:indexPath.row];
-    
-    if(![self.list count]) {
-        [self setToStateNoResults];
-    }
-    [self.tableView deleteRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationAutomatic];
-   
+    [self removeFromTableIndexPath:indexPath];
 }
 
 @end
