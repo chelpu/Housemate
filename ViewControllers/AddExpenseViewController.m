@@ -60,7 +60,6 @@
             [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                 if(!error) {
                     PFObject *obj = objects[0];
-                    expense[kHouseIDKey] = [self.defaults objectForKey:kHouseIDKey];
                     expense[kChargerKey] = obj;
                     [expense saveInBackground];
                     [self resetFields];

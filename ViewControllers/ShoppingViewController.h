@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CommonTableViewController.h"
 
-@interface ShoppingViewController : CommonTableViewController
+@interface ShoppingViewController : CommonTableViewController <UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navigationBar;
